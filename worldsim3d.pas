@@ -919,6 +919,46 @@ procedure wCollisionGetResultPosition(selector: wSelector;
            outPosition, outHitPosition: PwVector3f;
            outFalling: PInt32); cdecl; external WS3DCoreLib ;
 
+///wFile///
+
+function wFileAddZipArchive(cptrFile: PChar; boIgnoreCase, boIgnorePaths: Boolean): Boolean; cdecl; external WS3DCoreLib ;
+
+function wFileAddArchive(cptrFile: PChar; boIgnoreCase, boIgnorePaths: Boolean;
+          aType: wFileArchiveType = wFAT_UNKNOWN; password: PChar): Boolean; cdecl; external WS3DCoreLib ;
+
+function wFileAddPakArchive(cptrFile: PChar; boIgnoreCase, boIgnorePaths: Boolean): Boolean; cdecl; external WS3DCoreLib ;
+
+function wFileAddDirectory(cptrFile: PChar; boIgnoreCase, boIgnorePaths: Boolean):Boolean; cdecl; external WS3DCoreLib ;
+
+//Get the archive at a given index
+function wFileGetArchiveByIndex(index: UInt32): wFileArchive; cdecl; external WS3DCoreLib ;
+
+function wFileGetArchiveFileList(fArchive: wFileArchive): wFileList; cdecl; external WS3DCoreLib ;
+
+function wFileGetArchiveType(fArchive: wFileArchive): wFileArchiveType; cdecl; external WS3DCoreLib ;
+
+//Get the number of archives currently attached to the file system
+function wFileGetArchivesCount(): UInt32; cdecl; external WS3DCoreLib ;
+
+//Changes the search order of attached archives
+procedure wFileMoveArchive(sourceIndex: UInt32; relative: Int32); cdecl; external WS3DCoreLib ;
+
+//Removes an archive from the file system
+procedure wFileRemoveArchiveByName(fileName: const PChar); cdecl; external WS3DCoreLib ;
+
+procedure wFileRemoveArchiveByIndex(index: UInt32); cdecl; external WS3DCoreLib ;
+
+procedure wFileRemoveArchive(fArchive: wFileArchive); cdecl; external WS3DCoreLib ;
+
+//Opens a file based on its name   (from archive).
+function wFileOpenForReadFromArchive(fArchive: wFileArchive; cptrFile: const PChar): wFile; cdecl; external WS3DCoreLib ;
+//Opens a file based on its position in the file list.
+function wFileOpenForReadByIndexFromArchive(fArchive: wFileArchive; fileIdx: UInt32): wFile;; cdecl; external WS3DCoreLib;
+
+
+
+
+
 
 
 end.
