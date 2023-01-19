@@ -839,11 +839,34 @@ procedure wCameraSetInputEnabled(camera: wNode; value: Boolean); cdecl; external
 
 function wCameraIsInputEnabled(camera: wNode): Boolean; cdecl; external WS3DCoreLib ;
 
-procedure wCameraSetCollisionWithScene(camera: wNode; radius, gravity, offset: wVector3f;
+procedure wCameraSetCollisionWithScene(camera: wNode;
+           radius, gravity, offset: wVector3f;
            slidingValue:Float32= 0.0005); cdecl; external WS3DCoreLib ;
 
 
+///wRtsCamera///
+function wRtsCameraCreate(pos: wVector3f; offsetX,
+                                          offsetZ,
+                                          offsetDistance,
+                                          offsetAngle: wVector2f;
+                                          driftSpeed,
+                                          scrollSpeed,
+                                          mouseSpeedRelative: Float32 = 5.0;
+                                          orbit: Float32;
+                                          mouseButtonActive: wMouseButtons):wNode; cdecl; external WS3DCoreLib ;
 
+
+{declare function wRtsCameraCreate(byval pos as wVector3f,_
+								byval offsetX as wVector2f,_
+								byval offsetZ as wVector2f,_
+								byval offsetDistance as wVector2f=(20.f,40.f),_
+								byval offsetAngle as wVector2f=(60.f,88.f),_
+								byval driftSpeed as Float32=100.f,_
+								byval scrollSpeed as Float32=5.f,_
+								byval mouseSpeedRelative as Float32=5.f,_
+								byval orbit as Float32=0.f,_
+								byval mouseButtonActive as wMouseButtons=wMB_RIGHT) as wNode
+                                                                        }
 
 
 

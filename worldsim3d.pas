@@ -844,6 +844,18 @@ procedure wCameraSetCollisionWithScene(camera: wNode;
            slidingValue:Float32= 0.0005); cdecl; external WS3DCoreLib ;
 
 
+///wRtsCamera///
+function wRtsCameraCreate(pos: wVector3f; offsetX,
+                                          offsetZ,
+                                          offsetDistance,
+                                          offsetAngle: wVector2f;
+                                          driftSpeed: Float32 = 100.0;
+                                          scrollSpeed: Float32 = 5.0;
+                                          mouseSpeedRelative: Float32 = 5.0;
+                                          orbit: Float32 = 0.0;
+                                          mouseButtonActive: wMouseButtons = wMB_RIGHT): wNode; cdecl; external WS3DCoreLib ;
+
+
 
 
 
