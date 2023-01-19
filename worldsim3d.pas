@@ -856,8 +856,68 @@ function wRtsCameraCreate(pos: wVector3f; offsetX,
                                           mouseButtonActive: wMouseButtons = wMB_RIGHT): wNode; cdecl; external WS3DCoreLib ;
 
 
+///wCollision///
 
+function wCollisionGroupCreate(): wSelector; cdecl; external WS3DCoreLib ;
 
+procedure wCollisionGroupAddCollision(group, selector: wSelector); cdecl; external WS3DCoreLib ;
+
+procedure wCollisionGroupRemoveAll(group: wSelector); cdecl; external WS3DCoreLib ;
+
+procedure wCollisionGroupRemoveCollision(group, selector: wSelector); cdecl; external WS3DCoreLib ;
+
+function wCollisionCreateFromMesh(mesh: wMesh; node: wNode; iframe: Int32):wSelector; cdecl; external WS3DCoreLib ;
+
+function wCollisionCreateFromStaticMesh(staticMesh: wMesh; node: wNode): wSelector; cdecl; external WS3DCoreLib ;
+
+function wCollisionCreateFromBatchingMesh(mesh: wMesh; node: wNode): wSelector; cdecl; external WS3DCoreLib ;
+
+function wCollisionCreateFromMeshBuffer(meshbuffer: wMeshBuffer; node: wNode): wSelector; cdecl; external WS3DCoreLib ;
+
+function wCollisionCreateFromOctreeMesh(mesh: wMesh; node: wNode; iframe: Int32 = 0): wSelector; cdecl; external WS3DCoreLib ;
+
+function wCollisionCreateFromBox(node: wNode): wSelector; cdecl; external WS3DCoreLib ;
+
+function wCollisionCreateFromTerrain(node: wNode; level_of_detail: Int32): wSelector; cdecl; external WS3DCoreLib ;
+
+function wCollisionGetNodeFromCamera(camera: wNode): wNode; cdecl; external WS3DCoreLib ;
+
+function wCollisionGetNodeFromRay(vectorStart, vectorEnd: PwVector3f): wNode; cdecl; external WS3DCoreLib ;
+
+function wCollisionGetNodeChildFromRay(node: wNode; id: Int32; recurse: Boolean;
+                                          vectorStart, vectorEnd: PwVector3f): wNode; cdecl; external WS3DCoreLib ;
+
+function wCollisionGetNodeChildFromPoint(node: wNode;
+                                           id: Int32;
+					   recurse: Boolean;
+					   vectorPoint: PwVector3f): wNode; cdecl; external WS3DCoreLib ;
+
+function wCollisionGetNodeAndPointFromRay(vectorStart, vectorEnd, colPoint, normal: PwVector3f; id: Int32;
+                                          rootNode: wNode): wNode; cdecl; external WS3DCoreLib ;
+
+function wCollisionGetNodeFromScreen(screenPos: wVector2i; idBitMask: Int32 = 0;
+                                     bNoDebugObjects: Boolean = false;
+                                     root: wNode = nil): wNode; cdecl; external WS3DCoreLib ;
+
+function wCollisionGetScreenCoordFrom3dPosition(pos: wVector3f): wVector2i; cdecl; external WS3DCoreLib ;
+
+procedure wCollisionGetRayFromScreenCoord(camera: wNode; screenCoord: wVector2i;
+                                     vectorStart, vectorEnd:PwVector3f); cdecl; external WS3DCoreLib;
+
+function wCollisionGet3dPositionFromScreen(camera: wNode; screenPos: wVector2i;
+           normal: wVector3f; distanceFromOrigin: Float32): wVector3f; cdecl; external WS3DCoreLib ;
+
+function wCollisionGet2dPositionFromScreen(camera: wNode; screenPos: wVector2i): wVector2f; cdecl; external WS3DCoreLib ;
+
+function wCollisionGetPointFromRay(ts: wSelector; vectorStart, vectorEnd, collisionPoint,
+           vectorNormal: PwVector3f; collisionTriangle: PwTriangle;
+           collNode: PwNode): Boolean; cdecl; external WS3DCoreLib ;
+
+procedure wCollisionGetResultPosition(selector: wSelector;
+           ellipsoidPosition, ellipsoidRadius, velocity, gravity: PwVector3f;
+           slidingSpeed: Float32;
+           outPosition, outHitPosition: PwVector3f;
+           outFalling: PInt32); cdecl; external WS3DCoreLib ;
 
 
 
