@@ -944,18 +944,40 @@ function wFileGetArchivesCount(): UInt32; cdecl; external WS3DCoreLib ;
 procedure wFileMoveArchive(sourceIndex: UInt32; relative: Int32); cdecl; external WS3DCoreLib ;
 
 //Removes an archive from the file system
-procedure wFileRemoveArchiveByName(fileName: const PChar); cdecl; external WS3DCoreLib ;
+procedure wFileRemoveArchiveByName(const fileName: PChar); cdecl; external WS3DCoreLib ;
 
 procedure wFileRemoveArchiveByIndex(index: UInt32); cdecl; external WS3DCoreLib ;
 
 procedure wFileRemoveArchive(fArchive: wFileArchive); cdecl; external WS3DCoreLib ;
 
 //Opens a file based on its name   (from archive).
-function wFileOpenForReadFromArchive(fArchive: wFileArchive; cptrFile: const PChar): wFile; cdecl; external WS3DCoreLib ;
+function wFileOpenForReadFromArchive(fArchive: wFileArchive; const cptrFile: PChar): wFile; cdecl; external WS3DCoreLib ;
 //Opens a file based on its position in the file list.
-function wFileOpenForReadByIndexFromArchive(fArchive: wFileArchive; fileIdx: UInt32): wFile;; cdecl; external WS3DCoreLib;
+function wFileOpenForReadByIndexFromArchive(fArchive: wFileArchive; fileIdx: UInt32): wFile; cdecl; external WS3DCoreLib;
 
+///
+procedure wFileSetWorkingDirectory(const cptrPath: PChar); cdecl; external WS3DCoreLib;
 
+function wFileGetWorkingDirectory(): PChar; cdecl; external WS3DCoreLib;
+
+function wFileIsExist(cptrFile: PChar): Boolean; cdecl; external WS3DCoreLib ;
+
+function wFileGetAbsolutePath(cptrPath: PChar): PChar; cdecl; external WS3DCoreLib ;
+
+//flatten a path and file name for example: "/you/me/../." becomes "/you"
+function wFileGetFlattenPath(const directory, rootPath: PChar): PChar; cdecl; external WS3DCoreLib;
+
+function wFileGetRelativePath(const cptrPath, directory: Pchar): PChar; cdecl; external WS3DCoreLib ;
+
+function wFileGetBaseName(const cptrPath: PChar; keepExtension: Boolean): PChar; cdecl; external WS3DCoreLib ;
+
+function wFileGetDirectory(const cptrPath: PChar): PChar; cdecl; external WS3DCoreLib ;
+
+function wFileOpenForRead(const cptrFile: Pchar): wFile; cdecl; external WS3DCoreLib ;
+
+function wFileRead(_file: wFile; buffer:Pointer; sizeToRead: UInt32): Int32; cdecl; external WS3DCoreLib ;
+
+function wFileGetSize(_file:wFile): Int64; cdecl; external WS3DCoreLib ;
 
 
 
