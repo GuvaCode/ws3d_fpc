@@ -768,6 +768,37 @@ procedure wTpsCameraSetMaximalDistance(ctrl: wNode; value: Float32); cdecl; exte
 
 procedure wTpsCameraSetMinimalDistance(ctrl: wNode; value: Float32); cdecl; external WS3DCoreLib ;
 
+procedure wTpsCameraSetZoomStepSize(ctrl: wNode; value: Float32); cdecl; external WS3DCoreLib ;
+
+procedure wTpsCameraSetHorizontalSpeed(ctrl: wNode; value: Float32); cdecl; external WS3DCoreLib ;
+
+procedure wTpsCameraSetVerticalSpeed(ctrl: wNode; value: Float32); cdecl; external WS3DCoreLib ;
+
+
+///wFpsCamera///
+
+function wFpsCameraCreate(rotateSpeed: Float32 = 100.0;
+           moveSpeed: Float32 = 0.1;
+           keyMapArray: PwKeyMapArray = nil;
+           keyMapSize: Int32 = 0;
+           noVerticalMovement: Boolean = false;
+           jumpSpeed: Float32 = 0): wNode; cdecl; external WS3DCoreLib;
+
+function wFpsCameraGetSpeed(camera: wNode): Float32; cdecl; external WS3DCoreLib;
+
+procedure wFpsCameraSetSpeed(camera: wNode; newSpeed: Float32); cdecl; external WS3DCoreLib;
+
+function wFpsCameraGetRotationSpeed(camera: wNode): Float32; cdecl; external WS3DCoreLib ;
+
+procedure wFpsCameraSetRotationSpeed(camera: wNode; rotSpeed: Float32); cdecl; external WS3DCoreLib;
+
+procedure wFpsCameraSetMaxVerticalAngle(camera: wNode; newValue: Float32); cdecl; external WS3DCoreLib;
+
+function wFpsCameraGetMaxVerticalAngle(camera: wNode): Float32; cdecl; external WS3DCoreLib ;
+
+procedure wFpsCameraSetKeyMap(camera: wNode; map: PwKeyMap; count: UInt32); cdecl; external WS3DCoreLib ;
+
+procedure wFpsCameraSetVerticalMovement(camera: wNode; value: Boolean); cdecl; external WS3DCoreLib ;
 
 
 
