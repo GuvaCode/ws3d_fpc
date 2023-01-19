@@ -748,7 +748,31 @@ procedure wTpsCameraRotateHorizontal(ctrl: wNode; rotVal: Float32); cdecl; exter
 
 procedure wTpsCameraRotateVertical(ctrl: wNode; rotVal: Float32); cdecl; external WS3DCoreLib ;
 
-procedure wTpsCameraSetHorizontalRotation(ctrl: wNode; rotVal: Float32); cdecl; external WS3DCoreLib ;
+procedure wTpsCameraSetHorizontalRotation(ctrl: wNode; rotVal: Float32); cdecl; external WS3DCoreLib;
+
+procedure wTpsCameraSetVerticalRotation(ctrl: wNode; rotVal: Float32); cdecl; external WS3DCoreLib;
+
+procedure wTpsCameraZoomIn(ctrl: wNode); cdecl; external WS3DCoreLib;
+
+procedure wTpsCameraZoomOut(ctrl: wNode); cdecl; external WS3DCoreLib;
+
+function wTpsCameraGetCamera(ctrl: wNode): wNode; cdecl; external WS3DCoreLib ;
+
+procedure wTpsCameraSetCurrentDistance(ctrl:wNode; dist:Float32); cdecl; external WS3DCoreLib ;
+
+procedure wTpsCameraSetRelativeTarget(ctrl: wNode; target: wVector3f); cdecl; external WS3DCoreLib ;
+
+procedure wTpsCameraSetDefaultDistanceDirection(ctrl: wNode; dir: wVector3f); cdecl; external WS3DCoreLib ;
+
+procedure wTpsCameraSetMaximalDistance(ctrl: wNode; value: Float32); cdecl; external WS3DCoreLib ;
+
+procedure wTpsCameraSetMinimalDistance(ctrl: wNode; value: Float32); cdecl; external WS3DCoreLib ;
+
+procedure wTpsCameraSetZoomStepSize(ctrl: wNode; value: Float32); cdecl; external WS3DCoreLib ;
+
+procedure wTpsCameraSetHorizontalSpeed(ctrl: wNode; value: Float32); cdecl; external WS3DCoreLib ;
+
+procedure wTpsCameraSetVerticalSpeed(ctrl: wNode; value: Float32); cdecl; external WS3DCoreLib ;
 
 
 
