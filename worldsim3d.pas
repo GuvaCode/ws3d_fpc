@@ -806,6 +806,46 @@ procedure wFpsCameraSetInvertMouse(camera: wNode; value: Boolean); cdecl; extern
 
 function wMayaCameraCreate(rotateSpeed, zoomSpeed, moveSpeed: Float32): wNode; cdecl; external WS3DCoreLib ;
 
+///wCamera///
+function wCameraCreate(pos, target: wVector3f): wNode; cdecl; external WS3DCoreLib ;
+
+procedure wCameraSetTarget(camera: wNode; target: wVector3f); cdecl; external WS3DCoreLib ;
+
+function wCameraGetTarget(camera: wNode): wVector3f;  cdecl; external WS3DCoreLib ;
+
+function wCameraGetUpDirection(camera: wNode): wVector3f;  cdecl; external WS3DCoreLib ;
+
+procedure wCameraSetUpDirection(camera: wNode; upDir: wVector3f); cdecl; external WS3DCoreLib ;
+
+procedure wCameraGetOrientation(camera: wNode; upDir, forwardDir, rightDir: PwVector3f); cdecl; external WS3DCoreLib ;
+
+procedure wCameraSetClipDistance(camera: wNode; farDistance, nearDistance: Float32); cdecl; external WS3DCoreLib ;
+
+procedure wCameraSetActive(camera: wNode); cdecl; external WS3DCoreLib ;
+
+procedure wCameraSetFov(camera: wNode; fov: Float32); cdecl; external WS3DCoreLib ;
+
+function wCameraGetFov(camera: wNode): Float32; cdecl; external WS3DCoreLib ;
+
+procedure wCameraSetOrthogonal(camera: wNode; vec: wVector3f); cdecl; external WS3DCoreLib ;
+
+procedure wCameraRevolve(camera: wNode; angleDeg, offset: wVector3f); cdecl; external WS3DCoreLib ;
+
+procedure wCameraSetUpAtRightAngle(camera: wNode); cdecl; external WS3DCoreLib ;
+
+procedure wCameraSetAspectRatio(camera: wNode; aspectRatio: Float32); cdecl; external WS3DCoreLib ;
+
+procedure wCameraSetInputEnabled(camera: wNode; value: Boolean); cdecl; external WS3DCoreLib ;
+
+function wCameraIsInputEnabled(camera: wNode): Boolean; cdecl; external WS3DCoreLib ;
+
+procedure wCameraSetCollisionWithScene(camera: wNode;
+           radius, gravity, offset: wVector3f;
+           slidingValue:Float32= 0.0005); cdecl; external WS3DCoreLib ;
+
+
+
+
 
 
 
