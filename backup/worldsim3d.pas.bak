@@ -713,7 +713,7 @@ procedure wAnimatorRotationSetParameters(anim: wAnimator; params: wAnimatorRotat
 procedure wAnimatorRotationGetParameters(anim: wAnimator; params: PwAnimatorRotation); cdecl; external WS3DCoreLib;
 
 function wAnimatorSplineCreate(node: wNode; iPoints: Int32; points: PwVector3f;
-         time: Int32; speed, tightness; Float32): wAnimator; cdecl; external WS3DCoreLib;
+         time: Int32; speed, tightness: Float32): wAnimator; cdecl; external WS3DCoreLib;
 
 procedure wAnimatorSplineSetParameters(anim: wAnimator; params: wAnimatorSpline); cdecl; external WS3DCoreLib;
 
@@ -895,9 +895,9 @@ function wCollisionGetNodeChildFromPoint(node: wNode;
 function wCollisionGetNodeAndPointFromRay(vectorStart, vectorEnd, colPoint, normal: PwVector3f; id: Int32;
                                           rootNode: wNode): wNode; cdecl; external WS3DCoreLib ;
 
-function wCollisionGetNodeFromScreen(screenPos: wVector2i; idBitMask: Int32 = 0;
-                                     bNoDebugObjects: Boolean = false;
-                                     root: wNode = nil): wNode; cdecl; external WS3DCoreLib ;
+function wCollisionGetNodeFromScreen(screenPos: wVector2i; idBitMask: Int32;
+                                     bNoDebugObjects: Boolean;
+                                     root_: wNode): wNode; cdecl; external WS3DCoreLib ;
 
 function wCollisionGetScreenCoordFrom3dPosition(pos: wVector3f): wVector2i; cdecl; external WS3DCoreLib ;
 
@@ -976,6 +976,18 @@ function wFileGetDirectory(const cptrPath: PChar): PChar; cdecl; external WS3DCo
 function wFileOpenForRead(const cptrFile: Pchar): wFile; cdecl; external WS3DCoreLib ;
 
 function wFileRead(_file: wFile; buffer:Pointer; sizeToRead: UInt32): Int32; cdecl; external WS3DCoreLib ;
+
+function wFileGetSize(_file:wFile): Int64; cdecl; external WS3DCoreLib ;
+
+function wFileCreateForWrite(const cptrFile: PChar; append: Boolean): wFile; cdecl; external WS3DCoreLib ;
+
+function wFileWrite(_file: wFile; buffer: Pointer; sizeToWrite: UInt32): Int32; cdecl; external WS3DCoreLib ;
+
+function wFileGetName(_file: wFile): PChar; cdecl; external WS3DCoreLib ;
+
+function wFileGetPos(_file: wFile): Int64; cdecl; external WS3DCoreLib;
+
+function wFileSeek(_file: wFile; finalPos: Int64; relativeMovement: Boolean): Boolean; cdecl; external WS3DCoreLib;
 
 
 
