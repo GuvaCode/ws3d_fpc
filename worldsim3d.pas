@@ -802,7 +802,9 @@ procedure wFpsCameraSetVerticalMovement(camera: wNode; value: Boolean); cdecl; e
 
 procedure wFpsCameraSetInvertMouse(camera: wNode; value: Boolean); cdecl; external WS3DCoreLib ;
 
+///wMayaCamera///
 
+function wMayaCameraCreate(rotateSpeed, zoomSpeed, moveSpeed: Float32): wNode; cdecl; external WS3DCoreLib ;
 
 
 

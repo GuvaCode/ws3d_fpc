@@ -800,6 +800,7 @@ procedure wFpsCameraSetKeyMap(camera: wNode; map: PwKeyMap; count: UInt32); cdec
 
 procedure wFpsCameraSetVerticalMovement(camera: wNode; value: Boolean); cdecl; external WS3DCoreLib ;
 
+procedure wFpsCameraSetInvertMouse(camera: wNode; value: Boolean); cdecl; external WS3DCoreLib ;
 
 
 
