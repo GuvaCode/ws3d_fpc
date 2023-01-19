@@ -748,8 +748,6 @@ procedure wTpsCameraRotateHorizontal(ctrl: wNode; rotVal: Float32); cdecl; exter
 
 procedure wTpsCameraRotateVertical(ctrl: wNode; rotVal: Float32); cdecl; external WS3DCoreLib ;
 
-procedure wTpsCameraSetHorizontalRotation(ctrl: wNode; rotVal: Float32); cdecl; external WS3DCoreLib ;
-
 
 
 
