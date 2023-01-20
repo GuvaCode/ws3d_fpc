@@ -3551,6 +3551,76 @@ procedure wXmlWriteElement(xml: wXmlWriter; const name: Pwstring;empty: Boolean;
 
 procedure wXmlWriterDestroy(xml: wXmlWriter); cdecl; external WS3DCoreLib ;
 
+//wInput
+//Logger
+function wInputIsLoggingEventAvailable(): Boolean; cdecl; external WS3DCoreLib ;
+
+function wInputReadLoggingEvent(): PwLoggingEvent; cdecl; external WS3DCoreLib ;
+
+//User
+function wInputIsUserEventAvailable(): Boolean; cdecl; external WS3DCoreLib ;
+
+function wInputReadUserEvent(): PwUserEvent; cdecl; external WS3DCoreLib ;
+
+//Keyboard
+function wInputWaitKey(): Boolean; cdecl; external WS3DCoreLib ;
+
+function wInputIsKeyEventAvailable(): Boolean; cdecl; external WS3DCoreLib ;
+
+function wInputReadKeyEvent(): PwKeyEvent; cdecl; external WS3DCoreLib ;
+
+function wInputIsKeyUp(num: wKeyCode): Boolean; cdecl; external WS3DCoreLib ;
+
+function wInputIsKeyHit(num: wKeyCode): Boolean; cdecl; external WS3DCoreLib ;
+
+function wInputIsKeyPressed(num: wKeyCode): Boolean; cdecl; external WS3DCoreLib ;
+
+function wInputIsMouseEventAvailable(): Boolean; cdecl; external WS3DCoreLib ;
+
+function wInputReadMouseEvent(): PwMouseEvent; cdecl; external WS3DCoreLib ;
+
+procedure wInputSetCursorVisible(boShow: Boolean); cdecl; external WS3DCoreLib ;
+
+function wInputIsCursorVisible(): Boolean; cdecl; external WS3DCoreLib ;
+
+//Mouse
+procedure wInputSetMousePosition(position: PwVector2i); cdecl; external WS3DCoreLib ;
+
+procedure wInputGetMousePosition(position: PwVector2i); cdecl; external WS3DCoreLib ;
+
+procedure wInputSetMouseLogicalPosition(position: PwVector2f); cdecl; external WS3DCoreLib ;
+
+procedure wInputGetMouseLogicalPosition(position: PwVector2f); cdecl; external WS3DCoreLib ;
+
+function wInputGetMouseWheel(): Float32; cdecl; external WS3DCoreLib ;
+
+procedure wInputGetMouseDelta(deltaPos: PwVector2i); cdecl; external WS3DCoreLib ;
+
+function wInputIsMouseUp(num: wMouseButtons): Boolean; cdecl; external WS3DCoreLib ;
+
+function wInputIsMouseHit(num: wMouseButtons): Boolean; cdecl; external WS3DCoreLib ;
+
+function wInputIsMousePressed(num: wMouseButtons): Boolean; cdecl; external WS3DCoreLib ;
+
+function wInputGetMouseX(): Int32; cdecl; external WS3DCoreLib ;
+
+function wInputGetMouseY(): Int32; cdecl; external WS3DCoreLib ;
+
+function wInputGetMouseDeltaX(): Int32; cdecl; external WS3DCoreLib ;
+
+function wInputGetMouseDeltaY(): Int32; cdecl; external WS3DCoreLib ;
+
+//Joystick
+function wInputActivateJoystick: Boolean; cdecl; external WS3DCoreLib ;
+
+function wInputGetJoysitcksCount(): UInt32; cdecl; external WS3DCoreLib ;
+
+procedure wInputGetJoystickInfo(joyIndex: UInt32; joyInfo: PwJoystickInfo); cdecl; external WS3DCoreLib ;
+
+function wInputIsJoystickEventAvailable(): Boolean; cdecl; external WS3DCoreLib ;
+
+function wInputReadJoystickEvent(): PwJoystickEvent; cdecl; external WS3DCoreLib ;
+
 
 
 
