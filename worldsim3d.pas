@@ -3425,6 +3425,110 @@ function wFileGetPos(_file: wFile): Int64; cdecl; external WS3DCoreLib;
 
 function wFileSeek(_file: wFile; finalPos: Int64; relativeMovement: Boolean): Boolean; cdecl; external WS3DCoreLib;
 
+procedure wFileClose(_file: wFile); cdecl; external WS3DCoreLib;
+
+//wFileList//
+
+function wFileListCreateEmpty(const fPath: PChar; ignoreCase, ignorePaths: Boolean): wFileList; cdecl; external WS3DCoreLib;
+
+//Creates a list of files and directories in the current working directory and returns it
+function wFileListCreate(): wFileList; cdecl; external WS3DCoreLib;
+
+procedure wFileListRemove(flist: wFileList); cdecl; external WS3DCoreLib;
+
+//Returns the base path of the file list.
+function wFileListGetPath(flist: wFileList): PChar; cdecl; external WS3DCoreLib;
+
+//Sorts the file list. You should call this after adding any items to the file list.
+procedure wFileListSort(flist: wFileList); cdecl; external WS3DCoreLib;
+
+//Add as a file or folder to the list.
+function wFileListAddItem(flist: wFileList; const fullPath: PChar; offset,
+          size: UInt32; isDirectory: Boolean; id: UInt32): Int32; cdecl; external WS3DCoreLib;
+
+//Searches for a file or folder in the list.
+function wFileListFindFile(flist: wFileList; const fileName: PChar;
+          isFolder: Boolean = false): Int32; cdecl; external WS3DCoreLib;
+
+//Get the number of files in the filelist.
+function wFileListGetFilesCount(flist: wFileList): UInt32; cdecl; external WS3DCoreLib;
+
+//Gets the name of a file in the list, based on an index.
+function wFileListGetFileBaseName(flist: wFileList; idx: UInt32): PChar; cdecl; external WS3DCoreLib;
+
+//Gets the full name of a file in the list including the path, based on an index.
+function wFileListGetFileName(flist: wFileList; idx: UInt32): PChar; cdecl; external WS3DCoreLib;
+
+//Returns the file offset of a file in the file list, based on an index
+function wFileListGetFileOffset(flist: wFileList; idx: UInt32): UInt32; cdecl; external WS3DCoreLib;
+
+//Returns the size of a file in the file list, based on an index.
+function wFileListGetFileSize(flist: wFileList; idx: UInt32): UInt32; cdecl; external WS3DCoreLib;
+
+//Returns the ID of a file in the file list, based on an index.
+function wFileListGetFileId(flist: wFileList; idx: UInt32): UInt32; cdecl; external WS3DCoreLib;
+
+//Check if the file is a directory.
+function wFileListIsItemDirectory(flist: wFileList; idx: UInt32): Boolean; cdecl; external WS3DCoreLib;
+
+//wXml
+function wXmlReaderCreate(const cptrFile: PChar): wXmlReader; cdecl; external WS3DCoreLib ;
+
+function wXMLReaderCreateUTF8(const cptrFile: PChar): wXmlReader; cdecl; external WS3DCoreLib ;
+
+{Returns attribute count of the current XML node }
+function wXmlGetAttributesCount(xml: wXmlReader): UInt32; cdecl; external WS3DCoreLib ;
+
+{Returns the value of an attribute }
+function wXmlGetAttributeNameByIdx(xml: wXmlReader; idx: Int32): PWString; cdecl; external WS3DCoreLib ;
+
+{Returns the value of an attribute }
+function wXmlGetAttributeValueByIdx(xml: wXmlReader; idx: Int32): PWString; cdecl; external WS3DCoreLib ;
+
+{Returns the value of an attribute }
+function wXmlGetAttributeValueByName(xml: wXmlReader; const name: PWString): PWString; cdecl; external WS3DCoreLib ;
+
+{Returns the value of an attribute as float }
+function wXmlGetAttributeValueFloatByIdx(xml: wXmlReader; idx: Int32): Float32; cdecl; external WS3DCoreLib ;
+
+{Returns the value of an attribute as float }
+function wXmlGetAttributeValueFloatByName(xml: wXmlReader; name: PWString): Float32; cdecl; external WS3DCoreLib ;
+
+{Returns the value of an attribute as integer }
+function wXmlGetAttributeValueIntByIdx(xml: wXmlReader; idx: Int32): Int32; cdecl; external WS3DCoreLib ;
+
+{Returns the value of an attribute as integer }
+function wXmlGetAttributeValueIntByName(xml: wXmlReader; name: PWString): Int32; cdecl; external WS3DCoreLib ;
+
+{Returns the value of an attribute in a safe way }
+function wXmlGetAttributeValueSafeByName(xml: wXmlReader; name: PWString): PWString; cdecl; external WS3DCoreLib ;
+
+{Returns the name of the current node }
+function wXmlGetNodeName(xml: wXmlReader): PWString; cdecl; external WS3DCoreLib ;
+
+{Returns data of the current node }
+function wXmlGetNodeData(xml: wXmlReader): PWString; cdecl; external WS3DCoreLib ;
+
+{Returns format of the source xml file }
+function wXmlGetSourceFormat(xml: wXmlReader): wTextFormat; cdecl; external WS3DCoreLib ;
+
+{Returns format of the strings returned by the parser }
+function wXmlGetParserFormat(xml: wXmlReader): wTextFormat; cdecl; external WS3DCoreLib ;
+
+{Returns the type of the current XML node }
+function wXmlGetNodeType(xml: wXmlReader): wXmlNodeType; cdecl; external WS3DCoreLib ;
+
+{Returns if an element is an empty element, like <foo /> }
+function wXmlIsEmptyElement(xml: wXmlReader): Boolean; cdecl; external WS3DCoreLib ;
+
+{Reads forward to the next xml node }
+function wXmlRead(xml: wXmlReader): Boolean; cdecl; external WS3DCoreLib ;
+
+procedure wXmlReaderDestroy(xml: wXmlReader); cdecl; external WS3DCoreLib ;
+
+
+
+
 
 implementation
 
