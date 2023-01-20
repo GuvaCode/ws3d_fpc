@@ -3526,6 +3526,31 @@ function wXmlRead(xml: wXmlReader): Boolean; cdecl; external WS3DCoreLib ;
 
 procedure wXmlReaderDestroy(xml: wXmlReader); cdecl; external WS3DCoreLib ;
 
+//XmlWriter
+function wXmlWriterCreate(const cptrFile: Pchar): wXmlWriter; cdecl; external WS3DCoreLib ;
+
+{Writes the closing tag for an element. Like "</foo>" }
+procedure wXmlWriteClosingTag(xml: wXmlWriter; const name: PWString); cdecl; external WS3DCoreLib ;
+
+{Writes a comment into the xml file }
+procedure wXmlWriteComment(xml: wXmlWriter; const comment: PWString); cdecl; external WS3DCoreLib ;
+
+{Writes a line break }
+procedure wXmlWriteLineBreak(xml: wXmlWriter); cdecl; external WS3DCoreLib ;
+
+{Writes a text into the file }
+procedure wXmlWriteText(xml: wXmlWriter; const _file: PWString); cdecl; external WS3DCoreLib ;
+
+{Writes an xml 1.0 header }
+procedure wXmlWriteHeader(xml: wXmlWriter); cdecl; external WS3DCoreLib ;
+
+procedure wXmlWriteElement(xml: wXmlWriter; const name: Pwstring;empty: Boolean;
+          attr1Name, attr1Value, attr2Name, attr2Value,
+          attr3Name, attr3Value, attr4Name, attr4Value,
+          attr5Name, attr5Value: PWString); cdecl; external WS3DCoreLib ;
+
+procedure wXmlWriterDestroy(xml: wXmlWriter); cdecl; external WS3DCoreLib ;
+
 
 
 
