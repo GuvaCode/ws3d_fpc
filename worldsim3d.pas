@@ -3858,6 +3858,20 @@ function wTreeGetBillboardVertexColor(tree: wNode): wColor4s; cdecl; external WS
 //idx 1 or 0
 function wTreeGetMeshBuffer(tree: wNode; idx: UInt32): wMeshBuffer; cdecl; external WS3DCoreLib ;
 
+//wWindGenerator
+function wWindGeneratorCreate(): wNode; cdecl; external WS3DCoreLib ;
+
+procedure wWindGeneratorDestroy(windGenerator: wNode); cdecl; external WS3DCoreLib ;
+
+procedure wWindGeneratorSetStrength(windGenerator: wNode; strength: Float32); cdecl; external WS3DCoreLib ;
+
+function wWindGeneratorGetStrength(windGenerator: wNode): Float32; cdecl; external WS3DCoreLib ;
+
+procedure wWindGeneratorSetRegularity(windGenerator: wNode; regularity: Float32); cdecl; external WS3DCoreLib;
+
+function wWindGeneratorGetRegularity(windGenerator: wNode): Float32; cdecl; external WS3DCoreLib ;
+
+function wWindGeneratorGetWind(windGenerator: wNode;position: wVector3f; timeMs: UInt32): wVector2f; cdecl; external WS3DCoreLib ;
 
 
 
