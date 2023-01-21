@@ -3873,6 +3873,183 @@ function wWindGeneratorGetRegularity(windGenerator: wNode): Float32; cdecl; exte
 
 function wWindGeneratorGetWind(windGenerator: wNode;position: wVector3f; timeMs: UInt32): wVector2f; cdecl; external WS3DCoreLib ;
 
+//wBolt
+function wBoltCreate(): wNode; cdecl; external WS3DCoreLib ;
+
+procedure wBoltSetProperties(bolt: wNode; start, _end: wVector3f;
+          updateTime, height: UInt32; thickness: Float32; parts,
+          bolts: UInt32; steddyend: Boolean; color: wColor4s); cdecl; external WS3DCoreLib ;
+//wBeam
+function wBeamCreate(): wNode; cdecl; external WS3DCoreLib ;
+
+procedure wBeamSetSize(beam: wNode; size: Float32); cdecl; external WS3DCoreLib ;
+
+procedure wBeamSetPosition(beam: wNode; start, _end: wVector3f);cdecl; external WS3DCoreLib ;
+
+//wParticleSystem
+function wParticleSystemCreate(defaultemitter: Boolean; position,
+          rotation, scale: wVector3f): wNode; cdecl; external WS3DCoreLib ;
+
+function wParticleSystemGetEmitter(ps: wNode): wEmitter; cdecl; external WS3DCoreLib ;
+
+procedure wParticleSystemSetEmitter(ps: wNode; em: wEmitter); cdecl; external WS3DCoreLib ;
+
+procedure wParticleSystemRemoveAllAffectors(ps: wNode); cdecl; external WS3DCoreLib ;
+
+function wParticleSystemGetAffectorByIndex(ps: wNode; idx: UInt32):wAffector; cdecl; external WS3DCoreLib ;
+
+procedure wParticleSystemSetGlobal(ps: wNode; value: Boolean); cdecl; external WS3DCoreLib ;
+
+function wParticleSystemIsGlobal(ps: wNode): Boolean; cdecl; external WS3DCoreLib ;
+
+procedure wParticleSystemSetParticleSize(ps: wNode; size: wVector2f); cdecl; external WS3DCoreLib ;
+
+function wParticleSystemGetParticleSize(ps: wNode): wVector2f; cdecl; external WS3DCoreLib ;
+
+procedure wParticleSystemClear(ps: wNode); cdecl; external WS3DCoreLib ;
+
+//wParticleEmitter (for all)
+procedure wParticleEmitterSetParameters(em: wEmitter; params: wParticleEmitter); cdecl; external WS3DCoreLib ;
+
+procedure wParticleEmitterGetParameters(em: wEmitter; params: PwParticleEmitter); cdecl; external WS3DCoreLib ;
+
+function wParticleEmitterGetType(em: wEmitter): wParticleEmitterType; cdecl; external WS3DCoreLib ;
+
+//wParticleBoxEmitter
+function wParticleBoxEmitterCreate(ps: wNode): wEmitter; cdecl; external WS3DCoreLib ;
+
+procedure wParticleBoxEmitterSetBox(em: wEmitter; boxMin, boxMax: wVector3f); cdecl; external WS3DCoreLib ;
+
+procedure wParticleBoxEmitterGetBox(em: wEmitter; boxMin, boxMax: PwVector3f); cdecl; external WS3DCoreLib ;
+
+//wParticleCylinderEmitter
+function wParticleCylinderEmitterCreate(ps: wNode; center: wVector3f;
+          radius: Float32; normal: wVector3f; lenght: Float32): wEmitter; cdecl; external WS3DCoreLib ;
+
+procedure wParticleCylinderEmitterSetParameters(em: wEmitter;
+          params: wParticleCylinderEmitter); cdecl; external WS3DCoreLib ;
+
+procedure wParticleCylinderEmitterGetParameters(em: wEmitter;
+          params: PwParticleCylinderEmitter); cdecl; external WS3DCoreLib ;
+
+//wParticleMeshEmitter
+function wParticleMeshEmitterCreate(ps: wNode; staticMesh: wMesh): wEmitter; cdecl; external WS3DCoreLib ;
+
+procedure wParticleMeshEmitterSetParameters(em: wEmitter;
+          params: wParticleMeshEmitter); cdecl; external WS3DCoreLib ;
+
+procedure wParticleMeshEmitterGetParameters(em: wEmitter;
+          params: PwParticleMeshEmitter); cdecl; external WS3DCoreLib ;
+
+//wParticleAnimatedMeshEmitter
+function wParticleAnimatedMeshEmitterCreate(ps: wNode;
+          animMeshNode: wNode): wEmitter; cdecl; external WS3DCoreLib ;
+
+procedure wParticleAnimatedMeshEmitterSetParameters(em: wEmitter;
+          params: wParticleMeshEmitter); cdecl; external WS3DCoreLib;
+
+procedure wParticleAnimatedMeshEmitterGetParameters(em: wEmitter;
+          params: wParticleMeshEmitter); cdecl; external WS3DCoreLib;
+
+//wParticlePointEmitter
+function wParticlePointEmitterCreate(ps: wNode): wEmitter; cdecl; external WS3DCoreLib ;
+
+//wParticleRingEmitter
+function wParticleRingEmitterCreate(ps: wNode; center: wVector3f; radius,
+          ringThickness: Float32): wEmitter; cdecl; external WS3DCoreLib;
+
+procedure wParticleRingEmitterSetParameters(em: wEmitter;
+          params: wParticleRingEmitter); cdecl; external WS3DCoreLib ;
+
+procedure wParticleRingEmitterGetParameters(em: wEmitter;
+          params: PwParticleRingEmitter); cdecl; external WS3DCoreLib ;
+
+//wParticleSphereEmitter
+function wParticleSphereEmitterCreate(ps: wNode; center: wVector3f;
+          radius: Float32): wEmitter; cdecl; external WS3DCoreLib;
+
+procedure wParticleSphereEmitterSetParameters(em: wEmitter;
+          params: wParticleSphereEmitter); cdecl; external WS3DCoreLib ;
+
+procedure wParticleSphereEmitterGetParameters(em: wEmitter;
+          params: PwParticleSphereEmitter); cdecl; external WS3DCoreLib ;
+
+//wParticleAffector (for all)
+procedure wParticleAffectorSetEnable(foa: wAffector;
+          enable: Boolean); cdecl; external WS3DCoreLib ;
+
+function wParticleAffectorIsEnable(foa: wAffector): Boolean; cdecl; external WS3DCoreLib ;
+
+function wParticleAffectorGetType(foa: wAffector): wParticleAffectorType; cdecl; external WS3DCoreLib;
+
+//wParticleFadeOutAffector
+function wParticleFadeOutAffectorCreate(ps: wNode): wAffector; cdecl; external WS3DCoreLib;
+
+procedure wParticleFadeOutAffectorSetTime(paf: wAffector;
+          fadeOutTime: UInt32); cdecl; external WS3DCoreLib;
+
+function wParticleFadeOutAffectorGetTime(paf: wAffector): UInt32; cdecl; external WS3DCoreLib ;
+
+procedure wParticleFadeOutAffectorSetColor(paf: wAffector;
+          targetColor: wColor4s); cdecl; external WS3DCoreLib;
+
+function wParticleFadeOutAffectorGetColor(paf: wAffector): wColor4s; cdecl; external WS3DCoreLib;
+
+//wParticleGravityAffector
+function wParticleGravityAffectorCreate(ps: wNode): wAffector; cdecl; external WS3DCoreLib;
+
+procedure wParticleGravityAffectorSetGravity(paf: wAffector;
+          gravity: wVector3f); cdecl; external WS3DCoreLib;
+
+function wParticleGravityAffectorGetGravity(paf: wAffector): wVector3f; cdecl; external WS3DCoreLib ;
+
+procedure wParticleGravityAffectorSetTimeLost(paf: wAffector;
+          timeForceLost: UInt32); cdecl; external WS3DCoreLib;
+
+function wParticleGravityAffectorGetTimeLost(paf: wAffector): UInt32; cdecl; external WS3DCoreLib ;
+
+//wParticleAttractionAffector
+function wParticleAttractionAffectorCreate(ps: wNode; point: wVector3f;
+          speed: Float32): wAffector; cdecl; external WS3DCoreLib;
+
+procedure wParticleAttractionAffectorSetParameters(paf: wAffector;
+          params: wParticleAttractionAffector); cdecl; external WS3DCoreLib;
+
+procedure wParticleAttractionAffectorGetParameters(paf: wAffector;
+          params: PwParticleAttractionAffector); cdecl; external WS3DCoreLib;
+
+//wParticleRotationAffector
+function wParticleRotationAffectorCreate(ps: wNode): wAffector; cdecl; external WS3DCoreLib;
+
+procedure wParticleRotationAffectorSetSpeed(paf: wAffector;
+          speed: wVector3f); cdecl; external WS3DCoreLib;
+
+function wParticleRotationAffectorGetSpeed(paf: wAffector): wVector3f; cdecl; external WS3DCoreLib ;
+
+procedure wParticleRotationAffectorSetPivot(paf: wAffector;
+          pivotPoint: wVector3f); cdecl; external WS3DCoreLib;
+
+function wParticleRotationAffectorGetPivot(paf: wAffector): wVector3f; cdecl; external WS3DCoreLib ;
+
+//wParticleStopAffector
+function wParticleStopAffectorCreate(ps: wNode; em: wEmitter;
+          time: UInt32): wAffector; cdecl; external WS3DCoreLib;
+
+procedure wParticleStopAffectorSetTime(paf: wAffector;
+          time: UInt32); cdecl; external WS3DCoreLib;
+
+function wParticleStopAffectorGetTime(paf: wAffector): UInt32; cdecl; external WS3DCoreLib ;
+
+//wParticleColorMorphAffector
+function wParticleColorMorphAffectorCreate(ps: wNode): wAffector; cdecl; external WS3DCoreLib;
+
+procedure wParticleColorAffectorSetParameters(paf: wAffector;
+          params: wParticleColorMorphAffector); cdecl; external WS3DCoreLib;
+
+procedure wParticleColorAffectorGetParameters(paf: wAffector;
+          params: PwParticleColorMorphAffector); cdecl; external WS3DCoreLib;
+
+
 
 
 
@@ -3882,6 +4059,11 @@ function wWindGeneratorGetWind(windGenerator: wNode;position: wVector3f; timeMs:
 
 
 implementation
+
+
+
+
+
 
 
 
