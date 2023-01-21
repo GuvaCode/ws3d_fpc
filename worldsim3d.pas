@@ -4049,6 +4049,33 @@ procedure wParticleColorAffectorSetParameters(paf: wAffector;
 procedure wParticleColorAffectorGetParameters(paf: wAffector;
           params: PwParticleColorMorphAffector); cdecl; external WS3DCoreLib;
 
+//wParticlePushAffector
+function wParticlePushAffectorCreate(ps: wNode): wAffector; cdecl; external WS3DCoreLib;
+
+procedure wParticlePushAffectorSetParameters(paf: wAffector;
+          params: wParticlePushAffector); cdecl; external WS3DCoreLib;
+
+procedure wParticlePushAffectorGetParameters(paf: wAffector;
+          params: PwParticlePushAffector); cdecl; external WS3DCoreLib;
+
+//wParticleSplineAffector
+function wParticleSplineAffectorCreate(ps: wNode): wAffector; cdecl; external WS3DCoreLib ;
+
+procedure wParticleSplineAffectorSetParameters(paf: wAffector;
+          params:wParticleSplineAffector); cdecl; external WS3DCoreLib ;
+
+procedure wParticleSplineAffectorGetParameters(paf: wAffector;
+          params: PwParticleSplineAffector); cdecl; external WS3DCoreLib;
+
+//wParticleScaleAffector
+function wParticleScaleAffectorCreate(ps: wNode;
+          scaleTo: wVector2f): wAffector; cdecl; external WS3DCoreLib ;
+
+procedure wParticleScaleAffectorSetTargetScale(paf: wAffector;
+          tScale: wVector2f); cdecl; external WS3DCoreLib ;
+
+function wParticleScaleAffectorGetTargetScale(paf: wAffector): wVector2f; cdecl; external WS3DCoreLib ;
+
 
 
 
