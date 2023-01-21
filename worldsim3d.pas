@@ -3666,6 +3666,30 @@ function wLightGetType(light: wNode): wLightType; cdecl; external WS3DCoreLib ;
 
 function wLightGetDirection(light: wNode): wVector3f; cdecl; external WS3DCoreLib ;
 
+//wBillboardGroup
+function wBillboardGroupCreate(position, rotation, scale: wVector3f): wNode; cdecl; external WS3DCoreLib ;
+
+procedure wBillboardGroupSetShadows(node: wNode; direction: wVector3f; intensity, ambient: Float32); cdecl; external WS3DCoreLib ;
+
+procedure wBillboardGroupResetShadows(node: wNode); cdecl; external WS3DCoreLib ;
+
+function wBillboardGroupGetSize(node: wNode): UInt32; cdecl; external WS3DCoreLib ;
+
+function wBillboardGroupGetMeshBuffer(node: wNode): wMeshBuffer; cdecl; external WS3DCoreLib ;
+
+procedure wBillboardGroupUpdateForce(node: wNode); cdecl; external WS3DCoreLib ;
+
+function wBillboardGroupGetFirstElement(node: wNode): wBillboard; cdecl; external WS3DCoreLib ;
+
+function wBillboardGroupAddElement(node: wNode; position: wVector3f; size: wVector2f;
+          roll: Float32; color: wColor4s): PwBillboard; cdecl; external WS3DCoreLib ;
+
+function wBillboardGroupAddElementByAxis(node: wNode; position: wVector3f;
+          size: wVector2f; roll: Float32; color: wColor4s;
+          axis: wVector3f): PwBillboard; cdecl; external WS3DCoreLib ;
+
+procedure wBillboardGroupRemoveElement(node: wNode; billboard: PwBillboard); cdecl; external WS3DCoreLib ;
+
 
 
 
