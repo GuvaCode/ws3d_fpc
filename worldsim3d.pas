@@ -3836,6 +3836,29 @@ procedure wGrassSetWind(grass: wNode; strength, res: Float32); cdecl; external W
 
 function wGrassGetDrawingCount(grass: wNode): UInt32; cdecl; external WS3DCoreLib ;
 
+//wTreeGenerator
+function wTreeGeneratorCreate(xmlFilePath: Pchar): wNode; cdecl; external WS3DCoreLib ;
+
+procedure wTreeGeneratorDestroy(generator: wNode); cdecl; external WS3DCoreLib ;
+
+//wTree
+function wTreeCreate(generator: wNode; seed: Int32; billboardTexture: wTexture): wNode; cdecl; external WS3DCoreLib ;
+
+procedure wTreeSetDistances(tree: wNode; midRange, farRange: Float32); cdecl; external WS3DCoreLib ;
+
+function wTreeGetLeafNode(tree: wNode): wNode; cdecl; external WS3DCoreLib ;
+
+procedure wTreeSetLeafEnabled(tree: wNode; value: Boolean); cdecl; external WS3DCoreLib ;
+
+function wTreeIsLeafEnabled(tree: wNode): Boolean; cdecl; external WS3DCoreLib ;
+
+procedure wTreeSetBillboardVertexColor(tree: wNode; color: wColor4s); cdecl; external WS3DCoreLib ;
+
+function wTreeGetBillboardVertexColor(tree: wNode): wColor4s; cdecl; external WS3DCoreLib ;
+//idx 1 or 0
+function wTreeGetMeshBuffer(tree: wNode; idx: UInt32): wMeshBuffer; cdecl; external WS3DCoreLib ;
+
+
 
 
 
