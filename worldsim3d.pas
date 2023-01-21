@@ -4305,6 +4305,139 @@ procedure wNodeRemoveCollision(node: wNode; selector: wSelector); cdecl; externa
 
 procedure wNodeAddCollision(node: wNode; selector: wSelector); cdecl; external WS3DCoreLib;
 
+(* Материалы (wMaterial...)                                                   *)
+(* Создание и управление материалами, которые могут быть применены к ноду,    *)
+(* чтобы окрасить и текстурировать объект.                                    *)
+(* Основные материалы устанавливают блеск и отражающий цвет объектов.         *)
+
+// Установить текстуру для материала
+procedure wMaterialSetTexture(material: wMaterial;
+          texIdx: UInt32; texture: wTexture); cdecl; external WS3DCoreLib ;
+
+//Возвращает текстуру, находящуюся в материале мешбуффера в текстурном слое index
+function wMaterialGetTexture(material: wMaterial;
+          texIdx: UInt32): wTexture; cdecl; external WS3DCoreLib;
+
+procedure wMaterialSetTextureScale(material: wMaterial;
+          texIdx: UInt32; scale: wVector2f); cdecl; external WS3DCoreLib ;
+
+function wMaterialGetTextureScale(material: wMaterial;
+          texIdx: UInt32): wVector2f; cdecl; external WS3DCoreLib;
+
+procedure wMaterialSetTextureScaleFromCenter(material: wMaterial;
+           texIdx: UInt32; scale: wVector2f); cdecl; external WS3DCoreLib;
+
+procedure wMaterialSetTextureTranslation(material: wMaterial; texIdx: UInt32;
+           translate: wVector2f); cdecl; external WS3DCoreLib;
+
+function wMaterialGetTextureTranslation(material: wMaterial;
+           texIdx: UInt32): wVector2f; cdecl; external WS3DCoreLib;
+
+procedure wMaterialSetTextureTranslationTransposed(material: wMaterial;
+           texIdx: UInt32; translate: wVector2f); cdecl; external WS3DCoreLib;
+
+procedure wMaterialSetTextureRotation(material: wMaterial;
+           texIdx: UInt32; angle: Float32); cdecl; external WS3DCoreLib;
+
+function wMaterialGetTextureRotation(material: wMaterial;
+           texIdx: UInt32): Float32; cdecl; external WS3DCoreLib;
+
+procedure wMaterialSaveTextureMatrix(material: wMaterial; texIdx: UInt32;
+           array16Ptr: PFloat32); cdecl; external WS3DCoreLib;
+
+procedure wMaterialRestoreTextureMatrix(material: wMaterial; texIdx: UInt32;
+           array16Ptr: PFloat32); cdecl; external WS3DCoreLib;
+
+procedure wMaterialSetTextureWrapUMode(material: wMaterial;
+          texIdx: UInt32; value: wTextureClamp); cdecl; external WS3DCoreLib ;
+
+function wMaterialGetTextureWrapUMode(material: wMaterial;
+          texIdx: UInt32): wTextureClamp; cdecl; external WS3DCoreLib ;
+
+procedure wMaterialSetTextureWrapVMode(material: wMaterial;
+          texIdx: UInt32; value: wTextureClamp); cdecl; external WS3DCoreLib ;
+
+ function wMaterialGetTextureWrapVMode(material: wMaterial;
+          texIdx: UInt32): wTextureClamp; cdecl; external WS3DCoreLib ;
+
+procedure wMaterialSetTextureLodBias(material: wMaterial;
+          texIdx: UInt32; lodBias: UInt32); cdecl; external WS3DCoreLib ;
+
+function wMaterialGetTextureLodBias(material: wMaterial;
+          texIdx: UInt32): UInt32; cdecl; external WS3DCoreLib ;
+
+procedure wMaterialSetFlag(material: wMaterial;
+          Flag: wMaterialFlags; boValue: Boolean); cdecl; external WS3DCoreLib ;
+
+function wMaterialGetFlag(material: wMaterial;
+          matFlag: wMaterialFlags): Boolean; cdecl; external WS3DCoreLib ;
+
+procedure wMaterialSetType(material: wMaterial;
+          _type: wMaterialTypes); cdecl; external WS3DCoreLib ;
+
+function wMaterialGetType(material: wMaterial): wMaterialTypes; cdecl; external WS3DCoreLib ;
+
+procedure wMaterialSetShininess(material: wMaterial;
+          shininess: Float32); cdecl; external WS3DCoreLib ;
+
+function wMaterialGetShininess(material: wMaterial): Float32; cdecl; external WS3DCoreLib ;
+
+procedure wMaterialSetVertexColoringMode(material: wMaterial;
+          colorMaterial: wColorMaterial); cdecl; external WS3DCoreLib ;
+
+function wMaterialGetVertexColoringMode(material: wMaterial): wColorMaterial; cdecl; external WS3DCoreLib ;
+
+procedure wMaterialSetSpecularColor(material: wMaterial;
+          color: wColor4s); cdecl; external WS3DCoreLib ;
+
+function wMaterialGetSpecularColor(material: wMaterial): wColor4s; cdecl; external WS3DCoreLib ;
+
+procedure wMaterialSetDiffuseColor(material: wMaterial;
+          color: wColor4s); cdecl; external WS3DCoreLib ;
+
+function wMaterialGetDiffuseColor(material: wMaterial): wColor4s; cdecl; external WS3DCoreLib ;
+
+procedure wMaterialSetAmbientColor(material: wMaterial;
+          color: wColor4s); cdecl; external WS3DCoreLib ;
+
+function wMaterialGetAmbientColor(material: wMaterial): wColor4s; cdecl; external WS3DCoreLib ;
+
+procedure wMaterialSetEmissiveColor(material: wMaterial;
+          color: wColor4s); cdecl; external WS3DCoreLib ;
+
+function wMaterialGetEmissiveColor(material: wMaterial): wColor4s; cdecl; external WS3DCoreLib ;
+
+procedure wMaterialSetTypeParameter(material: wMaterial;
+          param1: Float32); cdecl; external WS3DCoreLib ;
+
+function wMaterialGetTypeParameter(material: wMaterial): Float32; cdecl; external WS3DCoreLib ;
+
+procedure wMaterialSetTypeParameter2(material: wMaterial;
+          param2: Float32); cdecl; external WS3DCoreLib ;
+
+function wMaterialGetTypeParameter2(material: wMaterial): Float32; cdecl; external WS3DCoreLib ;
+
+procedure wMaterialSetBlendingMode(material: wMaterial; paramNumber: UInt32;
+           blendSrc, blendDest: wBlendFactor; modulate: wBlendModulateFunc;
+           alphaSource: wBlendAlphaSource); cdecl; external WS3DCoreLib ;
+
+procedure wMaterialGetBlendingMode(material: wMaterial; paramNumber: UInt32;
+           blendSrc, blendDest: PwBlendFactor; modulate: PwBlendModulateFunc;
+           alphaSource: PwBlendAlphaSource); cdecl; external WS3DCoreLib ;
+
+procedure wMaterialSetLineThickness(material: wMaterial;
+          lineThickness: Float32); cdecl; external WS3DCoreLib ;
+
+function wMaterialGetLineThickness(material: wMaterial): Float32; cdecl; external WS3DCoreLib ;
+
+procedure wMaterialSetColorMask(material: wMaterial;
+          value: wColorPlane); cdecl; external WS3DCoreLib;
+
+function wMaterialGetColorMask(material: wMaterial): wColorPlane; cdecl; external WS3DCoreLib ;
+
+procedure wMaterialSetAntiAliasingMode(material: wMaterial; mode: wAntiAliasingMode); cdecl; external WS3DCoreLib;
+
+function wMaterialGetAntiAliasingMode(material: wMaterial): wAntiAliasingMode; cdecl; external WS3DCoreLib;
 
 
 
