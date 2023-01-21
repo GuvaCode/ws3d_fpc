@@ -4076,6 +4076,242 @@ procedure wParticleScaleAffectorSetTargetScale(paf: wAffector;
 
 function wParticleScaleAffectorGetTargetScale(paf: wAffector): wVector2f; cdecl; external WS3DCoreLib ;
 
+//wNode
+function wNodeCreateEmpty(): wNode; cdecl; external WS3DCoreLib ;
+
+function wNodeCreateCube(size: Float32; isTangent: Boolean;
+         color: wColor4s):wNode; cdecl; external WS3DCoreLib ;
+
+procedure wNodeSetCubeParameters(cube: wNode; params: wNodeCubeParameters); cdecl; external WS3DCoreLib ;
+
+procedure wNodeGetCubeParameters(cube: wNode; params: PwNodeCubeParameters); cdecl; external WS3DCoreLib ;
+
+function wNodeCreateSphere(radius: Float32; polyCount: Int32; isTangent: Boolean;
+          color: wColor4s): wNode; cdecl; external WS3DCoreLib ;
+
+procedure wNodeSetSphereParameters(sphere: wNode; params: wNodeSphereParameters); cdecl; external WS3DCoreLib ;
+
+procedure wNodeGetSphereParameters(sphere: wNode; params: PwNodeSphereParameters); cdecl; external WS3DCoreLib ;
+
+function wNodeCreateCylinder(radius: Float32; length: Float32; tesselation: UInt32;
+          color: wColor4s; closeTop: Boolean; oblique: Float32; isTangent: Boolean): wNode; cdecl; external WS3DCoreLib ;
+
+procedure wNodeSetCylinderParameters(cylinder: wNode;
+           params: wNodeCylinderParameters); cdecl; external WS3DCoreLib ;
+
+procedure wNodeGetCylinderParameters(cylinder: wNode;
+           params: PwNodeCylinderParameters); cdecl; external WS3DCoreLib ;
+
+function wNodeCreateCone(radius: Float32; length: Float32; tesselation: UInt32;
+          colorTop, colorBottom: wColor4s; isTangent: Boolean): wNode; cdecl; external WS3DCoreLib;
+
+procedure wNodeSetConeParameters(cone: wNode; params: wNodeConeParameters); cdecl; external WS3DCoreLib;
+
+procedure wNodeGetConeParameters(cone: wNode; params: PwNodeConeParameters); cdecl; external WS3DCoreLib;
+
+function wNodeCreatePlane(tileSize: wVector2f; tileCount: wVector2u;
+          material: wMaterial; texRepeatCount: wVector2f; isTangent: Boolean): wNode; cdecl; external WS3DCoreLib;
+
+procedure wNodeSetPlaneParameters(plane: wNode; params: wNodePlaneParameters); cdecl; external WS3DCoreLib;
+
+procedure wNodeGetPlaneParameters(plane: wNode; params: PwNodePlaneParameters); cdecl; external WS3DCoreLib;
+
+function wNodeCreateFromMesh(mesh: wMesh; isStatic: Boolean): wNode; cdecl; external WS3DCoreLib;
+
+function wNodeCreateFromStaticMesh(mesh: wMesh; isTangent: Boolean): wNode; cdecl; external WS3DCoreLib;
+
+function wNodeCreateFromMeshAsOctree(vptrMesh: wMesh; minimalPolysPerNode: Int32;
+          alsoAddIfMeshPointerZero: Boolean; isTangent: Boolean): wNode; cdecl; external WS3DCoreLib;
+
+function wNodeCreateFromBatchingMesh(batchMesh: wMesh): wNode; cdecl; external WS3DCoreLib;
+
+function wNodeCreateFromBatchingMeshAsOctree(batchMesh: wMesh;
+          minimalPolysPerNode: Int32; alsoAddIfMeshPointerZero: Boolean): wNode; cdecl; external WS3DCoreLib;
+
+procedure wNodeSetDecalsEnabled(node: wNode); cdecl; external WS3DCoreLib;
+
+procedure wNodeSetParent(node: wNode; parent: wNode); cdecl; external WS3DCoreLib;
+
+function wNodeGetParent(node: wNode): wNode; cdecl; external WS3DCoreLib;
+
+procedure wNodeSetReadOnlyMaterials(node: wNode; readonly: Boolean); cdecl; external WS3DCoreLib;
+
+function wNodeIsReadOnlyMaterials(node: wNode): Boolean; cdecl; external WS3DCoreLib;
+
+function wNodeGetFirstChild(node: wNode; iterator: PUInt32): wNode; cdecl; external WS3DCoreLib;
+
+function wNodeGetChildsCount(node: wNode; iterator: PUInt32): UInt32; cdecl; external WS3DCoreLib;
+
+function wNodeGetNextChild(node: wNode; iterator: PUInt32): wNode; cdecl; external WS3DCoreLib;
+
+function wNodeIsLastChild(node: wNode; iterator: PUInt32): Boolean; cdecl; external WS3DCoreLib;
+
+function wNodeDestroyChild(node: wNode; child: wNode): Boolean; cdecl; external WS3DCoreLib;
+
+procedure wNodeSetId(node: wNode; id: Int32); cdecl; external WS3DCoreLib;
+
+function wNodeGetId(node: wNode): Int32; cdecl; external WS3DCoreLib;
+
+procedure wNodeSetName(node: wNode; const name: PChar); cdecl; external WS3DCoreLib;
+
+function wNodeGetName(node: wNode): PChar; cdecl; external WS3DCoreLib;
+
+procedure wNodeSetUserData(node: wNode; newData: Pointer); cdecl; external WS3DCoreLib;
+
+function wNodeGetUserData(node: wNode): Pointer; cdecl; external WS3DCoreLib;
+
+procedure wNodeSetDebugMode(node: wNode; visible: wDebugMode); cdecl; external WS3DCoreLib;
+
+procedure wNodeSetDebugDataVisible(node: wNode; value: Boolean); cdecl; external WS3DCoreLib;
+
+function wNodeGetMaterialsCount(node: wNode): UInt32; cdecl; external WS3DCoreLib;
+
+function wNodeGetMaterial(node: wNode; matIndex: UInt32): wMaterial; cdecl; external WS3DCoreLib;
+
+procedure wNodeSetPosition(node: wNode; position: wVector3f); cdecl; external WS3DCoreLib;
+
+function wNodeGetPosition(node: wNode): wVector3f; cdecl; external WS3DCoreLib;
+
+function wNodeGetAbsolutePosition(node: wNode): wVector3f; cdecl; external WS3DCoreLib;
+
+procedure wNodeGetTransformMatrix(node: wNode; matrix4_4: PFloat32); cdecl; external WS3DCoreLib;
+
+procedure wNodeSetRotation(node: wNode; rotation: wVector3f); cdecl; external WS3DCoreLib;
+
+procedure wNodeSetAbsoluteRotation(node: wNode; rotation: wVector3f); cdecl; external WS3DCoreLib;
+
+function wNodeGetRotation(node: wNode): wVector3f; cdecl; external WS3DCoreLib;
+
+function wNodeGetAbsoluteRotation(node: wNode): wVector3f; cdecl; external WS3DCoreLib;
+
+procedure wNodeTurn(Entity: wNode; turn: wVector3f); cdecl; external WS3DCoreLib;
+
+procedure wNodeMove(Entity: wNode; direction: wVector3f); cdecl; external WS3DCoreLib;
+
+procedure wNodeRotateToNode(Entity1, Entity2: wNode); cdecl; external WS3DCoreLib;
+
+function wNodesGetBetweenDistance(nodeA, nodeB: wNode): Float32; cdecl; external WS3DCoreLib;
+
+function wNodesAreIntersecting(nodeA, nodeB: wNode): Boolean; cdecl; external WS3DCoreLib;
+
+function wNodeIsPointInside(node: wNode; pos: wVector3f): Boolean; cdecl; external WS3DCoreLib;
+
+procedure wNodeDrawBoundingBox(node: wNode; color: wColor4s); cdecl; external WS3DCoreLib;
+
+procedure wNodeGetBoundingBox(Node: wNode; min, max: PwVector3f); cdecl; external WS3DCoreLib;
+
+procedure wNodeGetTransformedBoundingBox(Node: wNode; min, max: PwVector3f); cdecl; external WS3DCoreLib;
+
+procedure wNodeSetScale(node: wNode; scale: wVector3f); cdecl; external WS3DCoreLib;
+
+function wNodeGetScale(node: wNode): wVector3f; cdecl; external WS3DCoreLib;
+
+function wNodeDuplicate(entity: wNode): wNode; cdecl; external WS3DCoreLib;
+
+function wNodeGetJointByName(node: wNode; const node_name: PChar): wNode; cdecl; external WS3DCoreLib;
+
+function wNodeGetJointById(node: wNode; id: Int32): wNode; cdecl; external WS3DCoreLib;
+
+function wNodeGetJointsCount(node: wNode): Int32; cdecl; external WS3DCoreLib;
+
+procedure wNodeSetJointSkinningSpace(bone: wNode; space: wBoneSkinningSpace); cdecl; external WS3DCoreLib;
+
+function wNodeGetJointSkinningSpace(bone: wNode): wBoneSkinningSpace; cdecl; external WS3DCoreLib;
+
+procedure wNodeSetRenderFromIdentity(animatedNode: wNode; value: Boolean); cdecl; external WS3DCoreLib;
+
+function wNodeAddShadowVolume(node: wNode; mesh: wMesh; zfailMethod: Boolean;
+          infinity: Float32; oldStyle: Boolean): wNode; cdecl; external WS3DCoreLib;
+
+function wNodeAddShadowVolumeFromMeshBuffer(node: wNode; meshbuffer: wMeshBuffer;
+          zfailMethod: Boolean; infinity: Float32; oldStyle: Boolean): wNode; cdecl; external WS3DCoreLib;
+
+function wNodeGetShadowVolume(node: wNode): wNode; cdecl; external WS3DCoreLib;
+
+procedure wNodeUpdateShadow(shadow: wNode); cdecl; external WS3DCoreLib;
+
+{ for octree only }
+procedure wNodeSetOctreeParameters(node: wNode; params: wOctreeParameters); cdecl; external WS3DCoreLib;
+
+procedure wNodeGetOctreeParameters(node: wNode; params: PwOctreeParameters); cdecl; external WS3DCoreLib;
+
+procedure wNodeSetVisibility(node: wNode; visible: Boolean); cdecl; external WS3DCoreLib;
+
+function wNodeIsVisible(node: wNode): Boolean; cdecl; external WS3DCoreLib;
+
+function wNodeIsInView(node: wNode): Boolean; cdecl; external WS3DCoreLib;
+
+procedure wNodeDestroy(node: wNode); cdecl; external WS3DCoreLib;
+
+procedure wNodeSetMesh(node: wNode; mesh: wMesh); cdecl; external WS3DCoreLib;
+
+function wNodeGetMesh(node: wNode): wMesh; cdecl; external WS3DCoreLib;
+
+procedure wNodeSetRotationPositionChange(node: wNode; angles, offset: wVector3f;
+           forwardStore, upStore: PwVector3f; numOffsets: UInt32;
+           offsetStore: PwVector3f); cdecl; external WS3DCoreLib;
+
+procedure wNodeSetCullingState(node: wNode; state: wCullingState); cdecl; external WS3DCoreLib;
+
+function wNodeGetType(node: wNode): wSceneNodeType; cdecl; external WS3DCoreLib;
+
+procedure wNodeSetAnimationRange(node: wNode; range: wVector2i); cdecl; external WS3DCoreLib;
+
+procedure wNodeGetAnimationRange(node: wNode; range: PwVector2i); cdecl; external WS3DCoreLib;
+
+procedure wNodePlayMD2Animation(node: wNode; iAnimation: wMd2AnimationType); cdecl; external WS3DCoreLib;
+
+function wNodeGetPlayedMD2Animation(node: wNode): wMd2AnimationType; cdecl; external WS3DCoreLib;
+
+procedure wNodeSetAnimationSpeed(node: wNode; fSpeed: Float32); cdecl; external WS3DCoreLib;
+
+function wNodeGetAnimationSpeed(node: wNode): Float32; cdecl; external WS3DCoreLib;
+
+procedure wNodeSetAnimationFrame(node: wNode; fFrame: Float32); cdecl; external WS3DCoreLib;
+
+function wNodeGetAnimationFrame(node: wNode): Float32; cdecl; external WS3DCoreLib;
+
+function wNodeGetAnimationFramesCount(node: wNode): Int32; cdecl; external WS3DCoreLib;
+
+procedure wNodeSetTransitionTime(node: wNode; fTime: Float32); cdecl; external WS3DCoreLib;
+
+procedure wNodeAnimateJoints(node: wNode); cdecl; external WS3DCoreLib;
+
+procedure wNodeSetJointMode(node: wNode; mode: wJointMode); cdecl; external WS3DCoreLib;
+
+procedure wNodeSetAnimationLoopMode(node: wNode; value: Boolean); cdecl; external WS3DCoreLib;
+
+function wNodeGetAnimationLoopMode(node: wNode): Boolean; cdecl; external WS3DCoreLib;
+
+procedure wNodeDestroyAllAnimators(node: wNode); cdecl; external WS3DCoreLib;
+
+function wNodeGetAnimatorsCount(node: wNode): UInt32; cdecl; external WS3DCoreLib;
+
+function wNodeGetFirstAnimator(node: wNode): wAnimator; cdecl; external WS3DCoreLib;
+
+function wNodeGetLastAnimator(node: wNode): wAnimator; cdecl; external WS3DCoreLib;
+
+function wNodeGetAnimatorByIndex(node: wNode; index: UInt32): wAnimator; cdecl; external WS3DCoreLib;
+
+procedure wNodeDestroyAnimator(node: wNode; anim: wAnimator); cdecl; external WS3DCoreLib;
+
+procedure wNodeOnAnimate(node: wNode; timeMs: UInt32); cdecl; external WS3DCoreLib;
+
+procedure wNodeDraw(node: wNode); cdecl; external WS3DCoreLib;
+
+procedure wNodeUpdateAbsolutePosition(node: wNode); cdecl; external WS3DCoreLib;
+
+procedure wNodeRemoveCollision(node: wNode; selector: wSelector); cdecl; external WS3DCoreLib;
+
+procedure wNodeAddCollision(node: wNode; selector: wSelector); cdecl; external WS3DCoreLib;
+
+
+
+
+
+
+
+
 
 
 
