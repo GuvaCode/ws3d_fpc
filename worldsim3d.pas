@@ -3621,6 +3621,59 @@ function wInputIsJoystickEventAvailable(): Boolean; cdecl; external WS3DCoreLib 
 
 function wInputReadJoystickEvent(): PwJoystickEvent; cdecl; external WS3DCoreLib ;
 
+//wLight
+function wLightCreate(position: wVector3f; color: wColor4f; radius: Float32): wNode; cdecl; external WS3DCoreLib ;
+
+procedure wLightSetAmbientColor(light: wNode; color: wColor4f); cdecl; external WS3DCoreLib ;
+
+function wLightGetAmbientColor(light: wNode): wColor4f; cdecl; external WS3DCoreLib ;
+
+procedure wLightSetSpecularColor(light: wNode; color: wColor4f); cdecl; external WS3DCoreLib ;
+
+function wLightGetSpecularColor(light: wNode): wColor4f; cdecl; external WS3DCoreLib ;
+
+procedure wLightSetAttenuation(light: wNode; attenuation: wVector3f); cdecl; external WS3DCoreLib ;
+
+function wLightGetAttenuation(light: wNode): wVector3f; cdecl; external WS3DCoreLib ;
+
+procedure wLightSetCastShadows(light: wNode; castShadows: Boolean); cdecl; external WS3DCoreLib ;
+
+function wLightIsCastShadows(light: wNode): Boolean; cdecl; external WS3DCoreLib ;
+
+procedure wLightSetDiffuseColor(light: wNode; color: wColor4f); cdecl; external WS3DCoreLib ;
+
+function wLightGetDiffuseColor(light: wNode): wColor4f; cdecl; external WS3DCoreLib ;
+
+procedure wLightSetFallOff(light: wNode; FallOff: Float32); cdecl; external WS3DCoreLib ;
+
+function wLightGetFallOff(light: wNode): Float32; cdecl; external WS3DCoreLib ;
+
+procedure wLightSetInnerCone(light: wNode; InnerCone: Float32); cdecl; external WS3DCoreLib ;
+
+function wLightGetInnerCone(light: wNode): Float32; cdecl; external WS3DCoreLib ;
+
+procedure wLightSetOuterCone(light: wNode; OuterCone: Float32); cdecl; external WS3DCoreLib ;
+
+function wLightGetOuterCone(light: wNode): Float32; cdecl; external WS3DCoreLib ;
+
+procedure wLightSetRadius(light: wNode; Radius: Float32); cdecl; external WS3DCoreLib ;
+
+function wLightGetRadius(light: wNode): Float32; cdecl; external WS3DCoreLib ;
+
+procedure wLightSetType(light: wNode; _Type: wLightType); cdecl; external WS3DCoreLib ;
+
+function wLightGetType(light: wNode): wLightType; cdecl; external WS3DCoreLib ;
+
+function wLightGetDirection(light: wNode): wVector3f; cdecl; external WS3DCoreLib ;
+
+
+
+
+
+
+
+
+
 
 
 
