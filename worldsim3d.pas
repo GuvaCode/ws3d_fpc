@@ -575,10 +575,9 @@ type
       x : UInt32;
       y : UInt32;
     end;
-    const wVECTOR2u_ZERO : wVector2u = (x: 0; y: 0);
-          wVECTOR2u_ONE  : wVector2u = (x: 1; y: 1);
-
-          wDEFAULT_SCREENSIZE : wVector2u = (x: 800; y: 600);
+   const wVECTOR2u_ZERO : wVector2u = (x: 0; y: 0);
+         wVECTOR2u_ONE  : wVector2u = (x: 1; y: 1);
+         wDEFAULT_SCREENSIZE : wVector2u = (x: 800; y: 600);
 
   type
     PwVector3f = ^wVector3f;
@@ -3690,9 +3689,152 @@ function wBillboardGroupAddElementByAxis(node: wNode; position: wVector3f;
 
 procedure wBillboardGroupRemoveElement(node: wNode; billboard: PwBillboard); cdecl; external WS3DCoreLib ;
 
+//wBillBoard
+function wBillboardCreate(position: wVector3f; size: wVector2f): wNode; cdecl; external WS3DCoreLib ;
 
+procedure wBillboardSetEnabledAxis(billboard: wNode; param: wBillboardAxisParam); cdecl; external WS3DCoreLib ;
 
+function wBillboardGetEnabledAxis(billboard:wNode): wBillboardAxisParam; cdecl; external WS3DCoreLib ;
 
+procedure wBillboardSetColor(node: wNode; topColor, bottomColor: wColor4s); cdecl; external WS3DCoreLib ;
+
+procedure wBillboardSetSize(node: wNode; size: wVector2f); cdecl; external WS3DCoreLib ;
+
+function wBillboardCreateText(position: wVector3f; size: wVector2f; font: wFont;
+          text: PWString; topColor, bottomColor: wColor4s): wNode; cdecl; external WS3DCoreLib ;
+
+//wSkyBox
+function wSkyBoxCreate(texture_up, texture_down, texture_left, texture_right,
+          texture_front, texture_back: wTexture): wNode; cdecl; external WS3DCoreLib ;
+
+//wSkyDome
+function wSkyDomeCreate(texture_file: wTexture; horiRes, vertRes: UInt32;
+          texturePercentage, spherePercentage: Float64; domeRadius: Float64 = 1000.0): wNode; cdecl; external WS3DCoreLib ;
+
+procedure wSkyDomeSetColor(dome: wNode; horizonColor, zenithColor: wColor4s); cdecl; external WS3DCoreLib ;
+
+procedure wSkyDomeSetColorBand(dome: wNode; horizonColor: wColor4s; position: Int32;
+          fade: Float32; additive: Boolean); cdecl; external WS3DCoreLib ;
+
+procedure wSkyDomeSetColorPoint(dome: wNode; horizonColor: wColor4s; position: wVector3f;
+          radius, fade: Float32; additive: Boolean); cdecl; external WS3DCoreLib ;
+
+//wLodManager
+function wLodManagerCreate(fadeScale: UInt32; useAlpha: Boolean;
+          callbackFuncPointer: PUInt32): wNode; cdecl; external WS3DCoreLib ;
+
+procedure wLodManagerAddMesh(node: wNode; mesh: wMesh; distance: Float32); cdecl; external WS3DCoreLib ;
+
+procedure wLodManagerSetMaterialMap(node: wNode; source, target: wMaterialTypes); cdecl; external WS3DCoreLib ;
+
+//wZoneManager
+function wZoneManagerCreate(initialNearDistance, initialFarDistance: Float32): wNode; cdecl; external WS3DCoreLib ;
+
+procedure wZoneManagerSetProperties(node: wNode; newNearDistance, newFarDistance: Float32;
+          accumulateChildBoxes: Boolean); cdecl; external WS3DCoreLib ;
+
+procedure wZoneManagerSetBoundingBox(node: wNode; position, size: wVector3f); cdecl; external WS3DCoreLib ;
+
+procedure wZoneManagerAddTerrain(node, terrainSource: wNode; structureMap, colorMap, detailMap: Pchar;
+          pos: wVector2i; sliceSize: Int32); cdecl; external WS3DCoreLib ;
+
+//wWater
+function wWaterSurfaceCreate(mesh: wMesh; waveHeight, waveSpeed, waveLength:Float32;
+          position, rotation, scale: wVector3f): wNode; cdecl; external WS3DCoreLib ;
+
+procedure wWaterSurfaceSetWaveHeight(water: wNode; newWaveHeight: Float32); cdecl; external WS3DCoreLib ;
+
+procedure wWaterSurfaceSetWaveLength(water: wNode; newWaveLength: Float32); cdecl; external WS3DCoreLib ;
+
+procedure wWaterSurfaceSetWaveSpeed(water: wNode; newWaveSpeed: Float32); cdecl; external WS3DCoreLib ;
+
+function wWaterSurfaceGetWaveHeight(water: wNode): Float32; cdecl; external WS3DCoreLib ;
+
+function wWaterSurfaceGetWaveLength(water: wNode): Float32; cdecl; external WS3DCoreLib ;
+
+function wWaterSurfaceGetWaveSpeed(water: wNode): Float32; cdecl; external WS3DCoreLib ;
+
+//wRealWater
+function wRealWaterSurfaceCreate(bumpTexture: wTexture; size: wVector2f;
+          renderSize: wVector2u; otherMesh: wMesh): wNode; cdecl; external WS3DCoreLib ;
+
+procedure wRealWaterSetWindForce(water: wNode; force: Float32); cdecl; external WS3DCoreLib ;
+
+function wRealWaterGetWindForce(water: wNode): Float32; cdecl; external WS3DCoreLib;
+
+procedure wRealWaterSetWindDirection(water: wNode; direction: wVector2f); cdecl; external WS3DCoreLib ;
+
+function wRealWaterGetWindDirection(water: wNode): wVector2f; cdecl; external WS3DCoreLib ;
+
+procedure wRealWaterSetWaveHeight(water: wNode; height: Float32); cdecl; external WS3DCoreLib ;
+
+function wRealWaterGetWaveHeight(water: wNode): Float32; cdecl; external WS3DCoreLib ;
+
+procedure wRealWaterSetColor(water: wNode; color: wColor4f); cdecl; external WS3DCoreLib ;
+
+function wRealWaterGetColor(water: wNode): wColor4f; cdecl; external WS3DCoreLib ;
+
+procedure wRealWaterSetColorBlendFactor(water: wNode; factor: Float32); cdecl; external WS3DCoreLib ;
+
+function wRealWaterGetColorBlendFactor(water: wNode): Float32; cdecl; external WS3DCoreLib ;
+
+procedure wRealWaterSetWaveRealHeight(water: wNode; height: Float32); cdecl; external WS3DCoreLib ;
+
+function wRealWaterGetWaveRealHeight(water: wNode): Float32; cdecl; external WS3DCoreLib ;
+
+procedure wRealWaterSetWaveSpeed(water: wNode; speed: Float32); cdecl; external WS3DCoreLib ;
+
+function wRealWaterGetWaveSpeed(water: wNode): Float32; cdecl; external WS3DCoreLib ;
+
+procedure wRealWaterSetWaveLength(water: wNode; length: Float32); cdecl; external WS3DCoreLib ;
+
+function wRealWaterGetWaveLength(water: wNode): Float32; cdecl; external WS3DCoreLib ;
+
+//wClouds
+function wCloudsCreate(texture: wTexture; lod, depth, density: UInt32): wNode; cdecl; external WS3DCoreLib ;
+
+//wRealClouds
+function wRealCloudsCreate(txture: wTexture; height: wVector3f; speed: wVector2f;
+          textureScale: Float32): wNode; cdecl; external WS3DCoreLib ;
+
+procedure wRealCloudsSetTextureTranslation(cloud: wNode; speed: wVector2f); cdecl; external WS3DCoreLib ;
+
+function wRealCloudsGetTextureTranslation(cloud: wNode): wVector2f; cdecl; external WS3DCoreLib ;
+
+procedure wRealCloudsSetTextureScale(cloud: wNode; scale: Float32); cdecl; external WS3DCoreLib ;
+
+function wRealCloudsGetTextureScale(cloud: wNode): Float32; cdecl; external WS3DCoreLib ;
+
+procedure wRealCloudsSetCloudHeight(cloud: wNode; height: wVector3f); cdecl; external WS3DCoreLib ;
+
+function wRealCloudsGetCloudHeight(cloud: wNode): wVector3f; cdecl; external WS3DCoreLib ;
+
+procedure wRealCloudsSetCloudRadius(cloud: wNode; radius: wVector2f); cdecl; external WS3DCoreLib ;
+
+function wRealCloudsGetCloudRadius(cloud: wNode): wVector2f; cdecl; external WS3DCoreLib ;
+
+procedure wRealCloudsSetColors(cloud: wNode; centerColor, innerColor, outerColor: wColor4s); cdecl; external WS3DCoreLib ;
+
+procedure wRealCloudsGetColors(cloud: wNode; centerColor, innerColor, outerColor: PwColor4s); cdecl; external WS3DCoreLib ;
+
+//wLensFlare
+function wLensFlareCreate(txture: wTexture): wNode; cdecl; external WS3DCoreLib ;
+
+procedure wLensFlareSetStrength(flare: wNode; strength: Float32); cdecl; external WS3DCoreLib ;
+
+function wLensFlareGetStrength(flare: wNode): Float32; cdecl; external WS3DCoreLib ;
+
+//wGrass/
+function wGrassCreate(terrain: wNode; position: wVector2i; patchSize: UInt32;
+          fadeDistance: Float32; crossed: Boolean; grassScale: Float32; maxDensity: UInt32;
+          dataPosition: wVector2u; heightMap: wImage; textureMap: wImage;
+          grassMap: wImage; grassTexture: wTexture): wNode; cdecl; external WS3DCoreLib ;
+
+procedure wGrassSetDensity(grass: wNode; density: UInt32; distance: Float32); cdecl; external WS3DCoreLib ;
+
+procedure wGrassSetWind(grass: wNode; strength, res: Float32); cdecl; external WS3DCoreLib ;
+
+function wGrassGetDrawingCount(grass: wNode): UInt32; cdecl; external WS3DCoreLib ;
 
 
 
