@@ -4439,7 +4439,57 @@ procedure wMaterialSetAntiAliasingMode(material: wMaterial; mode: wAntiAliasingM
 
 function wMaterialGetAntiAliasingMode(material: wMaterial): wAntiAliasingMode; cdecl; external WS3DCoreLib;
 
+(* Шейдеры (wShader...) *)
 
+{ Функции для работы с программами, выполняющимися на видеокарте GPU,
+  а не на центральном процессоре. }
+
+function wShaderCreateNamedVertexConstant(shader: PwShader; name: Pchar; preset: Int32;
+          floats: PFloat32; count:Int32): Boolean; cdecl; external WS3DCoreLib ;
+
+function wShaderCreateNamedPixelConstant(shader: PwShader; const name: PChar;
+          preset: Int32; floats: PFloat32; count: Int32): Boolean; cdecl; external WS3DCoreLib ;
+
+function wShaderCreateAddressedVertexConstant(shader: PwShader; address, preset: Int32;
+          floats: PFloat32; count: Int32): Boolean; cdecl; external WS3DCoreLib ;
+
+function wShaderCreateAddressedPixelConstant(shader: PwShader; address, preset: Int32;
+          floats: PFloat32; count: Int32): Boolean; cdecl; external WS3DCoreLib ;
+
+function wShaderAddHighLevelMaterial(const vertexShaderProgram,
+          vertexShaderEntryPointName: PChar; wVersion: wVertexShaderVersion;
+          pixelShaderProgram, pixelShaderEntryPointName: PChar; pVersion: wPixelShaderVersion;
+	  materialType: wMaterialTypes; userData: Int32): PwShader; cdecl; external WS3DCoreLib ;
+
+function wShaderAddHighLevelMaterialFromFiles(vertexShaderProgramFileName: PChar;
+          vertexShaderEntryPointName: Pchar; wVersion: wVertexShaderVersion;
+          pixelShaderProgramFileName: PChar; pixelShaderEntryPointName: PChar;
+	  pVersion: wPixelShaderVersion; materialType: wMaterialTypes;
+	  userData: Int32): PwShader; cdecl; external WS3DCoreLib ;
+
+function wShaderAddMaterial(vertexShaderProgram: PChar; pixelShaderProgram: PChar;
+          materialType: wMaterialTypes; userData: Int32): PwShader; cdecl; external WS3DCoreLib ;
+
+function wShaderAddMaterialFromFiles(vertexShaderProgramFileName: PChar;
+          pixelShaderProgramFileName: PChar; materialType: wMaterialTypes;
+	  userData: Int32): PwShader; cdecl; external WS3DCoreLib;
+
+function wShaderAddHighLevelMaterialEx(vertexShaderProgram: PChar;
+          vertexShaderEntryPointName: PChar; wVersion: wVertexShaderVersion;
+          pixelShaderProgram: PChar; pixelShaderEntryPointName: Pchar;
+	  pVersion: wPixelShaderVersion; geometryShaderProgram: PChar;
+	  geometryShaderEntryPointName: PChar; gVersion: wGeometryShaderVersion;
+	  inType: wPrimitiveType; outType: wPrimitiveType;
+	  verticesOut: UInt32; materialType: wMaterialTypes;
+	  userData: Int32): PwShader; cdecl; external WS3DCoreLib;
+
+function wShaderAddHighLevelMaterialFromFilesEx(vertexShaderProgramFileName: PChar;
+          vertexShaderEntryPointName: PChar; wVersion: wVertexShaderVersion;
+	  pixelShaderProgramFileName: PChar; pixelShaderEntryPointName: PChar;
+	  pVersion: wPixelShaderVersion; geometryShaderProgram: PChar;
+	  geometryShaderEntryPointName: PChar; gVersion: wGeometryShaderVersion;
+	  inType, outType: wPrimitiveType; verticesOut: UInt32;
+	  materialType: wMaterialTypes; userData: Int32): PwShader; cdecl; external WS3DCoreLib;
 
 
 
