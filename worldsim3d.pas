@@ -4703,6 +4703,25 @@ function wBspGetVariableValueAsVec(variable: PUInt32; parsePos: UInt32): wVector
 
 function wBspGetVariableValueAsFloat(variable: PUInt32; parsePos: UInt32): Float32; cdecl; external WS3DCoreLib;
 
+// Occlusion Query
+
+procedure wOcclusionQueryAddNode(node: wNode); cdecl; external WS3DCoreLib;
+
+procedure wOcclusionQueryAddMesh(node: wNode; mesh: wMesh); cdecl; external WS3DCoreLib;
+
+procedure wOcclusionQueryUpdate(node: wNode; block: Boolean); cdecl; external WS3DCoreLib;
+
+procedure wOcclusionQueryRun(node: wNode; visible: Boolean); cdecl; external WS3DCoreLib;
+
+procedure wOcclusionQueryUpdateAll(block: Boolean); cdecl; external WS3DCoreLib;
+
+procedure wOcclusionQueryRunAll(visible: Boolean); cdecl; external WS3DCoreLib;
+
+procedure wOcclusionQueryRemoveNode(node:wNode); cdecl; external WS3DCoreLib;
+
+procedure wOcclusionQueryRemoveAll(); cdecl; external WS3DCoreLib;
+
+function wOcclusionQueryGetResult(node: wNode): Uint32; cdecl; external WS3DCoreLib;
 
 
 
