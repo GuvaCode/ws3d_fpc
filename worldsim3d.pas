@@ -4768,8 +4768,199 @@ procedure wTiledTerrainSetTileStructure(terrain: wNode; image: wImage;
 procedure wTiledTerrainSetTileColor(terrain: wNode; image: wImage;
           data: wVector2i); cdecl; external WS3DCoreLib;
 
+// wSoundBuffer
+function wSoundBufferLoad(const filePath: PChar): wSoundBuffer; cdecl; external WS3DCoreLib;
+
+function wSoundBufferLoadFromMemory(const data: PChar; length: Int32;
+          const extension: PChar): wSoundBuffer; cdecl; external WS3DCoreLib;
+
+procedure wSoundBufferDestroy(buffer: wSoundBuffer); cdecl; external WS3DCoreLib;
+
+// wSound
+function wSoundLoad(const filePath: PChar; stream: Boolean): wSound; cdecl; external WS3DCoreLib;
+
+function wSoundLoadFromMemory(const name, data: PChar; length: Int32;
+          const extension: PChar): wSound; cdecl; external WS3DCoreLib;
 
 
+function wSoundLoadFromRaw(const name, data: PChar; length: Int32; frequency: UInt32;
+          format: wAudioFormats): wSound; cdecl; external WS3DCoreLib;
+
+function wSoundCreateFromBuffer(buf: wSoundBuffer): wSound; cdecl; external WS3DCoreLib;
+
+function wSoundIsPlaying(sound: wSound): Boolean; cdecl; external WS3DCoreLib;
+
+function wSoundIsPaused(sound: wSound): Boolean; cdecl; external WS3DCoreLib;
+
+function wSoundIsStopped(sound: wSound): Boolean; cdecl; external WS3DCoreLib;
+
+procedure wSoundSetVelocity(sound: wSound; velocity: wVector3f); cdecl; external WS3DCoreLib;
+
+function wSoundGetVelocity(sound: wSound): wVector3f; cdecl; external WS3DCoreLib;
+
+procedure wSoundSetDirection(sound: wSound; direction: wVector3f); cdecl; external WS3DCoreLib;
+
+function wSoundGetDirection(sound: wSound): wVector3f; cdecl; external WS3DCoreLib;
+
+procedure wSoundSetVolume(sound: wSound; value: Float32); cdecl; external WS3DCoreLib;
+
+function wSoundGetVolume(sound: wSound): Float32; cdecl; external WS3DCoreLib;
+
+procedure wSoundSetMaxVolume(sound: wSound; value: Float32); cdecl; external WS3DCoreLib;
+
+function wSoundGetMaxVolume(sound: wSound): Float32; cdecl; external WS3DCoreLib;
+
+procedure wSoundSetMinVolume(sound: wSound; value: Float32); cdecl; external WS3DCoreLib;
+
+function wSoundGetMinVolume(sound: wSound): Float32; cdecl; external WS3DCoreLib;
+
+procedure wSoundSetPitch(sound: wSound; value: Float32); cdecl; external WS3DCoreLib;
+
+function wSoundGetPitch(sound: wSound): Float32; cdecl; external WS3DCoreLib;
+
+procedure wSoundSetRollOffFactor(sound: wSound; value: Float32); cdecl; external WS3DCoreLib;
+
+function wSoundGetRollOffFactor(sound: wSound): Float32; cdecl; external WS3DCoreLib;
+
+procedure wSoundSetStrength(sound: wSound; value: Float32); cdecl; external WS3DCoreLib;
+
+function wSoundGetStrength(sound: wSound): Float32; cdecl; external WS3DCoreLib;
+
+procedure wSoundSetMinDistance(sound: wSound; value: Float32); cdecl; external WS3DCoreLib;
+
+function wSoundGetMinDistance(sound: wSound): Float32; cdecl; external WS3DCoreLib;
+
+procedure wSoundSetMaxDistance(sound: wSound; Value: Float32); cdecl; external WS3DCoreLib;
+
+function wSoundGetMaxDistance(sound: wSound): Float32; cdecl; external WS3DCoreLib;
+
+procedure wSoundSetInnerConeAngle(sound: wSound; Value: Float32); cdecl; external WS3DCoreLib;
+
+function wSoundGetInnerConeAngle(sound: wSound): Float32; cdecl; external WS3DCoreLib;
+
+procedure wSoundSetOuterConeAngle(sound: wSound; Value: Float32); cdecl; external WS3DCoreLib;
+
+function wSoundGetOuterConeAngle(sound: wSound): Float32; cdecl; external WS3DCoreLib;
+
+procedure wSoundSetOuterConeVolume(sound: wSound; Value: Float32); cdecl; external WS3DCoreLib;
+
+function wSoundGetOuterConeVolume(sound: wSound): Float32; cdecl; external WS3DCoreLib;
+
+procedure wSoundSetDopplerStrength(sound: wSound; Value: Float32); cdecl; external WS3DCoreLib;
+
+function wSoundGetDopplerStrength(sound: wSound): Float32; cdecl; external WS3DCoreLib;
+
+procedure wSoundSetDopplerVelocity(sound: wSound; velocity: wVector3f); cdecl; external WS3DCoreLib;
+
+function wSoundGetDopplerVelocity(sound: wSound): wVector3f; cdecl; external WS3DCoreLib;
+
+function wSoundCalculateGain(sound: wSound): Float32; cdecl; external WS3DCoreLib;
+
+procedure wSoundSetRelative(sound: wSound; value: Boolean); cdecl; external WS3DCoreLib;
+
+function wSoundIsRelative(sound: wSound): Boolean; cdecl; external WS3DCoreLib;
+
+function wSoundPlay(sound: wSound; loop: Boolean): Boolean; cdecl; external WS3DCoreLib;
+
+procedure wSoundStop(sound: wSound); cdecl; external WS3DCoreLib;
+
+procedure wSoundPause(sound: wSound); cdecl; external WS3DCoreLib;
+
+procedure wSoundSetLoopMode(sound: wSound; value: Boolean); cdecl; external WS3DCoreLib;
+
+function wSoundIsLooping(sound: wSound): Boolean; cdecl; external WS3DCoreLib;
+
+function wSoundIsValid(sound: wSound): Boolean; cdecl; external WS3DCoreLib;
+
+function wSoundSeek(sound: wSound; seconds: Float32; relative: Boolean): Boolean; cdecl; external WS3DCoreLib;
+
+procedure wSoundUpdate(sound: wSound); cdecl; external WS3DCoreLib;
+
+function wSoundGetTotalAudioTime(sound: wSound): Float32; cdecl; external WS3DCoreLib;
+
+function wSoundGetTotalAudioSize(sound: wSound): Int32; cdecl; external WS3DCoreLib;
+
+function wSoundGetCompressedAudioSize(sound: wSound): Int32; cdecl; external WS3DCoreLib;
+
+function wSoundGetCurrentAudioTime(sound: wSound): Float32; cdecl; external WS3DCoreLib;
+
+function wSoundGetCurrentAudioPosition(sound: wSound): Int32; cdecl; external WS3DCoreLib;
+
+function wSoundGetCurrentCompressedAudioPosition(sound: wSound): Int32; cdecl; external WS3DCoreLib;
+
+function wSoundGetNumEffectSlotsAvailable(sound: wSound): UInt32; cdecl; external WS3DCoreLib;
+
+function wSoundAddEffect(sound: wSound; slot: UInt32; effect: wSoundEffect): Boolean; cdecl; external WS3DCoreLib;
+
+procedure wSoundRemoveEffect(sound: wSound; slot: UInt32); cdecl; external WS3DCoreLib;
+
+procedure wSoundDestroyEffect(soundEffect: wSoundEffect); cdecl; external WS3DCoreLib;
+
+function wSoundCreateEffect(): wSoundEffect; cdecl; external WS3DCoreLib;
+
+function wSoundIsEffectValid(effect: wSoundEffect): Boolean; cdecl; external WS3DCoreLib;
+
+function wSoundIsEffectSupported(type_ : wSoundEffectType): Boolean; cdecl; external WS3DCoreLib;
+
+function wSoundGetMaxEffectsSupported(): UInt32; cdecl; external WS3DCoreLib;
+
+procedure wSoundSetEffectType(effect: wSoundEffect; type_: wSoundEffectType); cdecl; external WS3DCoreLib;
+
+function wSoundGetEffectType(effect: wSoundEffect): wSoundEffectType; cdecl; external WS3DCoreLib;
+
+procedure wSoundSetEffectAutowahParameters(effect: wSoundEffect; param: wAutowahParameters); cdecl; external WS3DCoreLib;
+
+procedure wSoundSetEffectChorusParameters(effect: wSoundEffect; param: wChorusParameters); cdecl; external WS3DCoreLib;
+
+procedure wSoundSetEffectCompressorParameters(effect: wSoundEffect; param: wCompressorParameters); cdecl; external WS3DCoreLib;
+
+procedure wSoundSetEffectDistortionParameters(effect: wSoundEffect; param: wDistortionParameters); cdecl; external WS3DCoreLib;
+
+procedure wSoundSetEffectEaxReverbParameters(effect: wSoundEffect; param: wEaxReverbParameters); cdecl; external WS3DCoreLib;
+
+procedure wSoundSetEffectEchoParameters(effect: wSoundEffect; param: wEchoParameters); cdecl; external WS3DCoreLib;
+
+procedure wSoundSetEffectEqualizerParameters(effect: wSoundEffect; param: wEqualizerParameters); cdecl; external WS3DCoreLib;
+
+procedure wSoundSetEffectFlangerParameters(effect: wSoundEffect; param: wFlangerParameters); cdecl; external WS3DCoreLib;
+
+procedure wSoundSetEffectFrequencyShiftParameters(effect: wSoundEffect; param: wFrequencyShiftParameters); cdecl; external WS3DCoreLib;
+
+procedure wSoundSetEffectPitchShifterParameters(effect: wSoundEffect; param: wPitchShifterParameters); cdecl; external WS3DCoreLib;
+
+procedure wSoundSetEffectReverbParameters(effect: wSoundEffect; param: wReverbParameters); cdecl; external WS3DCoreLib;
+
+procedure wSoundSetEffectRingModulatorParameters(effect: wSoundEffect; param: wRingModulatorParameters); cdecl; external WS3DCoreLib;
+
+procedure wSoundSetEffectVocalMorpherParameters(effect: wSoundEffect; param: wVocalMorpherParameters); cdecl; external WS3DCoreLib;
+
+function wSoundCreateFilter(): wSoundFilter; cdecl; external WS3DCoreLib;
+
+function wSoundIsFilterValid(filter: wSoundFilter): Boolean; cdecl; external WS3DCoreLib;
+
+function wSoundAddFilter(sound: wSound; filter: wSoundFilter): Boolean; cdecl; external WS3DCoreLib;
+
+procedure wSoundRemoveFilter(sound: wSound); cdecl; external WS3DCoreLib;
+
+procedure wSoundDestroyFilter(soundFilter: wSoundFilter); cdecl; external WS3DCoreLib;
+
+function wSoundIsFilterSupported(type_: wSoundFilterType): Boolean; cdecl; external WS3DCoreLib;
+
+procedure wSoundSetFilterType(filter: wSoundFilter; type_: wSoundFilterType); cdecl; external WS3DCoreLib;
+
+function wSoundGetFilterType(filter: wSoundFilter): wSoundFilterType; cdecl; external WS3DCoreLib;
+
+procedure wSoundSetFilterVolume(filter: wSoundFilter; volume: Float32); cdecl; external WS3DCoreLib;
+
+function wSoundGetFilterVolume(filter: wSoundFilter): Float32; cdecl; external WS3DCoreLib;
+
+procedure wSoundSetFilterHighFrequencyVolume(filter: wSoundFilter; volumeHF: Float32); cdecl; external WS3DCoreLib;
+
+function wSoundGetFilterHighFrequencyVolume(filter: wSoundFilter): Float32; cdecl; external WS3DCoreLib;
+
+procedure wSoundSetFilterLowFrequencyVolume(filter: wSoundFilter; volumeLF: Float32); cdecl; external WS3DCoreLib;
+
+function wSoundGetFilterLowFrequencyVolume(filter: wSoundFilter): Float32; cdecl; external WS3DCoreLib;
 
 
 
