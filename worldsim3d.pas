@@ -4649,7 +4649,17 @@ function wMeshGetBuffersCount(mesh: wMesh; iFrame: UInt32): UInt32; cdecl; exter
 
 function wMeshGetBuffer(mesh: wMesh; iFrame, index: UInt32): wMeshBuffer; cdecl; external WS3DCoreLib;
 
+// wMeshBuffer
 
+function wMeshBufferCreate(iVertexCount: UInt32; vVertices: PwVert;
+           iIndicesCount: UInt32; usIndices: PUInt16): wMeshBuffer; cdecl; external WS3DCoreLib;
+
+procedure wMeshBufferDestroy(buffer: wMeshBuffer); cdecl; external WS3DCoreLib;
+
+function wMeshBufferGetMaterial(buf: wMeshBuffer): wMaterial; cdecl; external WS3DCoreLib;
+
+procedure wMeshBufferAddToBatching(meshBatch: wMesh; buffer: wMeshBuffer; position,
+           rotation, scale: wVector3f); cdecl; external WS3DCoreLib;
 
 
 
