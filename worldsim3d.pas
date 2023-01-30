@@ -4754,6 +4754,19 @@ procedure wTerrainScaleDetailTexture(terrain: wNode; scale: wVector2f); cdecl; e
 
 function wTerrainGetHeight(terrain: wNode; positionXZ: wVector2f): Float32; cdecl; external WS3DCoreLib;
 
+// wTiledTerrain
+function wTiledTerrainCreate(image: wImage; tileSize: Int32; dataSize: wVector2i;
+          position, rotation, scale: wVector3f; color: wColor4s; smoothing: Int32;
+          maxLOD: Int32; patchSize: wTerrainPatchSize): wNode; cdecl; external WS3DCoreLib;
+
+procedure wTiledTerrainAddTile(terrain, neighbour: wNode;
+          edge: wTiledTerrainEdge); cdecl; external WS3DCoreLib;
+
+procedure wTiledTerrainSetTileStructure(terrain: wNode; image: wImage;
+          data: wVector2i); cdecl; external WS3DCoreLib;
+
+procedure wTiledTerrainSetTileColor(terrain: wNode; image: wImage;
+          data: wVector2i); cdecl; external WS3DCoreLib;
 
 
 
