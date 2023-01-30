@@ -4491,6 +4491,171 @@ function wShaderAddHighLevelMaterialFromFilesEx(vertexShaderProgramFileName: PCh
 	  inType, outType: wPrimitiveType; verticesOut: UInt32;
 	  materialType: wMaterialTypes; userData: Int32): PwShader; cdecl; external WS3DCoreLib;
 
+//Mesh
+procedure wMeshMakePlanarTextureMapping(mesh: wMesh; resolution: Float32); cdecl; external WS3DCoreLib;
+
+procedure wMeshMakePlanarTextureMappingAdvanced(mesh: wMesh; resolutionH,
+           resolutionV: Float32; axis: UInt8; offset: wVector3f); cdecl; external WS3DCoreLib;
+
+function wMeshLoad(const cptrFile: PChar; ToTangents: Boolean=false): wMesh; cdecl; external WS3DCoreLib;
+
+function wMeshCreate(const cptrMeshName: PChar): wMesh; cdecl; external WS3DCoreLib;
+
+procedure wMeshAddMeshBuffer(mesh: wMesh; meshBuffer: wMeshBuffer); cdecl; external WS3DCoreLib;
+
+function wMeshCreateSphere(const name: PChar; radius: Float32; polyCount: Int32;
+          isTangent: Boolean=false): wMesh; cdecl; external WS3DCoreLib;
+
+function wMeshCreateCube(const name: PChar; size: wVector3f; isTangent:
+          Boolean=false): wMesh; cdecl; external WS3DCoreLib;
+
+function wMeshCreateCylinder(const name: PChar; radius, length: Float32;
+          tesselation: UInt32; closeTop: Boolean; oblique: Float32;
+          isTangent: Boolean=false): wMesh; cdecl; external WS3DCoreLib;
+
+function wMeshCreateCone(const name: PChar; radius, length: Float32;
+          tesselation: UInt32; isTangent: Boolean=false): wMesh; cdecl; external WS3DCoreLib;
+
+function wMeshSave(mesh: wMesh; type_: wMeshFileFormat; const filename: PChar): Int32; cdecl; external WS3DCoreLib;
+
+procedure wMeshDestroy(mesh: wMesh); cdecl; external WS3DCoreLib;
+
+function wMeshSetName(mesh: wMesh; const name: PChar): Boolean; cdecl; external WS3DCoreLib;
+
+function wMeshGetName(mesh: wMesh): PChar; cdecl; external WS3DCoreLib;
+
+function wMeshGetType(mesh: wMesh): wAnimatedMeshType; cdecl; external WS3DCoreLib;
+
+{
+ When animating a mesh by "Morphing" or "Skeletal Animation" such as "*.md3", "*.x" and "*.b3d" using "Shaders" for rendering we can improve the final render if we "Cyclically Update" the "Tangents" and "Binormals"..
+ We presume that our meshes are, among others, textured with a "NORMAL MAP" used by the "Shader" (cg, hlsl, or glsl etc) in calculating diffuse and specular.
+ We also have one or more lights used by the shader.
+
+ Update TANGENTS & BINORMALS at every frame for a skinned animation..
+
+ We dont want to do this for static meshes like levels etc..
+ We also dont want to do it for Rotating, Scaled and translated meshes..(we can however, as a bonus, scale, rotate and translate these)
+ Only for animated skinned and morph based meshes..
+ This is loose code that works. If anyone can improve it for the engine itself that would be great..
+ You'll probably ID possible improvements immediately!
+
+ At every N'th Frame we loop through all the vertices..
+ 1. In the loop we Access the VERTEX of POINT A of the "INDEXED TRIANGLE"..
+ 2. We interrogate the "OTHER TWO" VERTICES (which thankfully do change at each frame) for their Positions, Normals, and UV Coords to
+    Genertate a "BRAND NEW" (animated) TANGENT and BINORMAL. (We may want to calculate the the "Binormal" in the SHADER to save time)
+ 3. We REWRITE the Tangent and Binormal for our SELECTED TRIANGLE POINT.
+ 4. We DO THE SAME for POINTS B and C..
+
+
+   GENERATE "LIVING" TANGENTS & BINBORMALS
+   REMEMBER!
+   WE NEED "LOOP THROUGH ALL ITS BUFFERS"
+   WE NEED "LOOP THROUGH ALL THOSE BUFFER VERTICES"
+  Possible types of (animated) meshes.
+  Enumerator:
+  1  EAMT_MD2            Quake 2 MD2 model file..
+  2  EAMT_MD3            Quake 3 MD3 model file..
+  10 EAMT_MDL_HALFLIFE   Halflife MDL model file..
+  Below is what an item type must be for it to qualify for Tangent Updates..
+  11 EAMT_SKINNED        generic skinned mesh "*.x" "*.b3d" etc.. (see Morphed too!)
+
+  We want to change tangents for skinned meshes only so we must determine which ones are "Skinned"..
+  This may change if we add and remove meshes during runtime..'}
+
+function wMeshCreateStaticWithTangents(animMesh: wMesh): wMesh; cdecl; external WS3DCoreLib;
+
+procedure wMeshRecalculateNormals(mesh: wMesh; smooth, angleWeighted: Boolean); cdecl; external WS3DCoreLib;
+
+procedure wMeshRecalculateTangents(mesh: wMesh; recalculateNormals, smooth,
+           angleWeighted: Boolean); cdecl; external WS3DCoreLib;
+
+procedure wMeshUpdateTangentsAndBinormals(mesh: wMesh); cdecl; external WS3DCoreLib;
+
+procedure wMeshFlipSurface(mesh: wMesh); cdecl; external WS3DCoreLib;
+
+function wMeshCreateHillPlane(const meshname: PChar; tilesSize: wVector2f;
+          tilesCount: wVector2i; material: wMaterial; hillHeight: Float32;
+          countHills: wVector2f; texRepeatCount: wVector2f): wMesh; cdecl; external WS3DCoreLib;
+
+function wMeshCreateArrow(const name: PChar; cylinderColor, coneColor: wColor4s;
+          tesselationCylinder: UInt32; tesselationCone: UInt32; height: Float32;
+          heightCylinder: Float32; widthCylinder: Float32; widthCone: Float32): wMesh; cdecl; external WS3DCoreLib;
+
+function wMeshCreateBatching(): wMesh; cdecl; external WS3DCoreLib;
+
+procedure wMeshAddToBatching(meshBatch: wMesh; mesh: wMesh; position: wVector3f;
+           rotation: wVector3f; scale: wVector3f); cdecl; external WS3DCoreLib;
+
+function wMeshFinalizeBatching(meshBatch: wMesh): wMesh; cdecl; external WS3DCoreLib;
+
+procedure wMeshClearBatching(meshBatch: wMesh); cdecl; external WS3DCoreLib;
+
+procedure wMeshDestroyBatching(meshBatch: wMesh); cdecl; external WS3DCoreLib;
+
+procedure wMeshEnableBatchingHardwareAcceleration(meshBatch: wMesh); cdecl; external WS3DCoreLib;
+
+procedure wMeshUpdateBatching(meshBatch: wMesh); cdecl; external WS3DCoreLib;
+
+procedure wMeshEnableHardwareAcceleration(mesh: wMesh; iFrame: UInt32); cdecl; external WS3DCoreLib;
+
+function wMeshGetFramesCount(mesh: wMesh): UInt32; cdecl; external WS3DCoreLib;
+
+function wMeshGetIndicesCount(mesh: wMesh; iFrame: UInt32;
+          iMeshBuffer: UInt32): UInt32; cdecl; external WS3DCoreLib;
+
+function wMeshGetIndices(mesh: wMesh; iFrame,
+          iMeshBuffer: UInt32): PUInt16; cdecl; external WS3DCoreLib;
+
+procedure wMeshSetIndices(mesh: wMesh; iFrame: UInt32; indicies: PUInt16;
+           iMeshBuffer: UInt32); cdecl; external WS3DCoreLib;
+
+function wMeshGetVerticesCount(mesh: wMesh; iFrame,
+           iMeshBuffer: UInt32): UInt32; cdecl; external WS3DCoreLib;
+
+procedure wMeshGetVertices(mesh: wMesh; iFrame: UInt32; verts: PwVert;
+           iMeshBuffer: UInt32); cdecl; external WS3DCoreLib;
+
+function wMeshGetVerticesMemory(mesh: wMesh; iFrame,
+           iMeshBuffer: UInt32): UInt32; cdecl; external WS3DCoreLib;
+
+procedure wMeshSetVertices(mesh: wMesh; iFrame: UInt32; verts: PwVert;
+           iMeshBuffer: UInt32); cdecl; external WS3DCoreLib;
+
+procedure wMeshSetScale(mesh: wMesh; scale: Float32; iFrame, iMeshBuffer: UInt32;
+           sourceMesh: wMesh); cdecl; external WS3DCoreLib;
+
+procedure wMeshSetRotation(mesh: wMesh; rot: wVector3f); cdecl; external WS3DCoreLib;
+
+procedure wMeshSetVerticesColors(mesh: wMesh; iFrame: UInt32; verticesColor: PwColor4s;
+           groupCount: UInt32; startPos, endPos: PUInt32; iMeshBuffer: UInt32); cdecl; external WS3DCoreLib;
+
+procedure wMeshSetVerticesAlpha(mesh: wMesh; iFrame: UInt32; value: UInt8); cdecl; external WS3DCoreLib;
+
+procedure wMeshSetVerticesCoords(mesh: wMesh; iFrame: UInt32; vertexCoord: PwVector3f;
+           groupCount: UInt32; startPos, endPos: PUInt32; iMeshBuffer: UInt32); cdecl; external WS3DCoreLib;
+
+procedure wMeshSetVerticesSingleColor(mesh: wMesh; iFrame: UInt32; verticesColor: wColor4s;
+           groupCount: UInt32; startPos, endPos: PUInt32; iMeshBuffer: UInt32); cdecl; external WS3DCoreLib;
+
+procedure wMeshGetBoundingBox(mesh: wMesh; min, max: PwVector3f); cdecl; external WS3DCoreLib;
+
+function wMeshDuplicate(src: wMesh): wMesh; cdecl; external WS3DCoreLib;
+
+procedure wMeshFit(src: wMesh; pivot: wVector3f; delta: PwVector3f); cdecl; external WS3DCoreLib;
+
+function wMeshIsEmpty(mesh: wMesh): Boolean; cdecl; external WS3DCoreLib;
+
+function wMeshGetBuffersCount(mesh: wMesh; iFrame: UInt32): UInt32; cdecl; external WS3DCoreLib;
+
+function wMeshGetBuffer(mesh: wMesh; iFrame, index: UInt32): wMeshBuffer; cdecl; external WS3DCoreLib;
+
+
+
+
+
+
+
+
 
 
 
