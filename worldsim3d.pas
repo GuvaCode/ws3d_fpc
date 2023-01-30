@@ -4661,6 +4661,48 @@ function wMeshBufferGetMaterial(buf: wMeshBuffer): wMaterial; cdecl; external WS
 procedure wMeshBufferAddToBatching(meshBatch: wMesh; buffer: wMeshBuffer; position,
            rotation, scale: wVector3f); cdecl; external WS3DCoreLib;
 
+// wBsp
+
+function wBspGetEntityList(mesh: wMesh): PUInt32; cdecl; external WS3DCoreLib;
+
+function wBspGetEntityListSize(entityList: PUInt32): Int32; cdecl; external WS3DCoreLib;
+
+function wBspGetEntityIndexByName(entityList: PUInt32;
+           const EntityName: PChar): wVector2i; cdecl; external WS3DCoreLib;
+
+function wBspGetEntityNameByIndex(entityList: PUInt32;
+           number: UInt32): PChar; cdecl; external WS3DCoreLib;
+
+function wBspGetEntityMeshFromBrush(bspMesh: wMesh; entityList: PUInt32;
+           index: Int32): wMesh; cdecl; external WS3DCoreLib;
+
+function wBspGetVarGroupByIndex(entityList: PUInt32; index: Int32): PUInt32; cdecl; external WS3DCoreLib;
+
+function wBspGetVarGroupSize(entityList: PUInt32; index: Int32): UInt32; cdecl; external WS3DCoreLib;
+
+function wBspGetVarGroupValueAsVec(group: PUInt32; const strName: PChar;
+          parsePos: UInt32): wVector3f; cdecl; external WS3DCoreLib;
+
+function wBspGetVarGroupValueAsFloat(group: PUInt32; const strName: PChar;
+          parsePos: UInt32): Float32; cdecl; external WS3DCoreLib;
+
+function wBspGetVarGroupValueAsString(group: PUInt32; const strName: PChar): PChar; cdecl; external WS3DCoreLib;
+
+function wBspCreateFromMesh(mesh: wMesh; isTangent, isOctree: Boolean;
+          const fileEntity: PChar; isLoadShaders: Boolean; PolysPerNode: UInt32): wNode; cdecl; external WS3DCoreLib;
+
+function wBspGetVariableFromVarGroup(group: PUInt32; index: Int32): PUInt32; cdecl; external WS3DCoreLib;
+
+function wBspGetVarGroupVariableSize(group: PUInt32): UInt32; cdecl; external WS3DCoreLib;
+
+function wBspGetVariableName(variable: PUInt32): PChar; cdecl; external WS3DCoreLib;
+
+function wBspGetVariableContent(variable: PUInt32): PChar; cdecl; external WS3DCoreLib;
+
+function wBspGetVariableValueAsVec(variable: PUInt32; parsePos: UInt32): wVector3f; cdecl; external WS3DCoreLib;
+
+function wBspGetVariableValueAsFloat(variable: PUInt32; parsePos: UInt32): Float32; cdecl; external WS3DCoreLib;
+
 
 
 
