@@ -4745,7 +4745,14 @@ function wSphericalTerrainGetSurfaceAngle(terrain: wNode; face: Int32;
 function wSphericalTerrainGetSurfaceLogicalPosition(terrain: wNode;
           position: wVector3f; face: PInt32): wVector2f; cdecl; external WS3DCoreLib;
 
+// wTerrain
+function wTerrainCreate(const cptrFile: PChar; position, rotation,
+          scale: wVector3f; color: wColor4s; smoothing: Int32; maxLOD: Int32;
+	  patchSize: wTerrainPatchSize): wNode; cdecl; external WS3DCoreLib;
 
+procedure wTerrainScaleDetailTexture(terrain: wNode; scale: wVector2f); cdecl; external WS3DCoreLib;
+
+function wTerrainGetHeight(terrain: wNode; positionXZ: wVector2f): Float32; cdecl; external WS3DCoreLib;
 
 
 
