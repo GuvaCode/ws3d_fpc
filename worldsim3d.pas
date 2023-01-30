@@ -4723,7 +4723,27 @@ procedure wOcclusionQueryRemoveAll(); cdecl; external WS3DCoreLib;
 
 function wOcclusionQueryGetResult(node: wNode): Uint32; cdecl; external WS3DCoreLib;
 
+// wSphericalTerrain
+function wSphericalTerrainCreate(const cptrFile0, cptrFile1, cptrFile2, cptrFile3,
+          cptrFile4, cptrFile5: PChar; position, rotation, scale: wVector3f;
+          color: wColor4s; smootFactor: Int32; spherical: Boolean;
+          maxLOD: Int32; patchSize: wTerrainPatchSize): wNode; cdecl; external WS3DCoreLib;
 
+procedure wSphericalTerrainSetTextures(terrain: wNode; textureTop, textureFront,
+          textureBack, textureLeft, textureRight, textureBottom: wTexture;
+          materialIndex: UInt32); cdecl; external WS3DCoreLib;
+
+procedure wSphericalTerrainLoadVertexColor(terrain: wNode; imageTop, imageFront,
+          imageBack, imageLeft, imageRight, imageBottom: wImage); cdecl; external WS3DCoreLib;
+
+function wSphericalTerrainGetSurfacePosition(terrain: wNode; face: Int32;
+          logicalPos: wVector2f): wVector3f; cdecl; external WS3DCoreLib;
+
+function wSphericalTerrainGetSurfaceAngle(terrain: wNode; face: Int32;
+          logicalPos: wVector2f): wVector3f; cdecl; external WS3DCoreLib;
+
+function wSphericalTerrainGetSurfaceLogicalPosition(terrain: wNode;
+          position: wVector3f; face: PInt32): wVector2f; cdecl; external WS3DCoreLib;
 
 
 
