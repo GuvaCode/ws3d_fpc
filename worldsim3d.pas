@@ -5113,6 +5113,53 @@ procedure wNetClientSendMessage(text: PChar); cdecl; external WS3DCoreLib;
 procedure wNetClientSendPacket(msg: wPacket); cdecl; external WS3DCoreLib;
 
 
+// wPhys
+function wPhysStart(): Boolean; cdecl; external WS3DCoreLib;
+
+procedure wPhysUpdate(timeStep: Float32); cdecl; external WS3DCoreLib;
+
+procedure wPhysStop(); cdecl; external WS3DCoreLib;
+
+procedure wPhysSetGravity(gravity: wVector3f); cdecl; external WS3DCoreLib;
+
+procedure wPhysSetWorldSize(sizeMin: wVector3f; sizeMax: wVector3f); cdecl; external WS3DCoreLib;
+
+procedure wPhysSetSolverModel(model: wPhysSolverModel); cdecl; external WS3DCoreLib;
+
+procedure wPhysSetFrictionModel(model: wPhysFrictionModel); cdecl; external WS3DCoreLib;
+
+procedure wPhysDestroyAllBodies(); cdecl; external WS3DCoreLib;
+
+procedure wPhysDestroyAllJoints(); cdecl; external WS3DCoreLib;
+
+function wPhysGetBodiesCount(): Int32; cdecl; external WS3DCoreLib;
+
+function wPhysGetJointsCount(): Int32; cdecl; external WS3DCoreLib;
+
+function wPhysGetBodyPicked(position: wVector2i; mouseLeftKey: Boolean): wNode; cdecl; external WS3DCoreLib;
+
+function wPhysGetBodyFromRay(start, end_: wVector3f): wNode; cdecl; external WS3DCoreLib;
+
+function wPhysGetBodyFromScreenCoords(position: wVector2i): wNode; cdecl; external WS3DCoreLib;
+
+function wPhysGetBodyByName(const name: PChar): wNode; cdecl; external WS3DCoreLib;
+
+function wPhysGetBodyById(Id: Int32): wNode; cdecl; external WS3DCoreLib;
+
+function wPhysGetBodyByIndex(idx: Int32): wNode; cdecl; external WS3DCoreLib;
+
+function wPhysGetJointByName(const name: PChar): wNode; cdecl; external WS3DCoreLib;
+
+function wPhysGetJointById(Id: Int32): wNode; cdecl; external WS3DCoreLib;
+
+function wPhysGetJointByIndex(idx: Int32): wNode; cdecl; external WS3DCoreLib;
+
+
+
+
+
+
+
 
 implementation
 
