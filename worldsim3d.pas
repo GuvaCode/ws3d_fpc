@@ -5276,6 +5276,12 @@ procedure wPhysJointSetCorkScrewLinearLimits(joint: wNode; distLimits: wVector2f
 
 procedure wPhysJointSetCorkScrewAngularLimits(joint: wNode; distLimits: wVector2f); cdecl; external WS3DCoreLib;
 
+// wPhysPlayerController
+function wPhysPlayerControllerCreate(position: wVector3f; body: wNode;
+           maxStairStepFactor, cushion: Float32): wNode; cdecl; external WS3DCoreLib;
+
+procedure wPhysPlayerControllerSetVelocity(joint: wNode; forwardSpeed,
+           sideSpeed, heading: Float32); cdecl; external WS3DCoreLib;
 
 
 
