@@ -5407,6 +5407,18 @@ procedure wPhysVehicleSetTireSpinForce(Car: wNode; tireIndex: Int32; value: Floa
 
 function wPhysVehicleGetTireSpinForce(Car: wNode; tireIndex: Int32): Float32; cdecl; external WS3DCoreLib;
 
+// wPhysMaterial
+function wPhysMaterialCreate(): Int32; cdecl; external WS3DCoreLib;
+
+procedure wPhysMaterialSetElasticity(matId1, matId2: Int32; Elasticity: Float32); cdecl; external WS3DCoreLib;
+
+procedure wPhysMaterialSetFriction(matId1, matId2: Int32; StaticFriction, KineticFriction: Float32); cdecl; external WS3DCoreLib;
+
+procedure wPhysMaterialSetContactSound(matId1, matId2: Int32; soundNode: wSound); cdecl; external WS3DCoreLib;
+
+procedure wPhysMaterialSetSoftness(matId1, matId2: Int32; Softness: Float32); cdecl; external WS3DCoreLib;
+
+procedure wPhysMaterialSetCollidable(matId1, matId2: Int32; isCollidable: Boolean); cdecl; external WS3DCoreLib;
 
 
 
