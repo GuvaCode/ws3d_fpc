@@ -5283,6 +5283,36 @@ function wPhysPlayerControllerCreate(position: wVector3f; body: wNode;
 procedure wPhysPlayerControllerSetVelocity(joint: wNode; forwardSpeed,
            sideSpeed, heading: Float32); cdecl; external WS3DCoreLib;
 
+// wPhysVehicle
+function wPhysVehicleCreate(tiresCount: Int32; rayCastType: wPhysVehicleType;
+          CarBody: wNode): wNode; cdecl; external WS3DCoreLib;
+
+
+
+function wPhysVehicleAddTire(Car, UserData: wNode; tireType: wPhysVehicleTireType;
+          position: wVector3f; Mass, Radius, Width, SLenght, SConst, SDamper: Float32): Int32; cdecl; external WS3DCoreLib;
+
+function wPhysVehicleGetSpeed(Car: wNode): Float32; cdecl; external WS3DCoreLib;
+
+function wPhysVehicleGetTiresCount(Car: wNode): Int32; cdecl; external WS3DCoreLib;
+
+procedure wPhysVehicleSetBrake(Car:wNode; value: Boolean); cdecl; external WS3DCoreLib;
+
+function wPhysVehicleIsBrake(Car: wNode): Boolean; cdecl; external WS3DCoreLib;
+
+function wPhysVehicleIsAllTiresCollided(Car: wNode): Boolean; cdecl; external WS3DCoreLib;
+
+function wPhysVehicleIsTireOnAir(car: wNode; tireIndex: Int32): Boolean; cdecl; external WS3DCoreLib;
+
+procedure wPhysVehicleSetSteering(Car: wNode; angle: Float32); cdecl; external WS3DCoreLib;// -1.......+1
+
+function wPhysVehicleGetSteering(Car: wNode): Float32; cdecl; external WS3DCoreLib;  // return value: -1......+1
+
+function wPhysVehicleGetBody(Car: wNode): wNode; cdecl; external WS3DCoreLib;
+
+procedure wPhysVehicleSetMotorValue(Car: wNode; value: Float32); cdecl; external WS3DCoreLib; //-1....+1
+
+function wPhysVehicleGetMotorValue(Car: wNode): Float32; cdecl; external WS3DCoreLib;
 
 
 
