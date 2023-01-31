@@ -5059,6 +5059,22 @@ function wNetPacketGetClientPtr(numPacket: Int32): Pointer; cdecl; external WS3D
 
 function wNetPacketGetClientPort(numPacket: Int32): UInt16; cdecl; external WS3DCoreLib;
 
+
+// wNetManager
+procedure wNetManagerSetVerbose(value: Boolean); cdecl; external WS3DCoreLib;
+
+procedure wNetManagerSetMessageId(newId: UInt64); cdecl; external WS3DCoreLib;
+
+function wNetManagerGetMessageId(): UInt64; cdecl; external WS3DCoreLib;
+
+procedure wNetManagerDestroyAllPackets(); cdecl; external WS3DCoreLib;
+
+function wNetManagerGetPacketsCount(): Int32; cdecl; external WS3DCoreLib;
+
+
+
+
+
 implementation
 
 
