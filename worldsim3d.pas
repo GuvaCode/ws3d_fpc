@@ -5071,7 +5071,29 @@ procedure wNetManagerDestroyAllPackets(); cdecl; external WS3DCoreLib;
 
 function wNetManagerGetPacketsCount(): Int32; cdecl; external WS3DCoreLib;
 
+// wNetServer
+function wNetServerCreate(port: UInt16; mode: Int32; maxClientsCount: Int32 = -1): Boolean; cdecl; external WS3DCoreLib;
 
+procedure wNetServerUpdate(sleepMs: Int32 = 100; countIteration: Int32 = 100;
+          maxMSecsToWait: Int32 = -1); cdecl; external WS3DCoreLib;
+
+procedure wNetServerClear(); cdecl; external WS3DCoreLib;
+
+procedure wNetServerSendPacket(destPtr: Pointer; msg: wPacket); cdecl; external WS3DCoreLib;
+
+procedure wNetServerBroadcastMessage(const text: PChar); cdecl; external WS3DCoreLib;
+
+procedure wNetServerAcceptNewConnections(value: Boolean); cdecl; external WS3DCoreLib;
+
+procedure wNetServerStop(msTime: Int32 = 100); cdecl; external WS3DCoreLib;
+
+function wNetServerGetClientsCount(): Int32; cdecl; external WS3DCoreLib;
+
+procedure wNetServerKickClient(clientPtr: Pointer); cdecl; external WS3DCoreLib;
+
+procedure wNetServerUnKickClient(clientPtr: Pointer); cdecl; external WS3DCoreLib;
+
+procedure wNetServerClearBannedList(); cdecl; external WS3DCoreLib;
 
 
 
