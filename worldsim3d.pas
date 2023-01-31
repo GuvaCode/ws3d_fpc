@@ -5002,6 +5002,32 @@ function wVideoGetQuality(player: wVideo): Int32; cdecl; external WS3DCoreLib;
 
 procedure wVideoDestroy(player: wVideo); cdecl; external WS3DCoreLib;
 
+// wDecal
+
+function wDecalCreateFromRay(texture: wTexture; startRay, endRay: wVector3f;
+          dimension, textureRotation, lifeTime, visibleDistance: Float32): wNode; cdecl; external WS3DCoreLib;
+
+function wDecalCreateFromPoint(texture: wTexture; position, normal: wVector3f;
+          dimension, textureRotation, visibleDistance: Float32): wNode; cdecl; external WS3DCoreLib;
+
+function wDecalGetLifeTime(node: wNode): Float32; cdecl; external WS3DCoreLib;
+
+procedure wDecalSetLifeTime(node: wNode; lifeTime: Float32); cdecl; external WS3DCoreLib;
+
+function wDecalGetMaxVisibleDistance(node: wNode): Float32; cdecl; external WS3DCoreLib;
+
+procedure wDecalSetMaxVisibleDistance(node: wNode; distance: Float32); cdecl; external WS3DCoreLib;
+
+procedure wDecalSetFadeOutParams(node: wNode; isfadeOut: Boolean; time: Float32); cdecl; external WS3DCoreLib;
+
+procedure wDecalsClear(); cdecl; external WS3DCoreLib;
+
+procedure wDecalsDestroyAll(); cdecl; external WS3DCoreLib;
+
+procedure wDecalsCombineAll(); cdecl; external WS3DCoreLib;
+
+function wDecalsGetCount(): Int32; cdecl; external WS3DCoreLib;
+
 
 
 implementation
