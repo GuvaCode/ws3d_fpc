@@ -5095,6 +5095,23 @@ procedure wNetServerUnKickClient(clientPtr: Pointer); cdecl; external WS3DCoreLi
 
 procedure wNetServerClearBannedList(); cdecl; external WS3DCoreLib;
 
+// wNetClient
+function wNetClientCreate(address: PChar; port: UInt16; mode: Int32;
+          maxMSecsToWait: Int32 = 500): Boolean; cdecl; external WS3DCoreLib;
+
+procedure wNetClientUpdate(maxMessagesToProcess: Int32 = 100;
+           countIteration: Int32 = 100; maxMSecsToWait: Int32 = -1); cdecl; external WS3DCoreLib;
+
+procedure wNetClientDisconnect(maxMSecsToWait: Int32 = 500); cdecl; external WS3DCoreLib;
+
+procedure wNetClientStop(maxMSecsToWait: Int32 = 500); cdecl; external WS3DCoreLib;
+
+function wNetClientIsConnected(): Boolean; cdecl; external WS3DCoreLib;
+
+procedure wNetClientSendMessage(text: PChar); cdecl; external WS3DCoreLib;
+
+procedure wNetClientSendPacket(msg: wPacket); cdecl; external WS3DCoreLib;
+
 
 
 implementation
