@@ -5155,6 +5155,98 @@ function wPhysGetJointById(Id: Int32): wNode; cdecl; external WS3DCoreLib;
 function wPhysGetJointByIndex(idx: Int32): wNode; cdecl; external WS3DCoreLib;
 
 
+// wPhysBody
+function wPhysBodyCreateNull(): wNode; cdecl; external WS3DCoreLib;
+
+function wPhysBodyCreateCube(size: wVector3f; Mass: Float32): wNode; cdecl; external WS3DCoreLib;
+
+function wPhysBodyCreateSphere(radius: wVector3f; Mass: Float32): wNode; cdecl; external WS3DCoreLib;
+
+function wPhysBodyCreateCone(radius, height, mass: Float32; Offset: Boolean): wNode; cdecl; external WS3DCoreLib;
+
+function wPhysBodyCreateCylinder(radius, height, mass: Float32; Offset: Boolean): wNode; cdecl; external WS3DCoreLib;
+
+function wPhysBodyCreateCapsule(radius, height, mass: Float32; Offset: Boolean = false): wNode; cdecl; external WS3DCoreLib;
+
+function wPhysBodyCreateHull(mesh: wNode; mass: Float32): wNode; cdecl; external WS3DCoreLib;
+
+function wPhysBodyCreateTree(mesh: wNode): wNode; cdecl; external WS3DCoreLib;
+
+function wPhysBodyCreateTreeBsp(mesh: wMesh; node: wNode): wNode; cdecl; external WS3DCoreLib;
+
+function wPhysBodyCreateTerrain(mesh: wNode; LOD: Int32): wNode; cdecl; external WS3DCoreLib;
+
+function wPhysBodyCreateHeightField(mesh: wNode): wNode; cdecl; external WS3DCoreLib;
+
+function wPhysBodyCreateWaterSurface(size: wVector3f; FluidDensity,
+           LinearViscosity, AngulaViscosity: Float32): wNode; cdecl; external WS3DCoreLib;
+
+function wPhysBodyCreateCompound(nodes: PwNode; CountNodes: Int32; mass: Float32): wNode; cdecl; external WS3DCoreLib;
+
+function wPhysBodyGetRotation(body: wNode): wVector3f; cdecl; external WS3DCoreLib;
+
+procedure wPhysBodySetName(body: wNode; const name: PChar); cdecl; external WS3DCoreLib;
+
+function wPhysBodyGetName(body: wNode): PChar; cdecl; external WS3DCoreLib;
+
+procedure wPhysBodySetFreeze(body: wNode; freeze: Boolean); cdecl; external WS3DCoreLib;
+
+function wPhysBodyIsFreeze(body: wNode): Boolean; cdecl; external WS3DCoreLib;
+
+procedure wPhysBodySetMaterial(body: wNode; MatId: Int32); cdecl; external WS3DCoreLib;
+
+function wPhysBodyGetMaterial(body: wNode): Int32; cdecl; external WS3DCoreLib;
+
+procedure wPhysBodySetGravity(body: wNode; gravity: wVector3f); cdecl; external WS3DCoreLib;
+
+function wPhysBodyGetGravity(body: wNode): wVector3f; cdecl; external WS3DCoreLib;
+
+procedure wPhysBodySetMass(body: wNode; NewMass: Float32); cdecl; external WS3DCoreLib;
+
+function wPhysBodyGetMass(body: wNode): Float32; cdecl; external WS3DCoreLib;
+
+procedure wPhysBodySetCenterOfMass(body: wNode; center: wVector3f); cdecl; external WS3DCoreLib;
+
+function wPhysBodyGetCenterOfMass(body: wNode): wVector3f; cdecl; external WS3DCoreLib;
+
+procedure wPhysBodySetMomentOfInertia(body: wNode; value: wVector3f); cdecl; external WS3DCoreLib;
+
+function wPhysBodyGetMomentOfInertia(body: wNode): wVector3f; cdecl; external WS3DCoreLib;
+
+procedure wPhysBodySetAutoSleep(body: wNode; value: Boolean); cdecl; external WS3DCoreLib;
+
+function wPhysBodyIsAutoSleep(body: wNode): Boolean; cdecl; external WS3DCoreLib;
+
+procedure wPhysBodySetLinearVelocity(body: wNode; velocity: wVector3f); cdecl; external WS3DCoreLib;
+
+function wPhysBodyGetLinearVelocity(body: wNode): wVector3f; cdecl; external WS3DCoreLib;
+
+procedure wPhysBodySetAngularVelocity(body: wNode; velocity: wVector3f); cdecl; external WS3DCoreLib;
+
+function wPhysBodyGetAngularVelocity(body: wNode): wVector3f; cdecl; external WS3DCoreLib;
+
+procedure wPhysBodySetLinearDamping(body: wNode; linearDamp: Float32); cdecl; external WS3DCoreLib;
+
+function wPhysBodyGetLinearDamping(body: wNode): Float32; cdecl; external WS3DCoreLib;
+
+procedure wPhysBodySetAngularDamping(body: wNode; damping: wVector3f); cdecl; external WS3DCoreLib;
+
+function wPhysBodyGetAngularDamping(body: wNode): wVector3f; cdecl; external WS3DCoreLib;
+
+procedure wPhysBodyAddImpulse(body: wNode; velosity, position: wVector3f); cdecl; external WS3DCoreLib;
+
+procedure wPhysBodyAddForce(body: wNode; force: wVector3f); cdecl; external WS3DCoreLib;
+
+procedure wPhysBodyAddTorque(body: wNode; torque: wVector3f); cdecl; external WS3DCoreLib;
+
+function wPhysBodiesIsCollide(body1, body2: wNode): Boolean; cdecl; external WS3DCoreLib;
+
+function wPhysBodiesGetCollisionPoint(body1, body2: wNode): wVector3f; cdecl; external WS3DCoreLib;
+
+function wPhysBodiesGetCollisionNormal(body1, body2: wNode): wVector3f; cdecl; external WS3DCoreLib;
+
+procedure wPhysBodyDraw(body: wNode); cdecl; external WS3DCoreLib;
+
 
 
 
