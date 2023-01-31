@@ -5247,6 +5247,35 @@ function wPhysBodiesGetCollisionNormal(body1, body2: wNode): wVector3f; cdecl; e
 
 procedure wPhysBodyDraw(body: wNode); cdecl; external WS3DCoreLib;
 
+// wPhysJoint
+function wPhysJointCreateBall(position, pinDir: wVector3f; body1, body2: wNode): wNode; cdecl; external WS3DCoreLib;
+
+function wPhysJointCreateHinge(position, pinDir: wVector3f; body1, body2: wNode): wNode; cdecl; external WS3DCoreLib;
+
+function wPhysJointCreateSlider(position, pinDir: wVector3f; body1, body2: wNode): wNode; cdecl; external WS3DCoreLib;
+
+function wPhysJointCreateCorkScrew(position, pinDir: wVector3f; body1, body2: wNode): wNode; cdecl; external WS3DCoreLib;
+
+function wPhysJointCreateUpVector(position: wVector3f; body: wNode): wNode; cdecl; external WS3DCoreLib;
+
+procedure wPhysJointSetName(joint: wNode; const name: PChar); cdecl; external WS3DCoreLib;
+
+function wPhysJointGetName(joint: wNode): PChar; cdecl; external WS3DCoreLib;
+
+procedure wPhysJointSetCollisionState(joint: wNode; isCollision: Boolean); cdecl; external WS3DCoreLib;
+
+function wPhysJointIsCollision(Joint: wNode): Boolean; cdecl; external WS3DCoreLib;
+
+procedure wPhysJointSetBallLimits(joint: wNode; MaxConeAngle: Float32; twistAngles: wVector2f); cdecl; external WS3DCoreLib;
+
+procedure wPhysJointSetHingeLimits(joint: wNode; anglesLimits: wVector2f); cdecl; external WS3DCoreLib;
+
+procedure wPhysJointSetSliderLimits(joint: wNode; anglesLimits: wVector2f); cdecl; external WS3DCoreLib;
+
+procedure wPhysJointSetCorkScrewLinearLimits(joint: wNode; distLimits: wVector2f); cdecl; external WS3DCoreLib;
+
+procedure wPhysJointSetCorkScrewAngularLimits(joint: wNode; distLimits: wVector2f); cdecl; external WS3DCoreLib;
+
 
 
 
