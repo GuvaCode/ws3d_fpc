@@ -5314,6 +5314,98 @@ procedure wPhysVehicleSetMotorValue(Car: wNode; value: Float32); cdecl; external
 
 function wPhysVehicleGetMotorValue(Car: wNode): Float32; cdecl; external WS3DCoreLib;
 
+// Vehicle Tires
+procedure wPhysVehicleSetTireMaxSteerAngle(Car: wNode; tireIndex: Int32; angleDeg: Float32); cdecl; external WS3DCoreLib;
+
+function wPhysVehicleGetTireMaxSteerAngle(Car: wNode; tireIndex: Int32): Float32; cdecl; external WS3DCoreLib;
+
+function wPhysVehicleGetTireLocalPosition(Car: wNode; tireIndex: Int32): wVector3f; cdecl; external WS3DCoreLib;
+
+function wPhysVehicleGetTireUpDownPosition(Car: wNode; tireIndex: Int32): Float32; cdecl; external WS3DCoreLib;
+
+function wPhysVehicleGetTireAngularVelocity(Car: wNode; tireIndex: Int32): Float32; cdecl; external WS3DCoreLib;
+
+function wPhysVehicleGetTireSpeed(Car: wNode; tireIndex: Int32): Float32; cdecl; external WS3DCoreLib;
+
+function wPhysVehicleGetTireContactPoint(Car: wNode; tireIndex: Int32): wVector3f; cdecl; external WS3DCoreLib;
+
+function wPhysVehicleGetTireContactNormal(Car: wNode; tireIndex: Int32): wVector3f; cdecl; external WS3DCoreLib;
+
+function wPhysVehicleIsTireBrake(Car: wNode; tireIndex: Int32): Boolean; cdecl; external WS3DCoreLib;
+
+function wPhysVehicleGetTireType(Car: wNode; tireIndex: Int32): wPhysVehicleTireType; cdecl; external WS3DCoreLib;
+
+procedure wPhysVehicleSetTireType(Car: wNode; tireIndex: Int32; tireType: wPhysVehicleTireType); cdecl; external WS3DCoreLib;
+
+procedure wPhysVehicleSetTireBrakeForce(Car: wNode; tireIndex: Int32; value: Float32); cdecl; external WS3DCoreLib;
+
+function wPhysVehicleGetTireBrakeForce(Car: wNode; tireIndex: Int32): Float32; cdecl; external WS3DCoreLib;
+
+procedure wPhysVehicleSetTireBrakeLateralFriction(Car: wNode; tireIndex: Int32; value: Float32); cdecl; external WS3DCoreLib;
+
+function wPhysVehicleGetTireBrakeLateralFriction(Car: wNode; tireIndex: Int32): Float32; cdecl; external WS3DCoreLib;
+
+procedure wPhysVehicleSetTireBrakeLongitudinalFriction(Car: wNode; tireIndex: Int32; value: Float32); cdecl; external WS3DCoreLib;
+
+function wPhysVehicleGetTireBrakeLongitudinalFriction(Car: wNode; tireIndex: Int32): Float32; cdecl; external WS3DCoreLib;
+
+procedure wPhysVehicleSetTireLateralFriction(Car: wNode; tireIndex: Int32; value: Float32); cdecl; external WS3DCoreLib;
+
+function wPhysVehicleGetTireLateralFriction(Car: wNode; tireIndex: Int32): Float32; cdecl; external WS3DCoreLib;
+
+procedure wPhysVehicleSetTireLongitudinalFriction(Car: wNode; tireIndex: Int32; value: Float32); cdecl; external WS3DCoreLib;
+
+function wPhysVehicleGetTireLongitudinalFriction(Car: wNode; tireIndex: Int32): Float32; cdecl; external WS3DCoreLib;
+
+procedure wPhysVehicleSetTireMass(Car: wNode; tireIndex: Int32; mass: Float32); cdecl; external WS3DCoreLib;
+
+function wPhysVehicleGetTireMass(Car: wNode; tireIndex: Int32): Float32; cdecl; external WS3DCoreLib;
+
+procedure wPhysVehicleSetTireRadius(Car: wNode; tireIndex: Int32; radius: Float32); cdecl; external WS3DCoreLib;
+
+function wPhysVehicleGetTireRadius(Car: wNode; tireIndex: Int32): Float32; cdecl; external WS3DCoreLib;
+
+procedure wPhysVehicleSetTireWidth(Car: wNode; tireIndex: Int32; width: Float32); cdecl; external WS3DCoreLib;
+
+function wPhysVehicleGetTireWidth(Car: wNode; tireIndex: Int32): Float32; cdecl; external WS3DCoreLib;
+
+procedure wPhysVehicleSetTireSpringConst(Car: wNode; tireIndex: Int32; value: Float32); cdecl; external WS3DCoreLib;
+
+function wPhysVehicleGetTireSpringConst(Car: wNode; tireIndex: Int32): Float32; cdecl; external WS3DCoreLib;
+
+procedure wPhysVehicleSetTireSpringDamper(Car: wNode; tireIndex: Int32; value: Float32); cdecl; external WS3DCoreLib;
+
+function wPhysVehicleGetTireSpringDamper(Car: wNode; tireIndex: Int32): Float32; cdecl; external WS3DCoreLib;
+
+procedure wPhysVehicleSetTireSuspensionLenght(Car: wNode; tireIndex: Int32; value: Float32); cdecl; external WS3DCoreLib;
+
+function wPhysVehicleGetTireSuspensionLenght(Car: wNode; tireIndex: Int32): Float32; cdecl; external WS3DCoreLib;
+
+procedure wPhysVehicleSetTireUserData(Car: wNode; tireIndex: Int32; userData: wNode); cdecl; external WS3DCoreLib;
+
+function wPhysVehicleGetTireUserData(Car: wNode; tireIndex: Int32): wNode; cdecl; external WS3DCoreLib;
+
+procedure wPhysVehicleSetTireMotorForce(Car: wNode; tireIndex: Int32; value: Float32); cdecl; external WS3DCoreLib;
+
+function wPhysVehicleGetTireMotorForce(Car: wNode; tireIndex: Int32): Float32; cdecl; external WS3DCoreLib;
+
+procedure wPhysVehicleSetTireTurnForceHelper(Car: wNode; tireIndex: Int32; value: Float32); cdecl; external WS3DCoreLib;
+
+function wPhysVehicleGetTireTurnForceHelper(Car: wNode; tireIndex: Int32): Float32; cdecl; external WS3DCoreLib;
+
+procedure wPhysVehicleSetTireSpinTorqueFactor(Car: wNode; tireIndex: Int32; value: Float32); cdecl; external WS3DCoreLib;
+
+function wPhysVehicleGetTireSpinTorqueFactor(Car: wNode; tireIndex: Int32): Float32; cdecl; external WS3DCoreLib;
+
+procedure wPhysVehicleSetTireTorquePosition(Car: wNode; tireIndex: Int32; position: wVector3f); cdecl; external WS3DCoreLib;
+
+function wPhysVehicleGetTireTorquePosition(Car: wNode; tireIndex: Int32): wVector3f; cdecl; external WS3DCoreLib;
+
+function wPhysVehicleGetTireLoad(Car: wNode; tireIndex: Int32): Float32; cdecl; external WS3DCoreLib;
+
+procedure wPhysVehicleSetTireSpinForce(Car: wNode; tireIndex: Int32; value: Float32); cdecl; external WS3DCoreLib;
+
+function wPhysVehicleGetTireSpinForce(Car: wNode; tireIndex: Int32): Float32; cdecl; external WS3DCoreLib;
 
 
 
