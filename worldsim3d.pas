@@ -4962,12 +4962,45 @@ procedure wSoundSetFilterLowFrequencyVolume(filter: wSoundFilter; volumeLF: Floa
 
 function wSoundGetFilterLowFrequencyVolume(filter: wSoundFilter): Float32; cdecl; external WS3DCoreLib;
 
+// wVideo
 
+function wVideoLoad(const fileName: PChar): wVideo; cdecl; external WS3DCoreLib;
 
+procedure wVideoPlay(player: wVideo); cdecl; external WS3DCoreLib;
 
+function wVideoIsPlaying(player: wVideo): Boolean; cdecl; external WS3DCoreLib;
 
+procedure wVideoRewind(player: wVideo); cdecl; external WS3DCoreLib;
 
+procedure wVideoSetLoopMode(player: wVideo; looping: Boolean); cdecl; external WS3DCoreLib;
 
+function wVideoIsLooping(player: wVideo): Boolean; cdecl; external WS3DCoreLib;
+
+function wVideoCreateTargetImage(player: wVideo; position: wVector2i): wGuiObject; cdecl; external WS3DCoreLib;
+
+function wVideoGetTargetTexture(player: wVideo): wTexture; cdecl; external WS3DCoreLib;
+
+function wVideoGetSoundNode(player: wVideo): wSound; cdecl; external WS3DCoreLib;
+
+procedure wVideoUpdate(player: wVideo; timeMs: UInt32); cdecl; external WS3DCoreLib;
+
+procedure wVideoPause(player: wVideo); cdecl; external WS3DCoreLib;
+
+function wVideoIsPaused(player: wVideo): Boolean; cdecl; external WS3DCoreLib;
+
+function wVideoIsAtEnd(player: wVideo): Boolean; cdecl; external WS3DCoreLib;
+
+function wVideoIsEmpty(player: wVideo): Boolean; cdecl; external WS3DCoreLib;
+
+function wVideoGetFramePosition(player: wVideo): Int64; cdecl; external WS3DCoreLib;
+
+function wVideoGetTimePosition(player: wVideo): UInt32; cdecl; external WS3DCoreLib;
+
+function wVideoGetFrameSize(player: wVideo): wVector2i; cdecl; external WS3DCoreLib;
+
+function wVideoGetQuality(player: wVideo): Int32; cdecl; external WS3DCoreLib;
+
+procedure wVideoDestroy(player: wVideo); cdecl; external WS3DCoreLib;
 
 
 
