@@ -5904,7 +5904,14 @@ procedure wGuiFaderFadeOut(fader: wGuiObject; timeMs: UInt32); cdecl; external W
 
 function wGuiFaderIsReady(fader: wGuiObject): Boolean; cdecl; external WS3DCoreLib;
 
+// wGuiFileOpenDialog
+function wGuiFileOpenDialogCreate(const wcptrLabel: Pwstring; modal: Boolean): wGuiObject; cdecl; external WS3DCoreLib;
 
+function wGuiFileOpenDialogGetFile(dialog: wGuiObject): Pwstring; cdecl; external WS3DCoreLib;
+
+function wGuiFileOpenDialogGetDirectory(dialog: wGuiObject): PChar; cdecl; external WS3DCoreLib;
+
+function wGuiFileOpenDialogGetDirectoryW(dialog: wGuiObject): Pwstring; cdecl; external WS3DCoreLib;
 
 
 
