@@ -5593,6 +5593,27 @@ function wGuiSkinGetIcon(skin: wGuiObject; icn: wGuiDefaultIcon): UInt32; cdecl;
 
 function wGuiSkinGetType(skin: wGuiObject): wGuiSkinSpace; cdecl; external WS3DCoreLib;
 
+// wGuiWindow
+function wGuiWindowCreate(const wcptrTitle: Pwstring; minPos, maxPos: wVector2i;
+          modal: Boolean): wGuiObject; cdecl; external WS3DCoreLib;
+
+function wGuiWindowGetButtonClose(win: wGuiObject): wGuiObject; cdecl; external WS3DCoreLib;
+
+function wGuiWindowGetButtonMinimize(win: wGuiObject): wGuiObject; cdecl; external WS3DCoreLib;
+
+function wGuiWindowGetButtonMaximize(win: wGuiObject): wGuiObject; cdecl; external WS3DCoreLib;
+
+procedure wGuiWindowSetDraggable(win: wGuiObject; value: Boolean); cdecl; external WS3DCoreLib;
+
+function wGuiWindowIsDraggable(win: wGuiObject): Boolean; cdecl; external WS3DCoreLib;
+
+function wGuiWindowIsDrawBackground(win: wGuiObject): Boolean; cdecl; external WS3DCoreLib;
+
+procedure wGuiWindowSetDrawTitleBar(win: wGuiObject; value: Boolean); cdecl; external WS3DCoreLib;
+
+function wGuiWindowIsDrawTitleBar(win: wGuiObject): Boolean; cdecl; external WS3DCoreLib;
+
+procedure wGuiWindowSetDrawBackground(win: wGuiObject; value: Boolean); cdecl; external WS3DCoreLib;
 
 
 
