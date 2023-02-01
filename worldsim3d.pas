@@ -5615,6 +5615,43 @@ function wGuiWindowIsDrawTitleBar(win: wGuiObject): Boolean; cdecl; external WS3
 
 procedure wGuiWindowSetDrawBackground(win: wGuiObject; value: Boolean); cdecl; external WS3DCoreLib;
 
+// wGuiLabel
+function wGuiLabelCreate(const wcptrText: Pwstring; minPos, maxPos: wVector2i;
+          boBorder: Boolean = false; boWordWrap: Boolean = true): wGuiObject; cdecl; external WS3DCoreLib;
+
+function wGuiLabelGetTextSize(txt: wGuiObject): wVector2i; cdecl; external WS3DCoreLib;
+
+procedure wGuiLabelSetOverrideFont(txt: wGuiObject; font: wFont); cdecl; external WS3DCoreLib;
+
+function wGuiLabelGetOverrideFont(txt: wGuiObject): wFont; cdecl; external WS3DCoreLib;
+
+function wGuiLabelGetActiveFont(txt: wGuiObject): wFont; cdecl; external WS3DCoreLib;
+
+procedure wGuiLabelEnableOverrideColor(txt: wGuiObject; value: Boolean); cdecl; external WS3DCoreLib;
+
+function wGuiLabelIsOverrideColor(txt: wGuiObject): Boolean; cdecl; external WS3DCoreLib;
+
+procedure wGuiLabelSetOverrideColor(txt: wGuiObject; color: wColor4s); cdecl; external WS3DCoreLib;
+
+function wGuiLabelGetOverrideColor(txt: wGuiObject): wColor4s; cdecl; external WS3DCoreLib;
+
+procedure wGuiLabelSetDrawBackground(txt: wGuiObject; value: Boolean); cdecl; external WS3DCoreLib;
+
+function wGuiLabelIsDrawBackGround(txt: wGuiObject): Boolean; cdecl; external WS3DCoreLib;
+
+procedure wGuiLabelSetDrawBorder(txt: wGuiObject; value: Boolean); cdecl; external WS3DCoreLib;
+
+function wGuiLabelIsDrawBorder(txt: wGuiObject): Boolean; cdecl; external WS3DCoreLib;
+
+procedure wGuiLabelSetTextAlignment(txt: wGuiObject; Horizontalvalue, Verticalvalue: wGuiAlignment); cdecl; external WS3DCoreLib;
+
+procedure wGuiLabelSetWordWrap(txt: wGuiObject; value: Boolean); cdecl; external WS3DCoreLib;
+
+function wGuiLabelIsWordWrap(txt: wGuiObject): Boolean; cdecl; external WS3DCoreLib;
+
+procedure wGuiLabelSetBackgroundColor(txt: wGuiObject; color1: wColor4s); cdecl; external WS3DCoreLib;
+
+function wGuiLabelGetBackgroundColor(txt: wGuiObject): wColor4s; cdecl; external WS3DCoreLib;
 
 
 
