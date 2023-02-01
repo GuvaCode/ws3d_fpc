@@ -5420,6 +5420,36 @@ procedure wPhysMaterialSetSoftness(matId1, matId2: Int32; Softness: Float32); cd
 
 procedure wPhysMaterialSetCollidable(matId1, matId2: Int32; isCollidable: Boolean); cdecl; external WS3DCoreLib;
 
+// wGui
+procedure wGuiDrawAll(); cdecl; external WS3DCoreLib;
+
+procedure wGuiDestroyAll(); cdecl; external WS3DCoreLib;
+
+function wGuiIsEventAvailable(): Boolean; cdecl; external WS3DCoreLib;
+
+function wGuiReadEvent(): PwGuiEvent; cdecl; external WS3DCoreLib;
+
+function wGuiLoad(const fileName: PChar; start: wGuiObject): Boolean; cdecl; external WS3DCoreLib;
+
+function wGuiSave(const fileName: PChar; start: wGuiObject): Boolean; cdecl; external WS3DCoreLib;
+
+function wGuiGetSkin(): wGuiObject; cdecl; external WS3DCoreLib;
+
+procedure wGuiSetSkin(skin: wGuiObject); cdecl; external WS3DCoreLib;
+
+Function wGuiGetLastSelectedFile(): PWString; cdecl; external WS3DCoreLib;
+
+function wGuiGetLastSelectedDirectory(): PChar; cdecl; external WS3DCoreLib;
+
+function wGuiGetObjectFocused(): wGuiObject; cdecl; external WS3DCoreLib;
+
+function wGuiGetObjectHovered(): wGuiObject; cdecl; external WS3DCoreLib;
+
+function wGuiGetRootNode(): wGuiObject; cdecl; external WS3DCoreLib;
+
+function wGuiGetObjectById(id: Int32; searchchildren: Boolean): wGuiObject; cdecl; external WS3DCoreLib;
+
+function wGuiGetObjectByName(const name: PChar; searchchildren: Boolean): wGuiObject; cdecl; external WS3DCoreLib;
 
 
 implementation
