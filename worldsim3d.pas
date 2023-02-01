@@ -5653,6 +5653,55 @@ procedure wGuiLabelSetBackgroundColor(txt: wGuiObject; color1: wColor4s); cdecl;
 
 function wGuiLabelGetBackgroundColor(txt: wGuiObject): wColor4s; cdecl; external WS3DCoreLib;
 
+// wGuiButton
+function wGuiButtonCreate(minPos, maxPos: wVector2i; const wcptrLabel, wcptrTip: Pwstring): wGuiObject; cdecl; external WS3DCoreLib;
+
+procedure wGuiButtonSetImage(btn: wGuiObject; img: wTexture); cdecl; external WS3DCoreLib;
+
+procedure wGuiButtonSetImageFromRect(btn: wGuiObject; img: wTexture; minRect, maxRect: PwVector2i); cdecl; external WS3DCoreLib;
+
+procedure wGuiButtonSetPressedImage(btn: wGuiObject; img: wTexture); cdecl; external WS3DCoreLib;
+
+procedure wGuiButtonSetPressedImageFromRect(btn: wGuiObject; img: wTexture;
+          minRect, maxRect: PwVector2i); cdecl; external WS3DCoreLib;
+
+procedure wGuiButtonSetSpriteBank(btn: wGuiObject; bank: wGuiObject); cdecl; external WS3DCoreLib;
+
+procedure wGuiButtonSetSprite(btn: wGuiObject; state: wGuiButtonState; index: Int32;
+           color: wColor4s; loop: Boolean); cdecl; external WS3DCoreLib;
+
+procedure wGuiButtonSetPush(btn: wGuiObject; value: Boolean); cdecl; external WS3DCoreLib;
+
+function wGuiButtonIsPushed(btn: wGuiObject): Boolean; cdecl; external WS3DCoreLib;
+
+procedure wGuiButtonSetPressed(btn: wGuiObject; value: Boolean); cdecl; external WS3DCoreLib;
+
+function wGuiButtonIsPressed(btn: wGuiObject): Boolean; cdecl; external WS3DCoreLib;
+
+procedure wGuiButtonUseAlphaChannel(btn: wGuiObject; value: Boolean); cdecl; external WS3DCoreLib;
+
+function wGuiButtonIsUsedAlphaChannel(btn: wGuiObject): Boolean; cdecl; external WS3DCoreLib;
+
+procedure wGuiButtonEnableScaleImage(btn: wGuiObject; value: Boolean); cdecl; external WS3DCoreLib;
+
+function wGuiButtonIsScaledImage(btn: wGuiObject): Boolean; cdecl; external WS3DCoreLib;
+
+procedure wGuiButtonSetOverrideFont(btn: wGuiObject; font: wFont); cdecl; external WS3DCoreLib;
+
+function wGuiButtonGetOverrideFont(btn: wGuiObject): wFont; cdecl; external WS3DCoreLib;
+
+function wGuiButtonGetActiveFont(btn: wGuiObject): wFont; cdecl; external WS3DCoreLib;
+
+procedure wGuiButtonSetDrawBorder(btn: wGuiObject; value: Boolean); cdecl; external WS3DCoreLib;
+
+function wGuiButtonIsDrawBorder(btn: wGuiObject): Boolean; cdecl; external WS3DCoreLib;
+
+
+
+
+
+
+
 
 
 implementation
