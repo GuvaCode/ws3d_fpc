@@ -5564,6 +5564,36 @@ procedure wGuiObjectReadFromXml(node: wGuiObject; reader: wXmlReader); cdecl; ex
 
 procedure wGuiObjectWriteToXml(node: wGuiObject; writer: wXmlWriter); cdecl; external WS3DCoreLib;
 
+// wGuiSkin
+function wGuiSkinCreate(type_: wGuiSkinSpace): wGuiObject; cdecl; external WS3DCoreLib;
+
+function wGuiSkinGetColor(skin: wGuiObject; elementType: wGuiDefaultColor): wColor4s; cdecl; external WS3DCoreLib;
+
+procedure wGuiSkinSetColor(skin: wGuiObject; elementType: wGuiDefaultColor; color: wColor4s); cdecl; external WS3DCoreLib;
+
+procedure wGuiSkinSetSize(skin: wGuiObject; sizeType: wGuiDefaultSize; newSize: Int32); cdecl; external WS3DCoreLib;
+
+function wGuiSkinGetSize(skin: wGuiObject; sizeType: wGuiDefaultSize): Int32; cdecl; external WS3DCoreLib;
+
+function wGuiSkinGetDefaultText(skin: wGuiObject; txt: wGuiDefaultText): Pwstring; cdecl; external WS3DCoreLib;
+
+procedure wGuiSkinSetDefaultText(skin: wGuiObject; txt: wGuiDefaultText; const newText: Pwstring); cdecl; external WS3DCoreLib;
+
+procedure wGuiSkinSetFont(skin: wGuiObject; font: wFont; fntType: wGuiDefaultFont = wGDF_DEFAULT); cdecl; external WS3DCoreLib;
+
+function wGuiSkinGetFont(skin: wGuiObject; fntType: wGuiDefaultFont = wGDF_DEFAULT): wFont; cdecl; external WS3DCoreLib;
+
+procedure wGuiSkinSetSpriteBank(skin: wGuiObject; bank: wGuiObject); cdecl; external WS3DCoreLib;
+
+function wGuiSkinGetSpriteBank(skin: wGuiObject): wGuiObject; cdecl; external WS3DCoreLib;
+
+procedure wGuiSkinSetIcon(skin: wGuiObject; icn: wGuiDefaultIcon; index: UInt32); cdecl; external WS3DCoreLib;
+
+function wGuiSkinGetIcon(skin: wGuiObject; icn: wGuiDefaultIcon): UInt32; cdecl; external WS3DCoreLib;
+
+function wGuiSkinGetType(skin: wGuiObject): wGuiSkinSpace; cdecl; external WS3DCoreLib;
+
+
 
 
 
