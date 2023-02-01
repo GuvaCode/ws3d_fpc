@@ -5940,6 +5940,67 @@ function wGuiComboBoxGetMaxSelectionRows(combo: wGuiObject): UInt32; cdecl; exte
 
 procedure wGuiComboBoxSetTextAlignment(combo: wGuiObject; Horizontalvalue, Verticalvalue: wGuiAlignment); cdecl; external WS3DCoreLib;
 
+// wGuiContextMenu
+function wGuiContextMenuCreate(minPos, maxPos: wVector2i): wGuiObject; cdecl; external WS3DCoreLib;
+
+procedure wGuiContextMenuSetCloseHandling(cmenu: wGuiObject; onClose: wContextMenuClose); cdecl; external WS3DCoreLib;
+
+function wGuiContextMenuGetCloseHandling(cmenu: wGuiObject): wContextMenuClose; cdecl; external WS3DCoreLib;
+
+function wGuiContextMenuGetItemsCount(cmenu: wGuiObject): UInt32; cdecl; external WS3DCoreLib;
+
+function wGuiContextMenuAddItem(cmenu: wGuiObject; const text: Pwstring;
+           commandId: Int32 = -1; enabled: Boolean = true; hasSubMenu: Boolean = false;
+           checked: Boolean = false; autoChecking: Boolean = false): UInt32; cdecl; external WS3DCoreLib;
+
+function wGuiContextMenuInsertItem(cmenu: wGuiObject; idx: UInt32; const text: Pwstring;
+           commandId: Int32 = -1; enabled: Boolean = true; hasSubMenu: Boolean = false;
+           checked: Boolean = false; autoChecking: Boolean = false): UInt32; cdecl; external WS3DCoreLib;
+
+procedure wGuiContextMenuAddSeparator(cmenu: wGuiObject); cdecl; external WS3DCoreLib;
+
+function wGuiContextMenuGetItemText(cmenu: wGuiObject; idx: UInt32): Pwstring; cdecl; external WS3DCoreLib;
+
+procedure wGuiContextMenuSetItemText(cmenu: wGuiObject; idx: UInt32;
+           const text: Pwstring); cdecl; external WS3DCoreLib;
+
+procedure wGuiContextMenuSetItemEnabled(cmenu: wGuiObject; idx: UInt32; value: Boolean); cdecl; external WS3DCoreLib;
+
+function wGuiContextMenuIsItemEnabled(cmenu: wGuiObject; idx: UInt32): Boolean; cdecl; external WS3DCoreLib;
+
+procedure wGuiContextMenuSetItemChecked(cmenu: wGuiObject; idx: UInt32; value: Boolean); cdecl; external WS3DCoreLib;
+
+function wGuiContextMenuIsItemChecked(cmenu: wGuiObject; idx: UInt32): Boolean; cdecl; external WS3DCoreLib;
+
+procedure wGuiContextMenuRemoveItem(cmenu: wGuiObject; idx: UInt32); cdecl; external WS3DCoreLib;
+
+procedure wGuiContextMenuRemoveAll(cmenu: wGuiObject); cdecl; external WS3DCoreLib;
+
+function wGuiContextMenuGetSelectedItem(cmenu: wGuiObject): Int32; cdecl; external WS3DCoreLib;
+
+function wGuiContextMenuGetItemCommandId(cmenu: wGuiObject; idx: UInt32): Int32; cdecl; external WS3DCoreLib;
+
+function wGuiContextMenuFindItem(cmenu: wGuiObject; id: Int32; idx: UInt32): Int32; cdecl; external WS3DCoreLib;
+
+procedure wGuiContextMenuSetItemCommandId(cmenu: wGuiObject; idx: UInt32; id: Int32); cdecl; external WS3DCoreLib;
+
+function wGuiContextMenuGetSubMenu(cmenu: wGuiObject; idx: UInt32): wGuiObject; cdecl; external WS3DCoreLib;
+
+procedure wGuiContextMenuSetAutoChecking(cmenu: wGuiObject; idx: UInt32; autoChecking: Boolean); cdecl; external WS3DCoreLib;
+
+function wGuiContextMenuIsAutoChecked(cmenu: wGuiObject; idx: UInt32): Boolean; cdecl; external WS3DCoreLib;
+
+procedure wGuiContextMenuSetEventParent(cmenu: wGuiObject; parent: wGuiObject); cdecl; external WS3DCoreLib;
+
+// wGuiMenu
+function wGuiMenuCreate(): wGuiObject; cdecl; external WS3DCoreLib;
+
+// wGuiModalScreen
+function wGuiModalScreenCreate(): wGuiObject; cdecl; external WS3DCoreLib;
+
+
+
+
 implementation
 
 
