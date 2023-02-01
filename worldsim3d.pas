@@ -5696,7 +5696,30 @@ procedure wGuiButtonSetDrawBorder(btn: wGuiObject; value: Boolean); cdecl; exter
 
 function wGuiButtonIsDrawBorder(btn: wGuiObject): Boolean; cdecl; external WS3DCoreLib;
 
+// wGuiButtonGroup
+function wGuiButtonGroupCreate(minPos, maxPos: wVector2i): wGuiObject; cdecl; external WS3DCoreLib;
 
+function wGuiButtonGroupAddButton(group, button: wGuiObject): Int32; cdecl; external WS3DCoreLib;
+
+function wGuiButtonGroupInsertButton(group, button: wGuiObject; index: UInt32): Int32; cdecl; external WS3DCoreLib;
+
+function wGuiButtonGroupGetButton(group: wGuiObject; index: UInt32): wGuiObject; cdecl; external WS3DCoreLib;
+
+function wGuiButtonGroupRemoveButton(group: wGuiObject; index: UInt32): Boolean; cdecl; external WS3DCoreLib;
+
+procedure wGuiButtonGroupRemoveAll(group: wGuiObject); cdecl; external WS3DCoreLib;
+
+function wGuiButtonGroupGetSize(group: wGuiObject): UInt32; cdecl; external WS3DCoreLib;
+
+function wGuiButtonGroupGetSelectedIndex(group: wGuiObject): Int32; cdecl; external WS3DCoreLib;
+
+procedure wGuiButtonGroupSetSelectedIndex(group: wGuiObject; index: Int32); cdecl; external WS3DCoreLib;
+
+procedure wGuiButtonGroupClearSelection(group: wGuiObject); cdecl; external WS3DCoreLib;
+
+procedure wGuiButtonGroupSetBackgroundColor(group: wGuiObject; color1: wColor4s); cdecl; external WS3DCoreLib;
+
+procedure wGuiButtonGroupDrawBackground(group: wGuiObject; value: Boolean); cdecl; external WS3DCoreLib;
 
 
 
