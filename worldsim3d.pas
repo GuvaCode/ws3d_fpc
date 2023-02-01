@@ -5799,6 +5799,55 @@ procedure wGuiScrollBarSetLargeStep(scroll: wGuiObject; step: Int32); cdecl; ext
 
 function wGuiScrollBarGetLargeStep(scroll: wGuiObject): Int32; cdecl; external WS3DCoreLib;
 
+// wGuiEditBox
+function wGuiEditBoxCreate(const wcptrText: Pwstring; minPos, maxPos: wVector2i): wGuiObject; cdecl; external WS3DCoreLib;
+
+procedure wGuiEditBoxSetMultiLine(box: wGuiObject; value: Boolean); cdecl; external WS3DCoreLib;
+
+function wGuiEditBoxIsMultiLine(box: wGuiObject): Boolean; cdecl; external WS3DCoreLib;
+
+procedure wGuiEditBoxSetAutoScrolling(box: wGuiObject; value: Boolean); cdecl; external WS3DCoreLib;
+
+function wGuiEditBoxIsAutoScrolling(box: wGuiObject): Boolean; cdecl; external WS3DCoreLib;
+
+procedure wGuiEditBoxSetPasswordMode(box: wGuiObject; value: Boolean); cdecl; external WS3DCoreLib;
+
+function wGuiEditBoxIsPasswordMode(box: wGuiObject): Boolean; cdecl; external WS3DCoreLib;
+
+function wGuiEditBoxGetTextSize(box: wGuiObject): wVector2i; cdecl; external WS3DCoreLib;
+
+procedure wGuiEditBoxSetCharactersLimit(box: wGuiObject; max: UInt32); cdecl; external WS3DCoreLib;
+
+function wGuiEditGetCharactersLimit(box: wGuiObject): UInt32; cdecl; external WS3DCoreLib;
+
+procedure wGuiEditBoxSetOverrideFont(box: wGuiObject; font: wFont); cdecl; external WS3DCoreLib;
+
+function wGuiEditBoxGetOverrideFont(box: wGuiObject): wFont; cdecl; external WS3DCoreLib;
+
+function wGuiEditBoxGetActiveFont(box: wGuiObject): wFont; cdecl; external WS3DCoreLib;
+
+procedure wGuiEditBoxEnableOverrideColor(box: wGuiObject; value: Boolean); cdecl; external WS3DCoreLib;
+
+function wGuiEditBoxIsOverrideColor(box: wGuiObject): Boolean; cdecl; external WS3DCoreLib;
+
+procedure wGuiEditBoxSetOverrideColor(box: wGuiObject; color1: wColor4s); cdecl; external WS3DCoreLib;
+
+function wGuiEditBoxGetOverrideColor(box: wGuiObject): wColor4s; cdecl; external WS3DCoreLib;
+
+procedure wGuiEditBoxSetDrawBackground(box: wGuiObject; value: Boolean); cdecl; external WS3DCoreLib;
+
+procedure wGuiEditBoxSetDrawBorder(box: wGuiObject; value: Boolean); cdecl; external WS3DCoreLib;
+
+function wGuiEditBoxIsDrawBorder(box: wGuiObject): Boolean; cdecl; external WS3DCoreLib;
+
+procedure wGuiEditBoxSetTextAlignment(box: wGuiObject; Horizontalvalue, Verticalvalue: wGuiAlignment); cdecl; external WS3DCoreLib;
+
+procedure wGuiEditBoxSetWordWrap(box: wGuiObject; value: Boolean); cdecl; external WS3DCoreLib;
+
+function wGuiEditBoxIsWordWrap(box: wGuiObject): Boolean; cdecl; external WS3DCoreLib;
+
+
+
 
 
 implementation
