@@ -5721,7 +5721,60 @@ procedure wGuiButtonGroupSetBackgroundColor(group: wGuiObject; color1: wColor4s)
 
 procedure wGuiButtonGroupDrawBackground(group: wGuiObject; value: Boolean); cdecl; external WS3DCoreLib;
 
+// wGuiListBox
+function wGuiListBoxCreate(minPos, maxPos: wVector2i; background: Boolean): wGuiObject; cdecl; external WS3DCoreLib;
 
+function wGuiListBoxGetItemsCount(lbox: wGuiObject): UInt32; cdecl; external WS3DCoreLib;
+
+function wGuiListBoxGetItemByIndex(lbox: wGuiObject; id: UInt32): Pwstring; cdecl; external WS3DCoreLib;
+
+function wGuiListBoxAddItem(lbox: wGuiObject; const text: Pwstring): UInt32; cdecl; external WS3DCoreLib;
+
+function wGuiListBoxAddItemWithIcon(lbox: wGuiObject; const text: Pwstring; icon: Int32): UInt32; cdecl; external WS3DCoreLib;
+
+procedure wGuiListBoxRemoveItem(lbox: wGuiObject; index: UInt32); cdecl; external WS3DCoreLib;
+
+procedure wGuiListBoxRemoveAll(lbox: wGuiObject); cdecl; external WS3DCoreLib;
+
+procedure wGuiListBoxSetItem(lbox: wGuiObject; index: UInt32; const text: Pwstring; icon: Int32); cdecl; external WS3DCoreLib;
+
+procedure wGuiListBoxInsertItem(lbox: wGuiObject; index: UInt32; text: Pwstring; icon: Int32); cdecl; external WS3DCoreLib;
+
+function wGuiListBoxGetItemIcon(lbox: wGuiObject; index: UInt32): Int32; cdecl; external WS3DCoreLib;
+
+function wGuiListBoxGetSelectedIndex(lbox: wGuiObject): Int32; cdecl; external WS3DCoreLib;
+
+procedure wGuiListBoxSelectItemByIndex(lbox: wGuiObject; index: UInt32); cdecl; external WS3DCoreLib;
+
+procedure wGuiListBoxSelectItemByText(lbox: wGuiObject; const item: Pwstring); cdecl; external WS3DCoreLib;
+
+procedure wGuiListBoxSwapItems(lbox: wGuiObject; index1, index2: UInt32); cdecl; external WS3DCoreLib;
+
+procedure wGuiListBoxSetItemsHeight(lbox: wGuiObject; height: Int32); cdecl; external WS3DCoreLib;
+
+procedure wGuiListBoxSetAutoScrolling(lbox: wGuiObject; scroll: Boolean); cdecl; external WS3DCoreLib;
+
+function wGuiListBoxIsAutoScrolling(lbox: wGuiObject): Boolean; cdecl; external WS3DCoreLib;
+
+procedure wGuiListBoxSetItemColor(lbox: wGuiObject; index: UInt32; color: wColor4s); cdecl; external WS3DCoreLib;
+
+procedure wGuiListBoxSetElementColor(lbox: wGuiObject; index: UInt32;
+           colorType: wGuiListboxColor; color: wColor4s); cdecl; external WS3DCoreLib;
+
+procedure wGuiListBoxClearItemColor(lbox: wGuiObject; index: UInt32); cdecl; external WS3DCoreLib;
+
+procedure wGuiListBoxClearElementColor(lbox: wGuiObject; index: UInt32;
+           colorType: wGuiListboxColor); cdecl; external WS3DCoreLib;
+
+function wGuiListBoxGetElementColor(lbox: wGuiObject; index: UInt32;
+           colorType: wGuiListboxColor): wColor4s; cdecl; external WS3DCoreLib;
+
+function wGuiListBoxHasElementColor(lbox: wGuiObject; index: UInt32;
+           colorType: wGuiListboxColor): Boolean; cdecl; external WS3DCoreLib;
+
+function wGuiListBoxGetDefaultColor(lbox: wGuiObject; colorType: wGuiListboxColor): wColor4s; cdecl; external WS3DCoreLib;
+
+procedure wGuiListBoxSetDrawBackground(lbox: wGuiObject; value: Boolean); cdecl; external WS3DCoreLib;
 
 
 
