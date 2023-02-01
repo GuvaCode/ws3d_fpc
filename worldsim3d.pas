@@ -5870,6 +5870,29 @@ procedure wGuiTextAreaSetBackgroundColor(tarea: wGuiObject; color: wColor4s); cd
 
 procedure wGuiTextAreaSetBorderColor(tarea: wGuiObject; color1: wColor4s); cdecl; external WS3DCoreLib;
 
+// wGuiImage
+function wGuiImageCreate(texture: wTexture; size: wVector2i; useAlpha: Boolean): wGuiObject; cdecl; external WS3DCoreLib;
+
+procedure wGuiImageSet(img: wGuiObject; tex: wTexture); cdecl; external WS3DCoreLib;
+
+function wGuiImageGet(img: wGuiObject): wTexture; cdecl; external WS3DCoreLib;
+
+procedure wGuiImageSetColor(img: wGuiObject; color: wColor4s); cdecl; external WS3DCoreLib;
+
+function wGuiImageGetColor(img: wGuiObject): wColor4s; cdecl; external WS3DCoreLib;
+
+procedure wGuiImageSetScaling(img: wGuiObject; scale: Boolean); cdecl; external WS3DCoreLib;
+
+function wGuiImageIsScaled(img: wGuiObject): Boolean; cdecl; external WS3DCoreLib;
+
+procedure wGuiImageUseAlphaChannel(img: wGuiObject; use: Boolean); cdecl; external WS3DCoreLib;
+
+function wGuiImageIsUsedAlphaChannel(img: wGuiObject): Boolean; cdecl; external WS3DCoreLib;
+
+
+
+
+
 
 
 implementation
