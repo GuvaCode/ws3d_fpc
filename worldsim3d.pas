@@ -5451,6 +5451,121 @@ function wGuiGetObjectById(id: Int32; searchchildren: Boolean): wGuiObject; cdec
 
 function wGuiGetObjectByName(const name: PChar; searchchildren: Boolean): wGuiObject; cdecl; external WS3DCoreLib;
 
+// wGuiObject
+procedure wGuiObjectDestroy(element: wGuiObject); cdecl; external WS3DCoreLib;
+
+procedure wGuiObjectSetParent(element, parent: wGuiObject); cdecl; external WS3DCoreLib;
+
+function wGuiObjectGetParent(element: wGuiObject): wGuiObject; cdecl; external WS3DCoreLib;
+
+procedure wGuiObjectSetRelativePosition(element: wGuiObject; position: wVector2i); cdecl; external WS3DCoreLib;
+
+procedure wGuiObjectSetRelativeSize(element: wGuiObject; size: wVector2i); cdecl; external WS3DCoreLib;
+
+function wGuiObjectGetRelativePosition(element: wGuiObject): wVector2i; cdecl; external WS3DCoreLib;
+
+function wGuiObjectGetRelativeSize(element: wGuiObject): wVector2i; cdecl; external WS3DCoreLib;
+
+function wGuiObjectGetAbsolutePosition(element: wGuiObject): wVector2i; cdecl; external WS3DCoreLib;
+
+function wGuiObjectGetAbsoluteClippedPosition(element: wGuiObject): wVector2i; cdecl; external WS3DCoreLib;
+
+function wGuiObjectGetAbsoluteClippedSize(element: wGuiObject): wVector2i; cdecl; external WS3DCoreLib;
+
+procedure wGuiObjectSetClippingMode(element: wGuiObject; value: Boolean); cdecl; external WS3DCoreLib;
+
+function wGuiObjectIsClipped(element: wGuiObject): Boolean; cdecl; external WS3DCoreLib;
+
+procedure wGuiObjectSetMaxSize(element: wGuiObject; size: wVector2i); cdecl; external WS3DCoreLib;
+
+procedure wGuiObjectSetMinSize(element: wGuiObject; size: wVector2i); cdecl; external WS3DCoreLib;
+
+procedure wGuiObjectSetAlignment(element: wGuiObject; left, right, top, bottom: wGuiAlignment); cdecl; external WS3DCoreLib;
+
+procedure wGuiObjectUpdateAbsolutePosition(element: wGuiObject); cdecl; external WS3DCoreLib;
+
+function wGuiObjectGetFromScreenPos(element: wGuiObject; position: wVector2i): wGuiObject; cdecl; external WS3DCoreLib;
+
+function wGuiObjectIsPointInside(element: wGuiObject; position: wVector2i): Boolean; cdecl; external WS3DCoreLib;
+
+procedure wGuiObjectDestroyChild(element: wGuiObject; child: wGuiObject); cdecl; external WS3DCoreLib;
+
+procedure wGuiObjectDraw(element: wGuiObject); cdecl; external WS3DCoreLib;
+
+procedure wGuiObjectMoveTo(element: wGuiObject; position: wVector2i); cdecl; external WS3DCoreLib;
+
+procedure wGuiObjectSetVisible(element: wGuiObject; value: Boolean); cdecl; external WS3DCoreLib;
+
+function wGuiObjectIsVisible(element: wGuiObject): Boolean; cdecl; external WS3DCoreLib;
+
+procedure wGuiObjectSetSubObject(element: wGuiObject; value: Boolean); cdecl; external WS3DCoreLib;
+
+function wGuiObjectIsSubObject(element: wGuiObject): Boolean; cdecl; external WS3DCoreLib;
+
+procedure wGuiObjectSetTabStop(element: wGuiObject; value: Boolean); cdecl; external WS3DCoreLib;
+
+function wGuiObjectIsTabStop(element: wGuiObject): Boolean; cdecl; external WS3DCoreLib;
+
+procedure wGuiObjectSetTabOrder(element: wGuiObject; index: Int32); cdecl; external WS3DCoreLib;
+
+function wGuiObjectGetTabOrder(element: wGuiObject): Int32; cdecl; external WS3DCoreLib;
+
+procedure wGuiObjectSetTabGroup(element: wGuiObject; value: Boolean); cdecl; external WS3DCoreLib;
+
+function wGuiObjectIsTabGroup(element: wGuiObject): Boolean; cdecl; external WS3DCoreLib;
+
+procedure wGuiObjectSetEnable(element: wGuiObject; value: Boolean); cdecl; external WS3DCoreLib;
+
+function wGuiObjectIsEnabled(element: wGuiObject): Boolean; cdecl; external WS3DCoreLib;
+
+procedure wGuiObjectSetText(element: wGuiObject; const text: Pwstring); cdecl; external WS3DCoreLib;
+
+procedure wGuiObjectSetTextC(element: wGuiObject; const text: PChar); cdecl; external WS3DCoreLib;
+
+function wGuiObjectGetText(element: wGuiObject): Pwstring; cdecl; external WS3DCoreLib;
+
+function wGuiObjectGetTextC(element: wGuiObject): PChar;  cdecl; external WS3DCoreLib;
+
+procedure wGuiObjectSetToolTipText(element: wGuiObject; const text: Pwstring); cdecl; external WS3DCoreLib;
+
+function wGuiObjectGetToolTipText(element: wGuiObject): Pwstring; cdecl; external WS3DCoreLib;
+
+procedure wGuiObjectSetId(element: wGuiObject; id: Int32); cdecl; external WS3DCoreLib;
+
+function wGuiObjectGetId(element: wGuiObject): Int32; cdecl; external WS3DCoreLib;
+
+procedure wGuiObjectSetName(element: wGuiObject; const name: PChar); cdecl; external WS3DCoreLib;
+
+function wGuiObjectIsHovered(element: wGuiObject): Boolean; cdecl; external WS3DCoreLib;
+
+function wGuiObjectGetName(element: wGuiObject): PChar; cdecl; external WS3DCoreLib;
+
+function wGuiObjectGetChildById(element: wGuiObject; id: Int32; searchchildren: Boolean): wGuiObject; cdecl; external WS3DCoreLib;
+
+function wGuiObjectGetChildByName(element: wGuiObject; name: PChar; searchchildren: Boolean): wGuiObject; cdecl; external WS3DCoreLib;
+
+function wGuiObjectIsChildOf(element: wGuiObject; child: wGuiObject): Boolean; cdecl; external WS3DCoreLib;
+
+function wGuiObjectBringToFront(element: wGuiObject; subElement: wGuiObject): Boolean; cdecl; external WS3DCoreLib;
+
+function wGuiObjectGetType(element: wGuiObject): wGuiElementType; cdecl; external WS3DCoreLib;
+
+function wGuiObjectGetTypeName(element: wGuiObject): PChar; cdecl; external WS3DCoreLib;
+
+function wGuiObjectHasType(element: wGuiObject; type_: wGuiElementType): Boolean; cdecl; external WS3DCoreLib;
+
+function wGuiObjectSetFocus(element: wGuiObject): Boolean; cdecl; external WS3DCoreLib;
+
+function wGuiObjectRemoveFocus(element: wGuiObject): Boolean; cdecl; external WS3DCoreLib;
+
+function wGuiObjectIsFocused(element: wGuiObject): Boolean; cdecl; external WS3DCoreLib;
+
+procedure wGuiObjectReadFromXml(node: wGuiObject; reader: wXmlReader); cdecl; external WS3DCoreLib;
+
+procedure wGuiObjectWriteToXml(node: wGuiObject; writer: wXmlWriter); cdecl; external WS3DCoreLib;
+
+
+
 
 implementation
 
