@@ -5913,7 +5913,32 @@ function wGuiFileOpenDialogGetDirectory(dialog: wGuiObject): PChar; cdecl; exter
 
 function wGuiFileOpenDialogGetDirectoryW(dialog: wGuiObject): Pwstring; cdecl; external WS3DCoreLib;
 
+// wGuiComboBox
+function wGuiComboBoxCreate(minPos, maxPos: wVector2i): wGuiObject; cdecl; external WS3DCoreLib;
 
+function wGuiComboBoxGetItemsCount(combo: wGuiObject): UInt32; cdecl; external WS3DCoreLib;
+
+function wGuiComboBoxGetItemByIndex(combo: wGuiObject; idx: UInt32): Pwstring; cdecl; external WS3DCoreLib;
+
+function wGuiComboBoxGetItemDataByIndex(combo: wGuiObject; idx: UInt32): UInt32; cdecl; external WS3DCoreLib;
+
+function wGuiComboBoxGetIndexByItemData(combo: wGuiObject; data: UInt32): Int32; cdecl; external WS3DCoreLib;
+
+function wGuiComboBoxAddItem(combo: wGuiObject; const text: Pwstring; data: UInt32): UInt32; cdecl; external WS3DCoreLib;
+
+procedure wGuiComboBoxRemoveItem(combo: wGuiObject; idx: UInt32); cdecl; external WS3DCoreLib;
+
+procedure wGuiComboBoxRemoveAll(combo: wGuiObject); cdecl; external WS3DCoreLib;
+
+function wGuiComboBoxGetSelected(combo: wGuiObject): Int32; cdecl; external WS3DCoreLib;
+
+procedure wGuiComboBoxSetSelected(combo: wGuiObject; idx: UInt32); cdecl; external WS3DCoreLib;
+
+procedure wGuiComboBoxSetMaxSelectionRows(combo: wGuiObject; max: UInt32); cdecl; external WS3DCoreLib;
+
+function wGuiComboBoxGetMaxSelectionRows(combo: wGuiObject): UInt32; cdecl; external WS3DCoreLib;
+
+procedure wGuiComboBoxSetTextAlignment(combo: wGuiObject; Horizontalvalue, Verticalvalue: wGuiAlignment); cdecl; external WS3DCoreLib;
 
 implementation
 
