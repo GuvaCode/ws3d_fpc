@@ -5776,7 +5776,28 @@ function wGuiListBoxGetDefaultColor(lbox: wGuiObject; colorType: wGuiListboxColo
 
 procedure wGuiListBoxSetDrawBackground(lbox: wGuiObject; value: Boolean); cdecl; external WS3DCoreLib;
 
+// wGuiScrollBar
+function wGuiScrollBarCreate(Horizontal: Boolean; minPos, maxPos: wVector2i): wGuiObject; cdecl; external WS3DCoreLib;
 
+procedure wGuiScrollBarSetMaxValue(scroll: wGuiObject; max: Int32); cdecl; external WS3DCoreLib;
+
+function wGuiScrollBarGetMaxValue(scroll: wGuiObject): Int32; cdecl; external WS3DCoreLib;
+
+procedure wGuiScrollBarSetMinValue(scroll: wGuiObject; min: Int32); cdecl; external WS3DCoreLib;
+
+function wGuiScrollBarGetMinValue(scroll: wGuiObject): Int32; cdecl; external WS3DCoreLib;
+
+procedure wGuiScrollBarSetValue(scroll: wGuiObject; value: Int32); cdecl; external WS3DCoreLib;
+
+function wGuiScrollBarGetValue(scroll: wGuiObject): Int32; cdecl; external WS3DCoreLib;
+
+procedure wGuiScrollBarSetSmallStep(scroll: wGuiObject; step: Int32); cdecl; external WS3DCoreLib;
+
+function wGuiScrollBarGetSmallStep(scroll: wGuiObject): Int32; cdecl; external WS3DCoreLib;
+
+procedure wGuiScrollBarSetLargeStep(scroll: wGuiObject; step: Int32); cdecl; external WS3DCoreLib;
+
+function wGuiScrollBarGetLargeStep(scroll: wGuiObject): Int32; cdecl; external WS3DCoreLib;
 
 
 
