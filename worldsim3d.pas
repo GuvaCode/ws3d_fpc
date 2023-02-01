@@ -5889,7 +5889,20 @@ procedure wGuiImageUseAlphaChannel(img: wGuiObject; use: Boolean); cdecl; extern
 
 function wGuiImageIsUsedAlphaChannel(img: wGuiObject): Boolean; cdecl; external WS3DCoreLib;
 
+// wGuiFader
+function wGuiFaderCreate(minPos, maxPos: wVector2i): wGuiObject; cdecl; external WS3DCoreLib;
 
+procedure wGuiFaderSetColor(fader: wGuiObject; color: wColor4s); cdecl; external WS3DCoreLib;
+
+function wGuiFaderGetColor(fader: wGuiObject): wColor4s; cdecl; external WS3DCoreLib;
+
+procedure wGuiFaderSetColorExt(fader: wGuiObject;colorSrc, colorDest: wColor4s); cdecl; external WS3DCoreLib;
+
+procedure wGuiFaderFadeIn(fader: wGuiObject; timeMs: UInt32); cdecl; external WS3DCoreLib;
+
+procedure wGuiFaderFadeOut(fader: wGuiObject; timeMs: UInt32); cdecl; external WS3DCoreLib;
+
+function wGuiFaderIsReady(fader: wGuiObject): Boolean; cdecl; external WS3DCoreLib;
 
 
 
