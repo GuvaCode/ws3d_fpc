@@ -5846,7 +5846,29 @@ procedure wGuiEditBoxSetWordWrap(box: wGuiObject; value: Boolean); cdecl; extern
 
 function wGuiEditBoxIsWordWrap(box: wGuiObject): Boolean; cdecl; external WS3DCoreLib;
 
+// wGuiTextArea
+function wGuiTextAreaCreate(minPos, maxPos: wVector2i; maxLines: Int32 = 1024): wGuiObject; cdecl; external WS3DCoreLib;
 
+procedure wGuiTextAreaSetBorderSize(tarea: wGuiObject; size: UInt32); cdecl; external WS3DCoreLib;
+
+procedure wGuiTextAreaSetAutoScroll(tarea: wGuiObject; value: Boolean); cdecl; external WS3DCoreLib;
+
+procedure wGuiTextAreaSetPadding(tarea: wGuiObject; padding: UInt32); cdecl; external WS3DCoreLib;
+
+procedure wGuiTextAreaSetBackTexture(tarea: wGuiObject; tex: wTexture); cdecl; external WS3DCoreLib;
+
+procedure wGuiTextAreaSetWrapping(tarea: wGuiObject; value: Boolean); cdecl; external WS3DCoreLib;
+
+procedure wGuiTextAreaSetFont(tarea: wGuiObject; font: wFont); cdecl; external WS3DCoreLib;
+
+procedure wGuiTextAreaAddLine(tarea: wGuiObject; const text: Pwstring; lifeTime: UInt32;
+           color: wColor4s; icon: wTexture; iconMode: Int32); cdecl; external WS3DCoreLib;
+
+procedure wGuiTextAreaRemoveAll(tarea: wGuiObject); cdecl; external WS3DCoreLib;
+
+procedure wGuiTextAreaSetBackgroundColor(tarea: wGuiObject; color: wColor4s); cdecl; external WS3DCoreLib;
+
+procedure wGuiTextAreaSetBorderColor(tarea: wGuiObject; color1: wColor4s); cdecl; external WS3DCoreLib;
 
 
 
