@@ -4116,7 +4116,7 @@ procedure wNodeSetPlaneParameters(plane: wNode; params: wNodePlaneParameters); c
 
 procedure wNodeGetPlaneParameters(plane: wNode; params: PwNodePlaneParameters); cdecl; external WS3DCoreLib;
 
-function wNodeCreateFromMesh(mesh: wMesh; isStatic: Boolean): wNode; cdecl; external WS3DCoreLib;
+function wNodeCreateFromMesh(mesh: wMesh; isStatic: Boolean=false): wNode; cdecl; external WS3DCoreLib;
 
 function wNodeCreateFromStaticMesh(mesh: wMesh; isTangent: Boolean): wNode; cdecl; external WS3DCoreLib;
 
@@ -6511,10 +6511,60 @@ procedure wMirrorReflect(mirrorNode: wNode; color: wColor4s); cdecl; external WS
 
 procedure wMirrorSetScaleFactor(mirrorNode: wNode; factor: wVector2f); cdecl; external WS3DCoreLib;
 
-
+function WStr (text : PChar) : WString; overload;
+function WStr (text : String) : WString; overload;
+function PWStr (text : PChar) : PWString; overload;
+function PWStr (text : String) : PWString; overload;
+function WStrPas (text : PWChar) : UnicodeString;
 
 implementation
 
+{$IFDEF WINDOWS}
+function WStr (text: PChar) : WString;
+begin
+  Result := WString (text);
+end;
+{$ELSE}
+function WStr (text: PChar) : WString;
+var
+  i : Int32;
+  Chars : array of WChar;
+begin
+  SetLength (Chars, Length (text) + 1);
+  for i := 0 to Length (text) - 1 do
+    Chars [i] := WChar (text [i]);
+  Chars [Length (text)] := WChar(#0);
+  Result := Chars;
+  //Result := UCS4String (text);
+end;
+{$ENDIF}
+
+function WStr(text: String) : WString;
+begin
+  Result := WStr (PChar (text));
+end;
+
+function PWStr(text: PChar): PWString;
+const
+  convertedStr : WString = nullStr;
+begin
+  convertedStr := WStr(text);
+  Result := @convertedStr;
+end;
+
+function PWStr(text: String): PWString;
+begin
+  Result := PWStr(PChar(text));
+end;
+
+function WStrPas(text: PWChar): UnicodeString;
+begin
+{$IFDEF WINDOWS}
+Result := StrPas (text);
+{$ELSE}
+Result := UCS4StringToUnicodeString (text);
+{$ENDIF}
+end;
 
 
 
