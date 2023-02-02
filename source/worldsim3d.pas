@@ -4689,7 +4689,7 @@ function wBspGetVarGroupValueAsFloat(group: PUInt32; const strName: PChar;
 function wBspGetVarGroupValueAsString(group: PUInt32; const strName: PChar): PChar; cdecl; external WS3DCoreLib;
 
 function wBspCreateFromMesh(mesh: wMesh; isTangent, isOctree: Boolean;
-          const fileEntity: PChar; isLoadShaders: Boolean; PolysPerNode: UInt32): wNode; cdecl; external WS3DCoreLib;
+          const fileEntity: PChar; isLoadShaders: Boolean = true; PolysPerNode: UInt32 = 512): wNode; cdecl; external WS3DCoreLib;
 
 function wBspGetVariableFromVarGroup(group: PUInt32; index: Int32): PUInt32; cdecl; external WS3DCoreLib;
 
