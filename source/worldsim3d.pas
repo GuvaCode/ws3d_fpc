@@ -4009,7 +4009,7 @@ function wParticleScaleAffectorGetTargetScale(paf: wAffector): wVector2f; cdecl;
 function wNodeCreateEmpty(): wNode; cdecl; external WS3DCoreLib ;
 
 function wNodeCreateCube(size: Float32; isTangent: Boolean;
-         color: wColor4s):wNode; cdecl; external WS3DCoreLib ;
+         color: wColor4s): wNode; cdecl; external WS3DCoreLib ;
 
 procedure wNodeSetCubeParameters(cube: wNode; params: wNodeCubeParameters); cdecl; external WS3DCoreLib ;
 
@@ -6253,7 +6253,7 @@ procedure wGuiSpriteBankDrawSpriteBatch(bank: wGuiObject; indexArray: PUInt32;
 
 
 // wGuiCheckBox
-function wGuiCheckBoxCreate(const wcptrText: Pwstring; minPos, maxPos: wVector2i;
+function wGuiCheckBoxCreate(const wcptrText: Wstring; minPos, maxPos: wVector2i;// ??Pwstring
           checked: Boolean): wGuiObject; cdecl; external WS3DCoreLib;
 
 procedure wGuiCheckBoxCheck(box: wGuiObject; checked: Boolean); cdecl; external WS3DCoreLib;
