@@ -6412,7 +6412,104 @@ procedure wGuiProgressBarSetBackgroundColor(bar: wGuiObject; color: wColor4s); c
 
 procedure wGuiProgressBarSetBorderColor(bar: wGuiObject; color: wColor4s); cdecl; external WS3DCoreLib;
 
+// wGuiCEditor
+function wGuiCEditorCreate(const wcptrText: Pwstring; minPos, maxPos: wVector2i;
+          border: Boolean): Pointer; cdecl; external WS3DCoreLib;
 
+procedure wGuiCEditorSetHScrollVisible(box: wGuiObject; value: Boolean); cdecl; external WS3DCoreLib;
+
+procedure wGuiCEditorSetText(box: wGuiObject; const text: Pwstring); cdecl; external WS3DCoreLib;
+
+procedure wGuiCEditorSetColors(box: wGuiObject; backColor, lineColor, textColor: wColor4s); cdecl; external WS3DCoreLib;
+
+procedure wGuiCEditorSetLinesCountVisible(box: wGuiObject; value: Boolean); cdecl; external WS3DCoreLib;
+
+function wGuiCEditorIsLinesCountVisible(box: wGuiObject): Boolean; cdecl; external WS3DCoreLib;
+
+procedure wGuiCEditorSetElementText(box: wGuiObject; index: UInt32; const text: Pwstring); cdecl; external WS3DCoreLib;
+
+procedure wGuiCEditorSetSelectionColors(box: wGuiObject; backColor, textColor, back2Color: wColor4s); cdecl; external WS3DCoreLib;
+
+procedure wGuiCEditorRemoveText(box: wGuiObject); cdecl; external WS3DCoreLib;
+
+procedure wGuiCEditorAddKeyword(box: wGuiObject; const word: PChar; color: wColor4s; matchCase: Boolean); cdecl; external WS3DCoreLib;
+
+procedure wGuiCEditorAddLineKeyword(box: wGuiObject; const word: PChar;
+          color: wColor4s; matchCase: Boolean); cdecl; external WS3DCoreLib;
+
+procedure wGuiCEditorAddGroupKeyword(box: wGuiObject; word: PChar;
+          const endKeyword: PChar; color: wColor4s; matchCase: Boolean); cdecl; external WS3DCoreLib;
+
+procedure wGuiCEditorBoxAddKeywordInfo(box: wGuiObject; size, type_ : Int32); cdecl; external WS3DCoreLib;
+
+procedure wGuiCEditorBoxRemoveAllKeywords(box: wGuiObject); cdecl; external WS3DCoreLib;
+
+procedure wGuiCEditorBoxAddCppKeywords(box: wGuiObject; key: wColor4s;
+           string_: wColor4s; comment: wColor4s); cdecl; external WS3DCoreLib;
+
+procedure wGuiCEditorAddLuaKeywords(box: wGuiObject; key, string_, comment: wColor4s); cdecl; external WS3DCoreLib;
+
+procedure wGuiCEditorAddFbKeywords(box: wGuiObject; key, string_, comment: wColor4s); cdecl; external WS3DCoreLib;
+
+procedure wGuiCEditorReplaceText(box: wGuiObject; start, end_: Int32; const text: Pwstring); cdecl; external WS3DCoreLib;
+
+procedure wGuiCEditorPressReturn(box: wGuiObject); cdecl; external WS3DCoreLib;
+
+procedure wGuiCEditorAddText(box: wGuiObject; const addText: Pwstring); cdecl; external WS3DCoreLib;
+
+function wGuiCEditorGetText(box: wGuiObject): Pwstring; cdecl; external WS3DCoreLib;
+
+procedure wGuiCEditorSetLineToggleVisible(box: wGuiObject; value: Boolean); cdecl; external WS3DCoreLib;
+
+procedure wGuiCEditorSetContextMenuText(box: wGuiObject; const cut_text: Pwstring;
+           const copy_text: Pwstring; const paste_text: Pwstring;
+           const del_text: Pwstring; const redo_text: Pwstring; const undo_text: Pwstring;
+           const btn_text: Pwstring); cdecl; external WS3DCoreLib;
+
+procedure wGuiCEditorBoxCopy(box: wGuiObject); cdecl; external WS3DCoreLib;
+
+procedure wGuiCEditorCut(box: wGuiObject); cdecl; external WS3DCoreLib;
+
+procedure wGuiCEditorPaste(box: wGuiObject); cdecl; external WS3DCoreLib;
+
+procedure wGuiCEditorUndo(box: wGuiObject); cdecl; external WS3DCoreLib;
+
+procedure wGuiCEditorRedo(box: wGuiObject); cdecl; external WS3DCoreLib;
+
+function wGuiCEditorGetOverrideFont(box: wGuiObject): wFont; cdecl; external WS3DCoreLib;
+
+function wGuiCEditorGetActiveFont(box: wGuiObject): wFont; cdecl; external WS3DCoreLib;
+
+procedure wGuiCEditorEnableOverrideColor(box: wGuiObject; value: Boolean); cdecl; external WS3DCoreLib;
+
+function wGuiCEditorIsOverrideColor(box: wGuiObject): Boolean; cdecl; external WS3DCoreLib;
+
+procedure wGuiCEditorSetOverrideColor(box: wGuiObject; color: wColor4s); cdecl; external WS3DCoreLib;
+
+function wGuiCEditorGetOverrideColor(box: wGuiObject): wColor4s; cdecl; external WS3DCoreLib;
+
+procedure wGuiCEditorSetDrawBackground(box: wGuiObject; value: Boolean); cdecl; external WS3DCoreLib;
+
+function wGuiCEditorIsDrawBackGround(box: wGuiObject): Boolean; cdecl; external WS3DCoreLib;
+
+procedure wGuiCEditorSetDrawBorder(box: wGuiObject; value: Boolean); cdecl; external WS3DCoreLib;
+
+function wGuiCEditorIsDrawBorder(box: wGuiObject): Boolean; cdecl; external WS3DCoreLib;
+
+procedure wGuiCEditorSetTextAlignment(box: wGuiObject; Horizontalvalue, Verticalvalue: wGuiAlignment); cdecl; external WS3DCoreLib;
+
+procedure wGuiCEditorSetWordWrap(box: wGuiObject; value: Boolean); cdecl; external WS3DCoreLib;
+
+function wGuiCEditorIsWordWrap(box: wGuiObject): Boolean; cdecl; external WS3DCoreLib;
+
+procedure wGuiCEditorSetBackgroundColor(box: wGuiObject; color: wColor4s); cdecl; external WS3DCoreLib;
+
+function wMirrorCreate(camera: wNode; reflectSize: wVector2i; mirrorOverlay: wTexture): wNode; cdecl; external WS3DCoreLib;
+
+// wMirror
+procedure wMirrorReflect(mirrorNode: wNode; color: wColor4s); cdecl; external WS3DCoreLib;
+
+procedure wMirrorSetScaleFactor(mirrorNode: wNode; factor: wVector2f); cdecl; external WS3DCoreLib;
 
 
 
