@@ -5998,6 +5998,29 @@ function wGuiMenuCreate(): wGuiObject; cdecl; external WS3DCoreLib;
 // wGuiModalScreen
 function wGuiModalScreenCreate(): wGuiObject; cdecl; external WS3DCoreLib;
 
+// wGuiSpinBox
+function wGuiSpinBoxCreate(const wcptrText: Pwstring; minPos, maxPos: wVector2i;
+          border: Boolean = true): wGuiObject; cdecl; external WS3DCoreLib;
+
+function wGuiSpinBoxGetEditBox(box: wGuiObject): wGuiObject; cdecl; external WS3DCoreLib;
+
+procedure wGuiSpinBoxSetValue(spin: wGuiObject; value: Float32); cdecl; external WS3DCoreLib;
+
+function wGuiSpinBoxGetValue(spin: wGuiObject): Float32; cdecl; external WS3DCoreLib;
+
+procedure wGuiSpinBoxSetRange(spin: wGuiObject; range: wVector2f); cdecl; external WS3DCoreLib;
+
+function wGuiSpinBoxGetMin(spin: wGuiObject): Float32; cdecl; external WS3DCoreLib;
+
+function wGuiSpinBoxGetMax(spin: wGuiObject): Float32; cdecl; external WS3DCoreLib;
+
+procedure wGuiSpinBoxSetStepSize(spin: wGuiObject; step: Float32); cdecl; external WS3DCoreLib;
+
+function wGuiSpinBoxGetStepSize(spin: wGuiObject): Float32; cdecl; external WS3DCoreLib;
+
+procedure wGuiSpinBoxSetDecimalPlaces(spin: wGuiObject; places: Int32); cdecl; external WS3DCoreLib;
+
+
 
 
 
