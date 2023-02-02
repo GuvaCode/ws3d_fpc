@@ -6037,6 +6037,52 @@ procedure wGuiTabSetBackgroundColor(tab: wGuiObject; color: wColor4s); cdecl; ex
 
 function wGuiTabGetBackgroundColor(tab: wGuiObject): wColor4s; cdecl; external WS3DCoreLib;
 
+// wGuiTabControl
+function wGuiTabControlCreate(minPos, maxPos: wVector2i; background: Boolean = false;
+          border: Boolean = true): wGuiObject; cdecl; external WS3DCoreLib;
+
+function wGuiTabControlGetTabsCount(control: wGuiObject): Int32; cdecl; external WS3DCoreLib;
+
+function wGuiTabControlAddTab(control: wGuiObject; const caption: Pwstring;
+          id: Int32 = -1): wGuiObject; cdecl; external WS3DCoreLib;
+
+function wGuiTabControlInsertTab(control: wGuiObject; idx: UInt32;
+          const caption: Pwstring; id: Int32 = -1): wGuiObject; cdecl; external WS3DCoreLib;
+
+function wGuiTabControlGetTab(control: wGuiObject; idx: Int32): wGuiObject; cdecl; external WS3DCoreLib;
+
+function wGuiTabControlSetActiveTabByIndex(control: wGuiObject; idx: Int32): Boolean; cdecl; external WS3DCoreLib;
+
+function wGuiTabControlSetActiveTab(control: wGuiObject; tab: wGuiObject): Boolean; cdecl; external WS3DCoreLib;
+
+function wGuiTabControlGetActiveTab(control: wGuiObject): Int32; cdecl; external WS3DCoreLib;
+
+function wGuiTabControlGetTabFromPos(control: wGuiObject; position: wVector2i): Int32; cdecl; external WS3DCoreLib;
+
+procedure wGuiTabControlRemoveTab(control: wGuiObject; idx: Int32); cdecl; external WS3DCoreLib;
+
+procedure wGuiTabControlRemoveAll(control: wGuiObject); cdecl; external WS3DCoreLib;
+
+procedure wGuiTabControlSetTabHeight(control: wGuiObject; height: Int32); cdecl; external WS3DCoreLib;
+
+function wGuiTabControlGetTabHeight(control: wGuiObject): Int32; cdecl; external WS3DCoreLib;
+
+procedure wGuiTabControlSetTabMaxWidth(control: wGuiObject; width: Int32); cdecl; external WS3DCoreLib;
+
+function wGuiTabControlGetTabMaxWidth(control: wGuiObject): Int32; cdecl; external WS3DCoreLib;
+
+procedure wGuiTabControlSetVerticalAlignment(control: wGuiObject; al: wGuiAlignment); cdecl; external WS3DCoreLib;
+
+function wGuiTabControlGetVerticalAlignment(control: wGuiObject): wGuiAlignment; cdecl; external WS3DCoreLib;
+
+procedure wGuiTabControlSetTabExtraWidth(control: wGuiObject; extraWidth: Int32); cdecl; external WS3DCoreLib;
+
+function wGuiTabControlGetTabExtraWidth(control: wGuiObject): Int32; cdecl; external WS3DCoreLib;
+
+procedure wGuiTabControlAttachTab(control, tab: wGuiObject); cdecl; external WS3DCoreLib;
+
+procedure wGuiTabControlDetachTab(control, tab: wGuiObject); cdecl; external WS3DCoreLib;
+
 
 
 implementation
