@@ -4120,8 +4120,8 @@ function wNodeCreateFromMesh(mesh: wMesh; isStatic: Boolean=false): wNode; cdecl
 
 function wNodeCreateFromStaticMesh(mesh: wMesh; isTangent: Boolean): wNode; cdecl; external WS3DCoreLib;
 
-function wNodeCreateFromMeshAsOctree(vptrMesh: wMesh; minimalPolysPerNode: Int32;
-          alsoAddIfMeshPointerZero: Boolean; isTangent: Boolean): wNode; cdecl; external WS3DCoreLib;
+function wNodeCreateFromMeshAsOctree(vptrMesh: wMesh; minimalPolysPerNode: Int32 = 512;
+          alsoAddIfMeshPointerZero: Boolean = false; isTangent: Boolean = false): wNode; cdecl; external WS3DCoreLib;
 
 function wNodeCreateFromBatchingMesh(batchMesh: wMesh): wNode; cdecl; external WS3DCoreLib;
 
