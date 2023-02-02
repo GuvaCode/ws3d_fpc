@@ -6323,7 +6323,31 @@ procedure wGuiSpriteBankDrawSpriteBatch(bank: wGuiObject; indexArray: PUInt32;
            center: Boolean = false); cdecl; external WS3DCoreLib;
 
 
+// wGuiCheckBox
+function wGuiCheckBoxCreate(const wcptrText: Pwstring; minPos, maxPos: wVector2i;
+          checked: Boolean): wGuiObject; cdecl; external WS3DCoreLib;
 
+procedure wGuiCheckBoxCheck(box: wGuiObject; checked: Boolean); cdecl; external WS3DCoreLib;
+
+function wGuiCheckBoxIsChecked(box: wGuiObject): Boolean; cdecl; external WS3DCoreLib;
+
+// Sets whether to draw the background
+procedure wGuiCheckBoxSetDrawBackground(checkbox: wGUIObject; value: Boolean); cdecl; external WS3DCoreLib;
+
+// Checks if background drawing is enabled
+//return true if background drawing is enabled, false otherwise
+function wGuiCheckBoxIsDrawBackground(checkbox: wGuiObject): Boolean; cdecl; external WS3DCoreLib;
+
+// Sets whether to draw the border
+procedure wGuiCheckBoxSetDrawBorder(checkbox: wGuiObject; value: Boolean); cdecl; external WS3DCoreLib;
+
+// Checks if border drawing is enabled
+//return true if border drawing is enabled, false otherwise
+function wGuiCheckBoxIsDrawBorder(checkbox: wGuiObject): Boolean; cdecl; external WS3DCoreLib;
+
+procedure wGuiCheckBoxSetFilled(checkbox: wGuiObject; value: Boolean); cdecl; external WS3DCoreLib;
+
+function wGuiCheckBoxIsFilled(checkbox: wGuiObject): Boolean; cdecl; external WS3DCoreLib;
 
 
 
