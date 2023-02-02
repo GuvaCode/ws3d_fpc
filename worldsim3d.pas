@@ -6020,7 +6020,22 @@ function wGuiSpinBoxGetStepSize(spin: wGuiObject): Float32; cdecl; external WS3D
 
 procedure wGuiSpinBoxSetDecimalPlaces(spin: wGuiObject; places: Int32); cdecl; external WS3DCoreLib;
 
+// wGuiTab
+function wGuiTabCreate(minPos, maxPos: wVector2i): wGuiObject; cdecl; external WS3DCoreLib;
 
+function wGuiTabGetNumber(tab: wGuiObject): Int32; cdecl; external WS3DCoreLib;
+
+procedure wGuiTabSetTextColor(tab: wGuiObject; color: wColor4s); cdecl; external WS3DCoreLib;
+
+function wGuiTabGetTextColor(tab: wGuiObject): wColor4s; cdecl; external WS3DCoreLib;
+
+procedure wGuiTabSetDrawBackground(tab: wGuiObject; value: Boolean); cdecl; external WS3DCoreLib;
+
+function wGuiTabIsDrawBackground(tab: wGuiObject): Boolean; cdecl; external WS3DCoreLib;
+
+procedure wGuiTabSetBackgroundColor(tab: wGuiObject; color: wColor4s); cdecl; external WS3DCoreLib;
+
+function wGuiTabGetBackgroundColor(tab: wGuiObject): wColor4s; cdecl; external WS3DCoreLib;
 
 
 
