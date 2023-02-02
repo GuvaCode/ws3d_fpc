@@ -6377,6 +6377,42 @@ procedure wGuiCheckBoxGroupSetBackgroundColor(group: wGuiObject; color: wColor4s
 
 procedure wGuiCheckBoxGroupDrawBackground(group: wGUIObject; isTrue: Int32); cdecl; external WS3DCoreLib;
 
+// wGuiProgressBar
+function wGuiProgressBarCreate(minPos, maxPos: wVector2i; isHorizontal: Boolean = true): wGuiObject; cdecl; external WS3DCoreLib;
+
+procedure wGuiProgressBarSetPercentage(bar: wGuiObject; percent: UInt32); cdecl; external WS3DCoreLib;
+
+function wGuiProgressBarGetPercentage(bar: wGuiObject): UInt32; cdecl; external WS3DCoreLib;
+
+procedure wGuiProgressBarSetDirection(bar: wGuiObject; isHorizontal: Boolean); cdecl; external WS3DCoreLib;
+
+function wGuiProgressBarIsHorizontal(bar: wGuiObject): Boolean; cdecl; external WS3DCoreLib;
+
+procedure wGuiProgressBarSetBorderSize(bar: wGuiObject; size: UInt32); cdecl; external WS3DCoreLib;
+
+procedure wGuiProgressBarSetSize(bar: wGuiObject; size: wVector2u); cdecl; external WS3DCoreLib;
+
+procedure wGuiProgressBarSetFillColor(bar: wGuiObject; color: wColor4s); cdecl; external WS3DCoreLib;
+
+function wGuiProgressBarGetFillColor(bar: wGuiObject): wColor4s; cdecl; external WS3DCoreLib;
+
+procedure wGuiProgressBarSetTextColor(bar: wGuiObject; color: wColor4s); cdecl; external WS3DCoreLib;
+
+procedure wGuiProgressBarShowText(bar: wGuiObject; value: Boolean); cdecl; external WS3DCoreLib;
+
+function wGuiProgressBarIsShowText(bar: wGuiObject): Boolean; cdecl; external WS3DCoreLib;
+
+procedure wGuiProgressBarSetFillTexture(bar: wGuiObject; tex: wTexture); cdecl; external WS3DCoreLib;
+
+procedure wGuiProgressBarSetBackTexture(bar: wGuiObject; tex: wTexture); cdecl; external WS3DCoreLib;
+
+procedure wGuiProgressBarSetFont(bar: wGuiObject; font: wFont); cdecl; external WS3DCoreLib;
+
+procedure wGuiProgressBarSetBackgroundColor(bar: wGuiObject; color: wColor4s); cdecl; external WS3DCoreLib;
+
+procedure wGuiProgressBarSetBorderColor(bar: wGuiObject; color: wColor4s); cdecl; external WS3DCoreLib;
+
+
 
 
 
