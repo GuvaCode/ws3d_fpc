@@ -6349,7 +6349,33 @@ procedure wGuiCheckBoxSetFilled(checkbox: wGuiObject; value: Boolean); cdecl; ex
 
 function wGuiCheckBoxIsFilled(checkbox: wGuiObject): Boolean; cdecl; external WS3DCoreLib;
 
+// wGuiCheckBoxGroup
+function wGuiCheckBoxGroupCreate(minPos, maxPos: wVector2i): wGuiObject; cdecl; external WS3DCoreLib;
 
+function wGuiCheckBoxGroupAddCheckBox(group: wGuiObject; check: wGuiObject): Int32; cdecl; external WS3DCoreLib;
+
+function wGuiCheckBoxGroupInsertCheckBox(group: wGuiObject; check: wGuiObject;
+          index: UInt32): Int32; cdecl; external WS3DCoreLib;
+
+function wGuiCheckBoxGroupGetCheckBox(group: wGuiObject; index: UInt32): wGuiObject; cdecl; external WS3DCoreLib;
+
+function wGuiCheckBoxGroupGetIndex(group: wGuiObject; check: wGuiObject): Int32; cdecl; external WS3DCoreLib;
+
+function wGuiCheckBoxGroupGetSelectedIndex(group: wGuiObject): Int32; cdecl; external WS3DCoreLib;
+
+function wGuiCheckBoxGroupRemoveCheckBox(group: wGuiObject; index: UInt32): Boolean; cdecl; external WS3DCoreLib;
+
+procedure wGuiCheckBoxGroupRemoveAll(group: wGuiObject); cdecl; external WS3DCoreLib;
+
+function wGuiCheckBoxGroupGetSize(group: wGuiObject): UInt32; cdecl; external WS3DCoreLib;
+
+procedure wGuiCheckBoxGroupSelectCheckBox(group: wGuiObject; index: Int32); cdecl; external WS3DCoreLib;
+
+procedure wGuiCheckBoxGroupClearSelection(group: wGuiObject); cdecl; external WS3DCoreLib;
+
+procedure wGuiCheckBoxGroupSetBackgroundColor(group: wGuiObject; color: wColor4s); cdecl; external WS3DCoreLib;
+
+procedure wGuiCheckBoxGroupDrawBackground(group: wGUIObject; isTrue: Int32); cdecl; external WS3DCoreLib;
 
 
 
