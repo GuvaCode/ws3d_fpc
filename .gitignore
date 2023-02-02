@@ -6,9 +6,15 @@ temp/*.compiled
 temp/
 
 binary/*
-!binary/resources/
+!binary/Assets/
 
-
+!binary/d3dx9_33.dll
+!binary/libgcc_s_sjlj-1.dll
+!binary/libstdc++-6.dll
+!binary/OpenAL32.dll
+!binary/OpenAL32_x64.dll
+!binary/WS3DCoreLib.dll
+!binary/WS3DCoreLib64.dll
 
 
 # macos

@@ -1,0 +1,21 @@
+Animation Frames for the BEAST!!
+
+1, 25	= Walk
+26, 70	= Emerge from underground
+71, 80	= Transition to Walk animation
+82, 100	= Jump with Z movement
+102, 120	= Jump with no Z movement for control in-game
+122, 150	= Rear up on hind legs
+152, 180	= Crouch down and look around
+182, 195	= Headbutt
+197, 210	= Bite 1
+212, 230	= Bite 2
+232, 270	= Stomp
+272, 288	= Take damage
+290, 330	= Look around
+332, 380	= Idle
+382, 400	= Die
+
+Have fun!!
+
+Psi

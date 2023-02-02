@@ -1,0 +1,39 @@
+uniform mat4 matViewInverseTranspose;
+uniform mat4 view_matrix;
+uniform mat4 view_proj_matrix;
+uniform float time_0_X;
+uniform float scroll_speed_X;
+uniform float scroll_speed_Y;
+
+uniform vec4 lightDir;
+
+attribute vec4 rm_Vertex;
+attribute vec3 rm_Normal;
+attribute vec3 rm_TexCoord0;
+
+varying vec2  vTexCoord;
+varying vec3  vNormal;
+varying vec3  vLightVec;
+varying vec3  vViewVec;
+
+void main(void)
+{
+   // Output transformed vertex position:
+   gl_Position = view_proj_matrix * rm_Vertex;
+
+   // Compute the light vector (view space):
+   vLightVec   = -lightDir.xyz;
+   vLightVec.z = -vLightVec.z;    // notice that we need to flip the z here to let OGL match D3D
+
+   // Transform vertex position into view space:
+   vec3 Pview =  vec3(view_matrix * rm_Vertex);
+
+   // Transform normal into view space:        
+   vNormal = normalize( vec3(matViewInverseTranspose * vec4(rm_Normal, 0.0)));
+
+   // Compute view vector (view space):
+   vViewVec = -normalize(Pview);  
+   
+   // Propagate texture coordinate for the object:
+   vTexCoord.x = rm_TexCoord0.x + time_0_X / (-scroll_speed_X);
+   vTexCoord.y = rm_TexCoord0.y + time_0_X / (-scroll_speed_Y);

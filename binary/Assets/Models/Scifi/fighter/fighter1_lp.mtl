@@ -1,0 +1,21 @@
+# Wavefront MTL
+# Created by fragMOTION
+# http://www.fragmosoft.com
+
+newmtl Material
+illum 2
+d 1
+ka 0.2 0.2 0.2
+kd 0 0 0
+ks 1 1 1
+ke 0 0 0
+ns 0
+newmtl Texture
+illum 2
+d 1
+ka 0.752941 0.752941 0.752941
+kd 0.752941 0.752941 0.752941
+ks 0 0 0
+ke 0 0 0
+ns 40
+map_kd E:\Program Files\FreeBasic0.9\Projects\WorldSim3D_1.0\Media\Models\Psionic\fighter\cubik.jpg

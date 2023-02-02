@@ -1,0 +1,31 @@
+Free BEAST model pack
+Copyright 2007, Psionic, http://www.psionic3d.co.uk
+
+INSTALLATION INSTRUCTIONS:
+
+To install, simply unzip to your hard drive with the "Use Folder Names" option turned on.
+
+USAGE INFORMATION:
+
+Please Read the "animationinfo.txt" file included for the frames of animation to use!!
+
+There is also a normal map and specular map included so if your game engine supports these features feel free to use em as they will add much better detail/lighting to the model...
+
+Credits to me "Psionic" are really appreciated but are not essential ;-)
+
+Any questions, screenshots of him in use etc drop by my site at:-
+website: http://www.psionic3d.co.uk
+
+Have fun and I hope you find a use for him ;-)
+
+Psi
+
+RESTRICTIONS:
+This model pack is available for use in freeware, shareware, commercial games/software with the following restrictions:-
+
+**You may not host/sell/re-sell this model pack or claim it as your own in anyway possible.
+***You may not redistribute this pack as part of some other model pack through a website or on a compilation CD of any kind, without my written consent.
+
+
+
+
