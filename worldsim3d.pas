@@ -6191,7 +6191,86 @@ function wGuiTreeIsImageLeftOfIcon(tree: wGuiObject): Boolean; cdecl; external W
 
 function wGuiTreeGetLastEventNode(tree: wGuiObject): wGuiObject; cdecl; external WS3DCoreLib;
 
+// wGuiTreeNode
+function wGuiTreeNodeGetOwner(node: wGuiObject): wGuiObject; cdecl; external WS3DCoreLib;
 
+function wGuiTreeNodeGetParent(node: wGuiObject): wGuiObject; cdecl; external WS3DCoreLib;
+
+function wGuiTreeNodeGetText(node: wGuiObject): Pwstring; cdecl; external WS3DCoreLib;
+
+procedure wGuiTreeNodeSetText(node: wGuiObject; const text: Pwstring); cdecl; external WS3DCoreLib;
+
+procedure wGuiTreeNodeSetIcon(node: wGuiObject; const icon: Pwstring); cdecl; external WS3DCoreLib;
+
+function wGuiTreeNodeGetIcon(node: wGuiObject): Pwstring; cdecl; external WS3DCoreLib;
+
+procedure wGuiTreeNodeSetImageIndex(node: wGuiObject; imageIndex: UInt32); cdecl; external WS3DCoreLib;
+
+function wGuiTreeNodeGetImageIndex(node: wGuiObject): UInt32; cdecl; external WS3DCoreLib;
+
+procedure wGuiTreeNodeSetSelectedImageIndex(node: wGuiObject; imageIndex: UInt32); cdecl; external WS3DCoreLib;
+
+function wGuiTreeNodeGetSelectedImageIndex(node: wGuiObject): UInt32; cdecl; external WS3DCoreLib;
+
+procedure wGuiTreeNodeSetData(node: wGuiObject; data: PUInt32); cdecl; external WS3DCoreLib;
+
+function wGuiTreeNodeGetData(node: wGuiObject): PUInt32; cdecl; external WS3DCoreLib;
+
+procedure wGuiTreeNodeSetData2(node: wGuiObject; data2: PUInt32); cdecl; external WS3DCoreLib;
+
+function wGuiTreeNodeGetData2(node: wGuiObject): PUInt32; cdecl; external WS3DCoreLib;
+
+function wGuiTreeNodeGetChildsCount(node: wGuiObject): UInt32; cdecl; external WS3DCoreLib;
+
+procedure wGuiTreeNodeRemoveChild(node: wGuiObject; child: wGuiObject); cdecl; external WS3DCoreLib;
+
+procedure wGuiTreeNodeRemoveChildren(node: wGuiObject); cdecl; external WS3DCoreLib;
+
+function wGuiTreeNodeHasChildren(node: wGuiObject): Boolean; cdecl; external WS3DCoreLib;
+
+function wGuiTreeNodeAddChildBack(node: wGuiObject; const text: Pwstring;
+          const icon: Pwstring; imageIndex, selectedImageIndex: Int32;
+          data: Pointer; data2: UInt32): wGuiObject; cdecl; external WS3DCoreLib;
+
+function wGuiTreeNodeAddChildFront(node: wGuiObject; const text: Pwstring;
+          const icon: Pwstring; imageIndex, selectedImageIndex: Int32;
+          data: Pointer; data2: PUInt32): wGuiObject; cdecl; external WS3DCoreLib;
+
+function wGuiTreeNodeInsertChildAfter(node, other: wGuiObject; const text: Pwstring;
+          const icon: Pwstring; imageIndex, selectedImageIndex: Int32;
+          data: Pointer; data2: PUInt32): wGuiObject; cdecl; external WS3DCoreLib;
+
+function wGuiTreeNodeInsertChildBefore(node, other: wGuiObject; const text: Pwstring;
+          const icon: Pwstring; imageIndex, selectedImageIndex: Int32;
+          data: Pointer; data2: PUInt32): wGuiObject; cdecl; external WS3DCoreLib;
+
+function wGuiTreeNodeGetFirstChild(node: wGuiObject): wGuiObject; cdecl; external WS3DCoreLib;
+
+function wGuiTreeNodeGetLastChild(node: wGuiObject): wGuiObject; cdecl; external WS3DCoreLib;
+
+function wGuiTreeNodeGetPrevSibling(node: wGuiObject): wGuiObject; cdecl; external WS3DCoreLib;
+
+function wGuiTreeNodeGetNextSibling(node: wGuiObject):wGuiObject; cdecl; external WS3DCoreLib;
+
+function wGuiTreeNodeGetNextVisible(node: wGuiObject): wGuiObject; cdecl; external WS3DCoreLib;
+
+function wGuiTreeNodeMoveChildUp(node: wGuiObject; child: wGuiObject): Boolean; cdecl; external WS3DCoreLib;
+
+function wGuiTreeNodeMoveChildDown(node: wGuiObject; child: wGuiObject): Boolean; cdecl; external WS3DCoreLib;
+
+procedure wGuiTreeNodeSetExpanded(node: wGuiObject; expanded: Boolean); cdecl; external WS3DCoreLib;
+
+function wGuiTreeNodeIsExpanded(node: wGuiObject): Boolean; cdecl; external WS3DCoreLib;
+
+procedure wGuiTreeNodeSetSelected(node: wGuiObject; selected: Boolean); cdecl; external WS3DCoreLib;
+
+function wGuiTreeNodeIsSelected(node: wGuiObject): Boolean; cdecl; external WS3DCoreLib;
+
+function wGuiTreeNodeIsRoot(node: wGuiObject): Boolean; cdecl; external WS3DCoreLib;
+
+function wGuiTreeNodeGetLevel(node: wGuiObject): Int32; cdecl; external WS3DCoreLib;
+
+function wGuiTreeNodeIsVisible(node: wGuiObject): Boolean; cdecl; external WS3DCoreLib;
 
 implementation
 
