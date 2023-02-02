@@ -6083,6 +6083,79 @@ procedure wGuiTabControlAttachTab(control, tab: wGuiObject); cdecl; external WS3
 
 procedure wGuiTabControlDetachTab(control, tab: wGuiObject); cdecl; external WS3DCoreLib;
 
+// wGuiTable
+function wGuiTableCreate(minPos, maxPos: wVector2i; background: Boolean = false): wGuiObject; cdecl; external WS3DCoreLib;
+
+procedure wGuiTableAddColumn(table: wGuiObject; const caption: Pwstring;
+          columnIndex: Int32 = -1); cdecl; external WS3DCoreLib;
+
+procedure wGuiTableRemoveColumn(table: wGuiObject; columnIndex: UInt32); cdecl; external WS3DCoreLib;
+
+function wGuiTableGetColumnsCount(table: wGuiObject): Int32; cdecl; external WS3DCoreLib;
+
+function wGuiTableSetActiveColumn(table: wGuiObject; idx: Int32;
+          doOrder: Boolean = false): Boolean; cdecl; external WS3DCoreLib;
+
+function wGuiTableGetActiveColumn(table: wGuiObject): Int32; cdecl; external WS3DCoreLib;
+
+function wGuiTableGetActiveColumnOrdering(table: wGuiObject): wGuiOrderingMode; cdecl; external WS3DCoreLib;
+
+procedure wGuiTableSetColumnWidth(table: wGuiObject; columnIndex, width: UInt32); cdecl; external WS3DCoreLib;
+
+procedure wGuiTableSetColumnsResizable(table: wGuiObject; resizible: Boolean); cdecl; external WS3DCoreLib;
+
+function wGuiTableIsColumnsResizable(table: wGuiObject): Boolean; cdecl; external WS3DCoreLib;
+
+function wGuiTableGetSelected(table: wGuiObject): Int32; cdecl; external WS3DCoreLib;
+
+procedure wGuiTableSetSelectedByIndex(table: wGuiObject; index: Int32); cdecl; external WS3DCoreLib;
+
+function wGuiTableGetRowsCount(table: wGuiObject): Int32; cdecl; external WS3DCoreLib;
+
+function wGuiTableAddRow(table: wGuiObject; rowIndex: UInt32): UInt32; cdecl; external WS3DCoreLib;
+
+procedure wGuiTableRemoveRow(table: wGuiObject; rowIndex: UInt32); cdecl; external WS3DCoreLib;
+
+procedure wGuiTableClearRows(table: wGuiObject); cdecl; external WS3DCoreLib;
+
+procedure wGuiTableSwapRows(table: wGuiObject; rowIndexA, rowIndexB: UInt32); cdecl; external WS3DCoreLib;
+
+procedure wGuiTableSetOrderRows(table: wGuiObject; columnIndex: Int32;
+           mode: wGuiOrderingMode); cdecl; external WS3DCoreLib;
+
+procedure wGuiTableSetCellText(table: wGuiObject; rowIndex, columnIndex: UInt32;
+           const text: Pwstring; color: wColor4s); cdecl; external WS3DCoreLib;
+
+procedure wGuiTableSetCellData(table: wGuiObject; rowIndex, columnIndex: UInt32;
+           data: PUInt32); cdecl; external WS3DCoreLib;
+
+procedure wGuiTableSetCellColor(table: wGuiObject; rowIndex, columnIndex: UInt32;
+           color: wColor4s); cdecl; external WS3DCoreLib;
+
+function wGuiTableGetCellText(table: wGuiObject; rowIndex, columnIndex: UInt32): Pwstring; cdecl; external WS3DCoreLib;
+
+function wGuiTableGetCellData(table: wGuiObject; rowIndex, columnIndex: UInt32): PUInt32; cdecl; external WS3DCoreLib;
+
+procedure wGuiTableSetDrawFlags(table: wGuiObject; flags: wGuiTableDrawFlags); cdecl; external WS3DCoreLib;
+
+function wGuiTableGetDrawFlags(table: wGuiObject): wGuiTableDrawFlags; cdecl; external WS3DCoreLib;
+
+procedure wGuiTableSetOverrideFont(table: wGuiObject; font: wFont); cdecl; external WS3DCoreLib;
+
+function wGuiTableGetOverrideFont(table: wGuiObject): wFont; cdecl; external WS3DCoreLib;
+
+function wGuiTableGetActiveFont(table: wGuiObject): wFont; cdecl; external WS3DCoreLib;
+
+function wGuiTableGetItemHeight(table: wGuiObject): Int32; cdecl; external WS3DCoreLib;
+
+function wGuiTableGetVerticalScrollBar(table: wGuiObject): wGuiObject; cdecl; external WS3DCoreLib;
+
+function wGuiTableGetHorizontalScrollBar(table: wGuiObject): wGuiObject; cdecl; external WS3DCoreLib;
+
+procedure wGuiTableSetDrawBackground(table: wGuiObject; value: Boolean); cdecl; external WS3DCoreLib;
+
+function wGuiTableIsDrawBackground(table: wGuiObject): Boolean; cdecl; external WS3DCoreLib;
+
 
 
 implementation
