@@ -6156,6 +6156,41 @@ procedure wGuiTableSetDrawBackground(table: wGuiObject; value: Boolean); cdecl; 
 
 function wGuiTableIsDrawBackground(table: wGuiObject): Boolean; cdecl; external WS3DCoreLib;
 
+// wGuiToolBar
+function wGuiToolBarCreate(): wGuiObject; cdecl; external WS3DCoreLib;
+
+function wGuiToolBarAddButton(bar: wGuiObject; const text: Pwstring;
+           const tooltiptext: Pwstring; img, pressedImg: wTexture;
+           isPushButton: Boolean = false; useAlphaChannel: Boolean = true): wGuiObject;  cdecl; external WS3DCoreLib;
+
+//wGuiMessageBox
+function wGuiMessageBoxCreate(const wcptrTitle, wcptrTCaption: Pwstring; modal: Boolean;
+           flags: wGuiMessageBoxFlags; image: wTexture): wGuiObject; cdecl; external WS3DCoreLib;
+
+// wGuiTree
+function wGuiTreeCreate(minPos, maxPos: wVector2i; background: Boolean;
+           barvertical: Boolean; barhorizontal: Boolean): wGuiObject; cdecl; external WS3DCoreLib;
+
+function wGuiTreeGetRoot(tree: wGuiObject): wGuiObject; cdecl; external WS3DCoreLib;
+
+function wGuiTreeGetSelected(tree: wGuiObject): wGuiObject; cdecl; external WS3DCoreLib;
+
+procedure wGuiTreeSetLinesVisible(tree: wGuiObject; visible: Boolean); cdecl; external WS3DCoreLib;
+
+function wGuiTreeIsLinesVisible(tree: wGuiObject): Boolean; cdecl; external WS3DCoreLib;
+
+procedure wGuiTreeSetIconFont(tree: wGuiObject; font: wFont); cdecl; external WS3DCoreLib;
+
+procedure wGuiTreeSetImageList(tree: wGuiObject; list: wGuiObject); cdecl; external WS3DCoreLib;
+
+function wGuiTreeGetImageList(tree: wGuiObject): wGuiObject; cdecl; external WS3DCoreLib;
+
+procedure wGuiTreeSetImageLeftOfIcon(tree: wGuiObject; bLeftOf: Boolean); cdecl; external WS3DCoreLib;
+
+function wGuiTreeIsImageLeftOfIcon(tree: wGuiObject): Boolean; cdecl; external WS3DCoreLib;
+
+function wGuiTreeGetLastEventNode(tree: wGuiObject): wGuiObject; cdecl; external WS3DCoreLib;
+
 
 
 implementation
