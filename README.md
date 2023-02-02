@@ -1,4 +1,4 @@
-# WorldSim3D Free Pascal Header
+# WorldSim3D - Free Pascal Header
 
 **Возможности WorldSim3D**  
   
