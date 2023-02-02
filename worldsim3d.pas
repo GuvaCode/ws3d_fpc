@@ -6272,6 +6272,64 @@ function wGuiTreeNodeGetLevel(node: wGuiObject): Int32; cdecl; external WS3DCore
 
 function wGuiTreeNodeIsVisible(node: wGuiObject): Boolean; cdecl; external WS3DCoreLib;
 
+// wGuiImageList
+function wGuiImageListCreate(texture: wTexture; size: wVector2i; useAlphaChannel: Boolean): wGuiObject; cdecl; external WS3DCoreLib;
+
+procedure wGuiImageListDraw(list: wGuiObject; index: Int32; pos, clipPos, clipSize: wVector2i); cdecl; external WS3DCoreLib;
+
+function wGuiImageListGetCount(list: wGuiObject): Int32; cdecl; external WS3DCoreLib;
+
+function wGuiImageListGetSize(list: wGuiObject): wVector2i; cdecl; external WS3DCoreLib;
+
+// wGuiColorSelectDialog
+function wGuiColorSelectDialogCreate(const title: Pwstring; modal: Boolean): wGuiObject; cdecl; external WS3DCoreLib;
+
+// wGuiMeshViewer
+function wGuiMeshViewerCreate(minPos, maxPos: wVector2i; const text: Pwstring): wGuiObject; cdecl; external WS3DCoreLib;
+
+procedure wGuiMeshViewerSetMesh(viewer: wGuiObject; mesh: wMesh); cdecl; external WS3DCoreLib;
+
+function wGuiMeshViewerGetMesh(viewer: wGuiObject): wMesh; cdecl; external WS3DCoreLib;
+
+procedure wGuiMeshViewerSetMaterial(viewer: wGuiObject; material: wMaterial); cdecl; external WS3DCoreLib;
+
+function wGuiMeshViewerGetMaterial(viewer: wGuiObject): wMaterial; cdecl; external WS3DCoreLib;
+
+// wGuiSpriteBank
+function wGuiSpriteBankLoad(const file_: Pchar): wGuiObject; cdecl; external WS3DCoreLib;
+
+function wGuiSpriteBankCreate(const name: PChar): wGuiObject; cdecl; external WS3DCoreLib;
+
+procedure wGuiSpriteBankAddTexture(bank: wGuiObject; texture: wTexture); cdecl; external WS3DCoreLib;
+
+procedure wGuiSpriteBankSetTexture(bank: wGuiObject; index: UInt32; texture: wTexture); cdecl; external WS3DCoreLib;
+
+function wGuiSpriteBankAddSprite(bank: wGuiObject; texture: wTexture): Int32; cdecl; external WS3DCoreLib;
+
+function wGuiSpriteBankGetTexture(bank: wGuiObject; index: UInt32): wTexture; cdecl; external WS3DCoreLib;
+
+function wGuiSpriteBankGetTexturesCount(bank: wGuiObject): UInt32; cdecl; external WS3DCoreLib;
+
+procedure wGuiSpriteBankRemoveAll(bank: wGuiObject); cdecl; external WS3DCoreLib;
+
+procedure wGuiSpriteBankDrawSprite(bank: wGuiObject; index: UInt32; position: wVector2i;
+           clipPosition: pwVector2i; clipSize: PwVector2i; color: wColor4s;
+           starttime: UInt32; currenttime: UInt32; loop: Boolean = true; center: Boolean = false); cdecl; external WS3DCoreLib;
+
+procedure wGuiSpriteBankDrawSpriteBatch(bank: wGuiObject; indexArray: PUInt32;
+           idxArrayCount: UInt32; positionArray: PwVector2i; posArrayCount: UInt32;
+           clipPosition: PwVector2i; clipSize: PwVector2i; color: wColor4s;
+           starttime: UInt32; currenttime: UInt32; loop: Boolean = true;
+           center: Boolean = false); cdecl; external WS3DCoreLib;
+
+
+
+
+
+
+
+
+
 implementation
 
 
