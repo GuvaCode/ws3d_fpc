@@ -6534,7 +6534,7 @@ begin
   for i := 0 to Length (text) - 1 do
     Chars [i] := WChar (text [i]);
   Chars [Length (text)] := WChar(#0);
-  Result := Chars;
+//  Result := Chars;
   //Result := UCS4String (text);
 end;
 {$ENDIF}
@@ -6545,9 +6545,10 @@ begin
 end;
 
 function PWStr(text: PChar): PWString;
-const
-  convertedStr : WString = nullStr;
+var
+  convertedStr : WString;// = nullStr;
 begin
+
   convertedStr := WStr(text);
   Result := @convertedStr;
 end;
@@ -6562,7 +6563,7 @@ begin
 {$IFDEF WINDOWS}
 Result := StrPas (text);
 {$ELSE}
-Result := UCS4StringToUnicodeString (text);
+//Result := UCS4StringToUnicodeString (text);
 {$ENDIF}
 end;
 
