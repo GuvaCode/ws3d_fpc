@@ -37,117 +37,47 @@ const
   {$ENDIF}
 
 type
-  PUInt64 = ^UInt64;
   UInt64 = dword;
-
-  PUInt32 = ^UInt32;
   UInt32 = dword;
-
-  PUInt16 = ^UInt16;
   UInt16 = word;
-
-  PUInt8 = ^UInt8;
   UInt8 = byte;
-
-  PInt64 = ^Int64;
   Int64 = longint;
-
-  PInt32 = ^Int32;
   Int32 = longint;
-
-  PInt16 = ^Int16;
   Int16 = smallint;
-
-  PInt8 = ^Int8;
   Int8 = char;
-
-  PFloat64 = ^Float64;
   Float64 = double;
-
-  PFloat32 = ^Float32;
   Float32 = single;
+  PUInt32 =^UInt32;
+  PFloat32=^Float32;
+  PBoolean=^Boolean;
+  wImage 		= PUInt32; 	PwImage          = ^wImage;
+  wTexture 		= PUInt32;	PwTexture        = ^wTexture;
+  wFont 		= PUInt32;	PwFont           = ^wFont;
+  wGuiObject 		= PUInt32;	PwGuiObject      = ^wGuiobject;
+  wMesh 		= PUInt32;	PwMesh           = ^wMesh;
+  wMeshBuffer 	        = PUInt32;	PwMeshBuffer     = ^wMeshBuffer;
+  wNode 		= PUInt32;	PwNode           = ^wNode;
+  wMaterial 		= PUInt32;	PwMaterial       = ^wMaterial;
+  wSelector 		= PUInt32;	PwSelector       = ^wSelector;
+  wEmitter 		= PUInt32;	PwEmitter        = ^wEmitter;
+  wAffector 		= PUInt32;	PwAffector       = ^wAffector;
+  wAnimator 		= PUInt32;	PwAnimator       = ^wAnimator;
+  wXmlReader 		= PUInt32;	PwXmlReader      = ^wXmlReader;
+  wXmlWriter 		= PUInt32;	PwXmlWriter      = ^wXmlWriter;
+  wFile 		= PUInt32;	PwFile		 = ^wFile;
+  wSoundEffect 	        = PUInt32;	PwSoundEffect	 = ^wSoundEffect;
+  wSoundFilter 	        = PUInt32;	PwSoundFilter	 = ^wSoundFilter;
+  wSound 		= PUInt32;	PwSound		 = ^wSound;
+  wSoundBuffer 	        = PUInt32;	PwSoundBuffer	 = ^wSoundBuffer;
+  wVideo 		= PUInt32;	PwVideo		 = ^wVideo;
+  wPostEffect 	        = PUInt32;	PwPostEffect	 = ^wPostEffect;
+  wPacket 		= PUInt32;	PwPacket	 = ^wPacket;
+  wFileArchive          = PUInt32;      PwFileArchive =^wFileArchive;
+  wFileList             = PUInt32;      PwFileList = ^wFileList;
+  wMouseEventType       = Longint;      PwMouseEventType = ^wMouseEventType;
 
-  PwImage = ^wImage;
-  wImage = UInt32;
 
-  PwTexture = ^wTexture;
-  wTexture = UInt32;
-
-  PwFont = ^wFont;
-  wFont = UInt32;
-
-  PwGuiObject = ^wGuiObject;
-  wGuiObject = UInt32;
-
-  PwMesh = ^wMesh;
-  wMesh = UInt32;
-
-  PwMeshBuffer = ^wMeshBuffer;
-  wMeshBuffer = UInt32;
-
-  PwNode = ^wNode;
-  wNode = UInt32;
-
-  PwBody = ^wBody;
-  wBody = UInt32;
-
-  PwMaterial = ^wMaterial;
-  wMaterial = UInt32;
-
-  PwSelector = ^wSelector;
-  wSelector = UInt32;
-
-  PwEmitter = ^wEmitter;
-  wEmitter = UInt32;
-
-  PwAffector = ^wAffector;
-  wAffector = UInt32;
-
-  PwAnimator = ^wAnimator;
-  wAnimator = UInt32;
-
-  PwXmlReader = ^wXmlReader;
-  wXmlReader = UInt32;
-
-  PwXmlWriter = ^wXmlWriter;
-  wXmlWriter = UInt32;
-
-  PwFile = ^wFile;
-  wFile = UInt32;
-
-  PwFileArchive = ^wFileArchive;
-  wFileArchive = UInt32;
-
-  PwFileList = ^wFileList;
-  wFileList = UInt32;
-
-  PwAttribute = ^wAttribute;
-  wAttribute = UInt32;
-
-  PwSoundEffect = ^wSoundEffect;
-  wSoundEffect = UInt32;
-
-  PwSoundFilter = ^wSoundFilter;
-  wSoundFilter = UInt32;
-
-  PwSound = ^wSound;
-  wSound = UInt32;
-
-  PwSoundBuffer = ^wSoundBuffer;
-  wSoundBuffer = UInt32;
-
-  PwVideo = ^wVideo;
-  wVideo = UInt32;
-
-  PwPostEffect = ^wPostEffect;
-  wPostEffect = UInt32;
-
-  PwPacket = ^wPacket;
-  wPacket = UInt32;
-
-  PwMouseEventType = ^wMouseEventType;
-  wMouseEventType =  Longint;
-  const
+const
     wMET_LMOUSE_PRESSED_DOWN = 0;
     wMET_RMOUSE_PRESSED_DOWN = 1;
     wMET_MMOUSE_PRESSED_DOWN = 2;
@@ -2501,14 +2431,13 @@ type
   WChar   = WideChar;
   WString = WideString;
   {$ELSE}
-  WChar   = WideChar;//UCS4Char;
-  WString = WideString;//UCS4String;
+  WChar   = UCS4Char;
+  WString = UCS4String;
   {$ENDIF}
-  PWChar   = ^WChar;
+  PWChar    = ^WChar;
   PPWChar   = ^PWChar;
-  PWString = ^WString;
-//  wFile = PUInt32;
-//  PwFile= ^wFile;
+  PWString  = ^WString;
+
 
 { wConsole }
 procedure wConsoleSetFontColor(c: wConsoleFontColor); cdecl; external WS3DCoreLib;
@@ -2621,7 +2550,7 @@ function wFontAddToFont(const fontPath: PChar; destFont: wFont): wFont; cdecl; e
 
 function wFontGetDefault():wFont; cdecl; external WS3DCoreLib;
 
-procedure wFontDraw(font:wFont; const wcptrText: PWChar;   ////////
+procedure wFontDraw(font: wFont; const wcptrText: WString;  //PWString???????
           fromPos: wVector2i; toPos: wVector2i; color: wColor4s); cdecl; external WS3DCoreLib;
 
 procedure wFontDestroy(font: wFont); cdecl; external WS3DCoreLib;
@@ -2923,7 +2852,7 @@ function wCustomRendererCreate(const shaderDirPath: PChar;
 
 function wCustomRendererDestroy(): Boolean; cdecl; external WS3DCoreLib;
 
-procedure wCustomRendererSwapMaterials(node: wNode = 0); cdecl; external WS3DCoreLib;
+procedure wCustomRendererSwapMaterials(node: wNode = nil); cdecl; external WS3DCoreLib;
 
 procedure wCustomRendererUpdateMaterialEntry(swapFrom, swapTo: wMaterialTypes); cdecl; external WS3DCoreLib;
 
@@ -2947,16 +2876,16 @@ function wSceneBeginAdvanced( backColor: wColor4s;
                               clearZBuffer : Boolean = true): Boolean; cdecl; external WS3DCoreLib;
 
 //procedure wSceneLoad(filename: Pchar); cdecl; external WS3DCoreLib;
-function wSceneLoad(const filename: PChar; parentNode: wNode = 0): Boolean; cdecl; external WS3DCoreLib;
+function wSceneLoad(const filename: PChar; parentNode: wNode = nil): Boolean; cdecl; external WS3DCoreLib;
 
-function wSceneLoadFromFile(file_: wFile; parentNode: wNode = 0): Boolean; cdecl; external WS3DCoreLib;
+function wSceneLoadFromFile(file_: wFile; parentNode: wNode = nil): Boolean; cdecl; external WS3DCoreLib;
 
-function wSceneSave(filename: PChar; parentNode: wNode = 0): Boolean; cdecl; external WS3DCoreLib;
+function wSceneSave(filename: PChar; parentNode: wNode = nil): Boolean; cdecl; external WS3DCoreLib;
 
-function wSceneSaveToFile(file_: wFile; parentNode: wNode = 0): Boolean; cdecl; external WS3DCoreLib;
+function wSceneSaveToFile(file_: wFile; parentNode: wNode = nil): Boolean; cdecl; external WS3DCoreLib;
 
 function wSceneSaveToXml(writer: wXmlWriter; const relativePath: PChar;
-                         parentNode: wNode=0): Boolean; cdecl; external WS3DCoreLib;
+                         parentNode: wNode=nil): Boolean; cdecl; external WS3DCoreLib;
 
 procedure wSceneDrawAll(); cdecl; external WS3DCoreLib;
 
@@ -6510,19 +6439,22 @@ function wMirrorCreate(camera: wNode; reflectSize: wVector2i; mirrorOverlay: wTe
 procedure wMirrorReflect(mirrorNode: wNode; color: wColor4s); cdecl; external WS3DCoreLib;
 
 procedure wMirrorSetScaleFactor(mirrorNode: wNode; factor: wVector2f); cdecl; external WS3DCoreLib;
-
+// преобразование строк в WString
 function WStr (text : PChar) : WString; overload;
 function WStr (text : String) : WString; overload;
+function WstrRu(txt: String): WString; overload;
+function PWstrRu(txt: String): PWString; overload;
 function PWStr (text : PChar) : PWString; overload;
-function PWStr (text : String) : PWString; overload;
+function PWStr (text : AnsiString) : PWString; overload;
 function WStrPas (text : PWChar) : UnicodeString;
 
 implementation
 
+
 {$IFDEF WINDOWS}
 function WStr (text: PChar) : WString;
 begin
-  Result := WString (text);
+  Result := WString(text);
 end;
 {$ELSE}
 function WStr (text: PChar) : WString;
@@ -6534,26 +6466,35 @@ begin
   for i := 0 to Length (text) - 1 do
     Chars [i] := WChar (text [i]);
   Chars [Length (text)] := WChar(#0);
-//  Result := Chars;
+  Result := Chars;
   //Result := UCS4String (text);
 end;
 {$ENDIF}
 
 function WStr(text: String) : WString;
 begin
-  Result := WStr (PChar (text));
+  Result := WStr(PChar(text));
+end;
+
+function WstrRu(txt: String): WString;
+begin
+ Result := WString(Utf8ToAnsi(txt));
+end;
+
+function PWstrRu(txt: String): PWString;
+begin
+ Result:=PWString(Utf8ToAnsi(txt));
 end;
 
 function PWStr(text: PChar): PWString;
-var
-  convertedStr : WString;// = nullStr;
+const
+  convertedStr : WString = nullStr;
 begin
-
   convertedStr := WStr(text);
   Result := @convertedStr;
 end;
 
-function PWStr(text: String): PWString;
+function PWStr(text: AnsiString): PWString;
 begin
   Result := PWStr(PChar(text));
 end;
@@ -6563,7 +6504,7 @@ begin
 {$IFDEF WINDOWS}
 Result := StrPas (text);
 {$ELSE}
-//Result := UCS4StringToUnicodeString (text);
+Result := UCS4StringToUnicodeString (text);
 {$ENDIF}
 end;
 

@@ -17,7 +17,7 @@ uses
 
 {Declare variables}
 var
-  MyFont : wFont=0;
+  MyFont : wFont = nil;
   sceneColor:wColor4s=(alpha:255;red:0;green:125;blue:0);
   fromPos:wVector2i=(x:120; y:80);
   toPos:wVector2i=(x:250; y:96);
@@ -51,7 +51,7 @@ begin
 
     {Draw text}
     fromPos.y:=80; toPos.y:=96;
-    wFontDraw(MyFont,'Hello, World!',fromPos,toPos,wCOLOR4s_WHITE);
+    wFontDraw(MyFont,('Hello, World!'),fromPos,toPos,wCOLOR4s_WHITE);
 
     wSceneEnd();
 

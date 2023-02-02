@@ -7,7 +7,7 @@ interface
 uses
   SysUtils,WorldSim3D;
 
-function CheckFilePath(path:PChar) : Boolean;
+function  CheckFilePath(path:PChar) : Boolean;
 procedure PrintWithColor(text : PChar; color : wConsoleFontColor; waitKey : Boolean);
                                           
 function ShaderGetMaterialType(shader : wShader) : wMaterialTypes;
@@ -104,7 +104,7 @@ end;
    i:Int32;
 
    begin
-   if node <> 0 then exit;
+   if node <> nil then exit;
 
    vis:=wNodeIsVisible(node);
    wNodeSetVisibility(node,true);
@@ -230,7 +230,7 @@ begin
      if wSceneIsMeshLoaded(path) then
         begin
              mesh:=wSceneGetMeshByName(path);
-             if mesh<>0 then Result:= mesh;
+             if mesh<> nil then Result:= mesh;
         end;
 
      if wFileIsExist(path) then mesh:=wMeshLoad(path);
@@ -255,9 +255,9 @@ const
  {Для сплайн-аниматора по двум точкам}
  points:array[0..2] of wVector3f;
 
- mesh:wMesh=0;
- node:wNode=0;
- camera:wNode=0;
+ mesh:wMesh=nil;
+ node:wNode=nil;
+ camera:wNode=nil;
 
  {позиция установки объекта}
  position:wVector3f;
@@ -273,7 +273,7 @@ const
  isModel:Boolean=true;
  isWeapon:Boolean=false;
  {для биллборда старта/респавна}
- BillBoard:wNode=0;
+ BillBoard:wNode=nil;
  bSize:wVector2f=(x:128;y:12);
  bTopColor:wColor4s=(alpha:255;red:255;green:0;blue:0);
  bBottomColor:wColor4s=(alpha:255;red:64;green:0;blue:0);
@@ -382,8 +382,8 @@ const
     	 modelName:=entityName;
     end;
 
-    if mesh<> 0 then node:= wNodeCreateFromMesh(mesh);
-    if node<> 0 then
+    if mesh<> nil then node:= wNodeCreateFromMesh(mesh);
+    if node<> nil then
        begin
        wNodeSetPosition(node,position);
        rotation.x:=0; rotation.y:=rotSpeed; rotation.z:=0;
@@ -439,9 +439,9 @@ end;
 
 procedure SetQuakeShadersVisible(value:Boolean);
 var
-  root:wNode=0;
+  root:wNode=nil;
   iter:UInt32=0;
-  node:wNode=0;
+  node:wNode=nil;
 begin
 root:=wSceneGetRootNode();
 node:=wNodeGetFirstChild(root,@iter);
@@ -449,7 +449,7 @@ node:=wNodeGetFirstChild(root,@iter);
 while not wNodeIsLastChild(root,@iter) do
 begin
    node:=wNodeGetNextChild(root,@iter);
-   if node<>0 then
+   if node<> nil then
       begin
        if wNodeGetType(node)=wSNT_Q3SHADER_SCENE_NODE then wNodeSetVisibility(node,value);
    end;
