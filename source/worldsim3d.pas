@@ -3916,7 +3916,7 @@ function wParticleAffectorGetType(foa: wAffector): wParticleAffectorType; cdecl;
 function wParticleFadeOutAffectorCreate(ps: wNode): wAffector; cdecl; external WS3DCoreLib;
 
 procedure wParticleFadeOutAffectorSetTime(paf: wAffector;
-          fadeOutTime: UInt32); cdecl; external WS3DCoreLib;
+          fadeOutTime: UInt32 =1000); cdecl; external WS3DCoreLib;
 
 function wParticleFadeOutAffectorGetTime(paf: wAffector): UInt32; cdecl; external WS3DCoreLib ;
 
@@ -6450,14 +6450,19 @@ function PWStr (text : AnsiString) : PWString; overload;
 function WStrPas (text : PWChar) : UnicodeString;
 
 // вспомоательные функции
-function wVector3fCreate(x,y,z: Float32): wVector3f;
 function wVector3Zero(): wVector3f;
+
+function wVector3fCreate(x,y,z: Float32): wVector3f;
 procedure wVector3fSet(vec: PwVector3f; x,y,z: Float32);
+
 function wColor4sCreate(a,r,g,b: UInt8): wColor4s;
 procedure wColor4sSet(color: PwColor4s; a,r,g,b: UInt8);
 
 function wVector2iCreate(x,y: Int32):wVector2i;
 procedure wVector2iSet(vec: PwVector2i; x,y: Int32);
+
+function wVector2fCreate(x,y: Float32):wVector2f;
+procedure wVector2fSet(vec: PwVector2f; x,y: Float32);
 
 implementation
 
@@ -6533,7 +6538,7 @@ begin
   Result.z := 0;
 end;
 
-procedure wVector3fSet(Vec: PwVector3f; x, y, z: Float32);
+procedure wVector3fSet(vec: PwVector3f; x, y, z: Float32);
 begin
   Vec^.x := x;
   Vec^.y := y;
@@ -6548,7 +6553,7 @@ begin
   Result.blue:=b;
 end;
 
-procedure wColor4sSet(Color: PwColor4s; a, r, g, b: UInt8);
+procedure wColor4sSet(color: PwColor4s; a, r, g, b: UInt8);
 begin
   Color^.alpha:=a;
   Color^.red:=r;
@@ -6563,6 +6568,18 @@ begin
 end;
 
 procedure wVector2iSet(vec: PwVector2i; x, y: Int32);
+begin
+  vec^.x:=x;
+  vec^.y:=y;
+end;
+
+function wVector2fCreate(x, y: Float32): wVector2f;
+begin
+  Result.x:=x;
+  Result.y:=y;
+end;
+
+procedure wVector2fSet(vec: PwVector2f; x, y: Float32);
 begin
   vec^.x:=x;
   vec^.y:=y;
