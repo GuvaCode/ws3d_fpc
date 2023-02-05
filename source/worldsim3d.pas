@@ -4530,17 +4530,17 @@ procedure wMeshEnableHardwareAcceleration(mesh: wMesh; iFrame: UInt32); cdecl; e
 
 function wMeshGetFramesCount(mesh: wMesh): UInt32; cdecl; external WS3DCoreLib;
 
-function wMeshGetIndicesCount(mesh: wMesh; iFrame: UInt32;
-          iMeshBuffer: UInt32): UInt32; cdecl; external WS3DCoreLib;
+function wMeshGetIndicesCount(mesh: wMesh; iFrame: UInt32 = 0;
+          iMeshBuffer: UInt32 = 0): UInt32; cdecl; external WS3DCoreLib;
 
-function wMeshGetIndices(mesh: wMesh; iFrame,
-          iMeshBuffer: UInt32): PUInt16; cdecl; external WS3DCoreLib;
+function wMeshGetIndices(mesh: wMesh; iFrame: UInt32 = 0;
+          iMeshBuffer: UInt32 = 0): PUInt16; cdecl; external WS3DCoreLib;
 
 procedure wMeshSetIndices(mesh: wMesh; iFrame: UInt32; indicies: PUInt16;
            iMeshBuffer: UInt32); cdecl; external WS3DCoreLib;
 
-function wMeshGetVerticesCount(mesh: wMesh; iFrame,
-           iMeshBuffer: UInt32): UInt32; cdecl; external WS3DCoreLib;
+function wMeshGetVerticesCount(mesh: wMesh; iFrame: UInt32 = 0;
+           iMeshBuffer: UInt32 = 0): UInt32; cdecl; external WS3DCoreLib;
 
 procedure wMeshGetVertices(mesh: wMesh; iFrame: UInt32; verts: PwVert;
            iMeshBuffer: UInt32); cdecl; external WS3DCoreLib;
@@ -4549,7 +4549,7 @@ function wMeshGetVerticesMemory(mesh: wMesh; iFrame,
            iMeshBuffer: UInt32): UInt32; cdecl; external WS3DCoreLib;
 
 procedure wMeshSetVertices(mesh: wMesh; iFrame: UInt32; verts: PwVert;
-           iMeshBuffer: UInt32); cdecl; external WS3DCoreLib;
+           iMeshBuffer: UInt32 = 0); cdecl; external WS3DCoreLib;
 
 procedure wMeshSetScale(mesh: wMesh; scale: Float32; iFrame, iMeshBuffer: UInt32;
            sourceMesh: wMesh); cdecl; external WS3DCoreLib;

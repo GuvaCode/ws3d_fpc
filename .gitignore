@@ -15,7 +15,7 @@ binary/*
 !binary/OpenAL32_x64.dll
 !binary/WS3DCoreLib.dll
 !binary/WS3DCoreLib64.dll
-
+!binary/wrap_oal.dll
 
 # macos
 .DS_Store
