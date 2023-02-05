@@ -6451,6 +6451,7 @@ function WStrPas (text : PWChar) : UnicodeString;
 
 // вспомоательные функции
 function wVector3fCreate(x,y,z: Float32): wVector3f;
+function wVector3Zero(): wVector3f;
 procedure wVector3fSet(vec: PwVector3f; x,y,z: Float32);
 function wColor4sCreate(a,r,g,b: UInt8): wColor4s;
 procedure wColor4sSet(color: PwColor4s; a,r,g,b: UInt8);
@@ -6523,6 +6524,13 @@ begin
   Result.x := x;
   Result.y := y;
   Result.z := z;
+end;
+
+function wVector3Zero(): wVector3f;
+begin
+  Result.x := 0;
+  Result.y := 0;
+  Result.z := 0;
 end;
 
 procedure wVector3fSet(Vec: PwVector3f; x, y, z: Float32);
