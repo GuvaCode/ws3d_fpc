@@ -2551,11 +2551,12 @@ function wFontAddToFont(const fontPath: PChar; destFont: wFont): wFont; cdecl; e
 function wFontGetDefault():wFont; cdecl; external WS3DCoreLib;
 
 procedure wFontDraw(font: wFont; const wcptrText: WString;  //PWString???????
-          fromPos: wVector2i; toPos: wVector2i; color: wColor4s); cdecl; external WS3DCoreLib;
+                         fromPos: wVector2i; toPos: wVector2i;
+                         color: wColor4s); cdecl; external WS3DCoreLib;
 
 procedure wFontDestroy(font: wFont); cdecl; external WS3DCoreLib;
 
-function wFontGetTextSize(font: wFont; const text: PWString): wVector2u; cdecl; external WS3DCoreLib; ///////
+function wFontGetTextSize(font: wFont; const text: WString): wVector2u; cdecl; external WS3DCoreLib; ///////
 
 procedure wFontSetKerningSize(font: wFont; kerning: wVector2u); cdecl; external WS3DCoreLib;
 
@@ -6448,6 +6449,15 @@ function PWStr (text : PChar) : PWString; overload;
 function PWStr (text : AnsiString) : PWString; overload;
 function WStrPas (text : PWChar) : UnicodeString;
 
+// вспомоательные функции
+function wVector3fCreate(x,y,z: Float32): wVector3f;
+procedure wVector3fSet(vec: PwVector3f; x,y,z: Float32);
+function wColor4sCreate(a,r,g,b: UInt8): wColor4s;
+procedure wColor4sSet(color: PwColor4s; a,r,g,b: UInt8);
+
+function wVector2iCreate(x,y: Int32):wVector2i;
+procedure wVector2iSet(vec: PwVector2i; x,y: Int32);
+
 implementation
 
 
@@ -6478,7 +6488,7 @@ end;
 
 function WstrRu(txt: String): WString;
 begin
- Result := WString(Utf8ToAnsi(txt));
+//Result := WString(Utf8ToAnsi(txt));
 end;
 
 function PWstrRu(txt: String): PWString;
@@ -6487,11 +6497,11 @@ begin
 end;
 
 function PWStr(text: PChar): PWString;
-const
-  convertedStr : WString = nullStr;
+//const
+//  convertedStr : WString = nullStr;
 begin
-  convertedStr := WStr(text);
-  Result := @convertedStr;
+ // convertedStr := WStr(text);
+ // Result := @convertedStr;
 end;
 
 function PWStr(text: AnsiString): PWString;
@@ -6508,7 +6518,47 @@ Result := UCS4StringToUnicodeString (text);
 {$ENDIF}
 end;
 
+function wVector3fCreate(x, y, z: Float32): wVector3f;
+begin
+  Result.x := x;
+  Result.y := y;
+  Result.z := z;
+end;
 
+procedure wVector3fSet(Vec: PwVector3f; x, y, z: Float32);
+begin
+  Vec^.x := x;
+  Vec^.y := y;
+  Vec^.z := z;
+end;
+
+function wColor4sCreate(a, r, g, b: UInt8): wColor4s;
+begin
+  Result.alpha:=a;
+  Result.red:=r;
+  Result.green:=g;
+  Result.blue:=b;
+end;
+
+procedure wColor4sSet(Color: PwColor4s; a, r, g, b: UInt8);
+begin
+  Color^.alpha:=a;
+  Color^.red:=r;
+  Color^.green:=g;
+  Color^.blue:=b;
+end;
+
+function wVector2iCreate(x, y: Int32): wVector2i;
+begin
+  Result.x:=x;
+  Result.y:=y;
+end;
+
+procedure wVector2iSet(vec: PwVector2i; x, y: Int32);
+begin
+  vec^.x:=x;
+  vec^.y:=y;
+end;
 
 
 

@@ -33,7 +33,7 @@ var
   fontPath2:PChar                       ='Assets/Fonts/myfont4.png';
   fontPath3:PChar                       ='Assets/Fonts/papyrus_bold.png';
   fontPath4:PChar                       ='Assets/Fonts/Cyr.xml';
-
+  str:WideChar;
 begin
 
   {Start engine}
@@ -72,9 +72,12 @@ begin
     textColor.red:=0; textColor.green:=0; textColor.blue:=255;
     wFontDraw ( BitmapFont_3, ('Game Over'), fromPos,toPos,textColor);
 
+
+    //Str:= Utf8ToAnsi('У меня получится сделать игру мечты!');
+
     fromPos.y:=170; toPos.y:=186;
     textColor.red:=0; textColor.green:=255; textColor.blue:=255;
-    wFontDraw ( BitmapFont_Cyrillic, Utf8ToAnsi('У меня получится сделать игру мечты!'), fromPos, toPos, textColor);
+    wFontDraw ( BitmapFont_Cyrillic, ('У меня получится сделать игру мечты!'), fromPos, toPos, textColor);
 
     wSceneEnd();
 
@@ -82,8 +85,8 @@ begin
 
     if prevFPS<>wEngineGetFPS() then
        begin
-         prevFPS:=wEngineGetFPS();
-         wWindowSetCaption(wndCaption+WStr(FormatFloat('0',prevFPS)));
+         //prevFPS:=wEngineGetFPS();
+        // wWindowSetCaption(wndCaption+WStr(FormatFloat('0',prevFPS)));
     end;
 
   end;
