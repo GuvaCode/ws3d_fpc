@@ -6458,6 +6458,9 @@ procedure wVector3fSet(vec: PwVector3f; x,y,z: Float32);
 function wColor4sCreate(a,r,g,b: UInt8): wColor4s;
 procedure wColor4sSet(color: PwColor4s; a,r,g,b: UInt8);
 
+function wColor4fCreate(a,r,g,b: Float32): wColor4f;
+procedure wColor4fSet(color: PwColor4f; a,r,g,b: Float32);
+
 function wVector2iCreate(x,y: Int32):wVector2i;
 procedure wVector2iSet(vec: PwVector2i; x,y: Int32);
 
@@ -6554,6 +6557,22 @@ begin
 end;
 
 procedure wColor4sSet(color: PwColor4s; a, r, g, b: UInt8);
+begin
+  Color^.alpha:=a;
+  Color^.red:=r;
+  Color^.green:=g;
+  Color^.blue:=b;
+end;
+
+function wColor4fCreate(a, r, g, b: Float32): wColor4f;
+begin
+  Result.alpha:=a;
+  Result.red:=r;
+  Result.green:=g;
+  Result.blue:=b;
+end;
+
+procedure wColor4fSet(color: PwColor4f; a, r, g, b: Float32);
 begin
   Color^.alpha:=a;
   Color^.red:=r;

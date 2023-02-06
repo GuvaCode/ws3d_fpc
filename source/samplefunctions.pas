@@ -10,7 +10,7 @@ uses
 function  CheckFilePath(path:PChar) : Boolean;
 procedure PrintWithColor(text : PChar; color : wConsoleFontColor; waitKey : Boolean);
                                           
-function ShaderGetMaterialType(shader : wShader) : wMaterialTypes;
+function ShaderGetMaterialType(shader : PwShader) : wMaterialTypes;
 
 procedure OutlineNode(node:wNode; width:Float32; lineColor:wColor4s);
 
@@ -77,10 +77,10 @@ begin
     end;
 end;
 
-function ShaderGetMaterialType(shader : wShader) : wMaterialTypes;
+function ShaderGetMaterialType(shader : PwShader) : wMaterialTypes;
 begin
-  Result := wMaterialTypes(shader.material_type);
- // Result := wMaterialTypes(shader^.material_type);
+  //Result := wMaterialTypes(shader.material_type);
+  Result := wMaterialTypes(shader^.material_type);
 end;
 
  procedure OutlineNode(node:wNode; width:Float32; lineColor:wColor4s);
