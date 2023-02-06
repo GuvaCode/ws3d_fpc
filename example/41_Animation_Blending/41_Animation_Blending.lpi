@@ -11,7 +11,7 @@
         <CompatibilityMode Value="True"/>
       </Flags>
       <SessionStorage Value="InProjectDir"/>
-      <Title Value="01_HelloWorld"/>
+      <Title Value="41_Animation_Blending"/>
       <UseAppBundle Value="False"/>
       <ResourceType Value="res"/>
     </General>
@@ -40,7 +40,7 @@
     </RequiredPackages>
     <Units Count="3">
       <Unit0>
-        <Filename Value="01_HelloWorld.pas"/>
+        <Filename Value="41_Animation_Blending.pas"/>
         <IsPartOfProject Value="True"/>
       </Unit0>
       <Unit1>
@@ -59,7 +59,7 @@
     <Version Value="11"/>
     <PathDelim Value="\"/>
     <Target>
-      <Filename Value="..\..\binary\01_HelloWorld"/>
+      <Filename Value="..\..\binary\41_Animation_Blending"/>
     </Target>
     <SearchPaths>
       <IncludeFiles Value="$(ProjOutDir)"/>
@@ -68,6 +68,7 @@
     </SearchPaths>
     <CodeGeneration>
       <SmartLinkUnit Value="True"/>
+      <TargetCPU Value="x86_64"/>
       <TargetOS Value="win64"/>
       <Optimizations>
         <OptimizationLevel Value="2"/>

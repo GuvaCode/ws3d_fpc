@@ -18,8 +18,8 @@ var
   prevFPS: Int32;
   vec1: wVector3f       = (x:  0.0; y:  0.0; z:  0.0);
   wndCaption: wString 	= 'Example 31: Loading a scene FPS: ';
-  scenePath: PChar      = 'Assets/Scenes/Myscene.irr';
-
+//  scenePath: PChar      = 'Assets/Scenes/Myscene.irr';
+  scenePath: PChar      = 'Test.irr';
 begin
   prevFPS:=0;
   {Start engine}
