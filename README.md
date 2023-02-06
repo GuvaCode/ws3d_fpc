@@ -247,7 +247,7 @@
 - Basic functions for working with video: play, pause, rewind, etc.  
 - Video can be played back on 2D image and on texture of any 3D object.  
   
-**Networking (kNet library is connected): **.  
+**Networking (kNet library is connected):**.  
 - Supported transmission/reception protocols: TCP/IP, UDP  
 - Transmitting and receiving packets containing types (Integer, float, string).  
 - Possibility to create combined packets  
