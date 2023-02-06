@@ -335,7 +335,7 @@ No animation:
 - physical joints (Hinge, Slider, Universal, UpVector, CorkScrew, Ball)  
 - It is possible to connect other physics libraries, including PhysX, Tokamak, Spe and Bullet.
 
-** RU: Возможности WorldSim3D**  
+**RU: Возможности WorldSim3D**  
   
 **Общее:**  
 • Рендеры: Software, BurningsVideo, OpenGL 1.2-4.x, Direct3D 9, Null-driver  
