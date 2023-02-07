@@ -4048,7 +4048,7 @@ procedure wNodeGetPlaneParameters(plane: wNode; params: PwNodePlaneParameters); 
 
 function wNodeCreateFromMesh(mesh: wMesh; isStatic: Boolean=false): wNode; cdecl; external WS3DCoreLib;
 
-function wNodeCreateFromStaticMesh(mesh: wMesh; isTangent: Boolean): wNode; cdecl; external WS3DCoreLib;
+function wNodeCreateFromStaticMesh(mesh: wMesh; isTangent: Boolean = false): wNode; cdecl; external WS3DCoreLib;
 
 function wNodeCreateFromMeshAsOctree(vptrMesh: wMesh; minimalPolysPerNode: Int32 = 512;
           alsoAddIfMeshPointerZero: Boolean = false; isTangent: Boolean = false): wNode; cdecl; external WS3DCoreLib;
@@ -4551,8 +4551,8 @@ function wMeshGetVerticesMemory(mesh: wMesh; iFrame,
 procedure wMeshSetVertices(mesh: wMesh; iFrame: UInt32; verts: PwVert;
            iMeshBuffer: UInt32 = 0); cdecl; external WS3DCoreLib;
 
-procedure wMeshSetScale(mesh: wMesh; scale: Float32; iFrame, iMeshBuffer: UInt32;
-           sourceMesh: wMesh); cdecl; external WS3DCoreLib;
+procedure wMeshSetScale(mesh: wMesh; scale: Float32; iFrame: Uint32 = 0; iMeshBuffer: UInt32 = 0;
+           sourceMesh: wMesh = nil); cdecl; external WS3DCoreLib;
 
 procedure wMeshSetRotation(mesh: wMesh; rot: wVector3f); cdecl; external WS3DCoreLib;
 
@@ -5854,7 +5854,7 @@ function wGuiComboBoxGetItemDataByIndex(combo: wGuiObject; idx: UInt32): UInt32;
 
 function wGuiComboBoxGetIndexByItemData(combo: wGuiObject; data: UInt32): Int32; cdecl; external WS3DCoreLib;
 
-function wGuiComboBoxAddItem(combo: wGuiObject; const text: Pwstring; data: UInt32): UInt32; cdecl; external WS3DCoreLib;
+function wGuiComboBoxAddItem(combo: wGuiObject; const text: Wstring; data: UInt32): UInt32; cdecl; external WS3DCoreLib;
 
 procedure wGuiComboBoxRemoveItem(combo: wGuiObject; idx: UInt32); cdecl; external WS3DCoreLib;
 
