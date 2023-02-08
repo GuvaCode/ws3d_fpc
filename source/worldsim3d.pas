@@ -25,11 +25,11 @@ const
     {$ENDIF}
   {$ELSE}
     {$IFDEF LINUX}
-      WS3DCoreLib = 'WS3DCoreLib.so';
+      //WS3DCoreLib = 'WS3DCoreLib.so';
     {$ENDIF}
   {$ENDIF}
 
-const
+
   {$IFDEF WINDOWS}
     nullStr = '';
   {$ELSE}
@@ -2438,7 +2438,7 @@ type
   PPWChar   = ^PWChar;
   PWString  = ^WString;
 
-
+{$IFDEF WINDOWS}  // затычка
 { wConsole }
 procedure wConsoleSetFontColor(c: wConsoleFontColor); cdecl; external WS3DCoreLib;
 
@@ -6440,6 +6440,7 @@ function wMirrorCreate(camera: wNode; reflectSize: wVector2i; mirrorOverlay: wTe
 procedure wMirrorReflect(mirrorNode: wNode; color: wColor4s); cdecl; external WS3DCoreLib;
 
 procedure wMirrorSetScaleFactor(mirrorNode: wNode; factor: wVector2f); cdecl; external WS3DCoreLib;
+
 // преобразование строк в WString
 function WStr (text : PChar) : WString; overload;
 function WStr (text : String) : WString; overload;
@@ -6466,6 +6467,8 @@ procedure wVector2iSet(vec: PwVector2i; x,y: Int32);
 
 function wVector2fCreate(x,y: Float32):wVector2f;
 procedure wVector2fSet(vec: PwVector2f; x,y: Float32);
+
+{$ENDIF} //затычка
 
 implementation
 
@@ -6523,7 +6526,7 @@ begin
 {$IFDEF WINDOWS}
 Result := StrPas (text);
 {$ELSE}
-Result := UCS4StringToUnicodeString (text);
+//Result := UCS4StringToUnicodeString (text); todo
 {$ENDIF}
 end;
 

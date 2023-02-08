@@ -6,7 +6,7 @@ interface
 
 uses
   SysUtils,WorldSim3D;
-
+{$IFDEF WINDOWS}
 function  CheckFilePath(path:PChar) : Boolean;
 procedure PrintWithColor(text : PChar; color : wConsoleFontColor; waitKey : Boolean);
                                           
@@ -36,8 +36,11 @@ procedure SetEntityObject(name:PChar; _file:PChar; position:wVector3f);
 procedure ParseQuakeMap2(BSPMesh:wMesh);
 procedure SetQuakeShadersVisible(value:Boolean);
 
+{$ENDIF}
+
 implementation
 
+{$IFDEF WINDOWS}
 function CheckFilePath(path:PChar) : Boolean;
  var def:Int32;
  begin
@@ -456,6 +459,6 @@ begin
 end;
 
 end;
-
+{$ENDIF}
 end.
 

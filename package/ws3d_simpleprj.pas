@@ -64,8 +64,10 @@ begin
     '{$mode objfpc}{$H+}' + LineEnding +
     LineEnding +
     'uses ' + LineEnding +
-    'cmem, SysUtils, WorldSim3D, SampleFunctions' + LineEnding +
-     '  screenHeight = 450;'+ LineEnding  + LineEnding +
+    'cmem, SysUtils, WorldSim3D, SampleFunctions;' + LineEnding + LineEnding +
+    'var ' + LineEnding +
+    '  prevFps: Int32;' + LineEnding +
+    '  wndCaption: wString = ''Your project name''; ' + LineEnding + LineEnding +
     'begin' + LineEnding +
     '  {Start engine}'+ LineEnding +
     '  if not wEngineStart(wDRT_OPENGL, wDEFAULT_SCREENSIZE, 32, false,true, true, false) then Halt;'+ LineEnding +  LineEnding +
@@ -82,7 +84,7 @@ begin
     '    if prevFPS<>wEngineGetFPS() then' + LineEnding +
     '    begin'+ LineEnding +
     '      prevFPS:=wEngineGetFPS();'+ LineEnding +
-    '      wWindowSetCaption(wndCaption+WStr(FormatFloat(''0'',prevFPS)));'+ LineEnding +
+    '      wWindowSetCaption(wndCaption + WStr(FormatFloat(''0'',prevFPS)));'+ LineEnding +
     '    end;'+ LineEnding + LineEnding +
     'end; '+ LineEnding + LineEnding +
     '{Stop engine}' + LineEnding +
