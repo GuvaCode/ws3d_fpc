@@ -76,8 +76,7 @@ begin
       prevFPS:=wEngineGetFPS();
       wWindowSetCaption(wndCaption + WStr(FormatFloat('0',prevFPS)));
     end;
-
-end; 
+end;
 
 {Stop engine}
 wEngineStop(true);
