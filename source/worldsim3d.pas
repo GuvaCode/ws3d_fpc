@@ -6500,7 +6500,7 @@ end;
 
 function WstrRu(txt: String): WString;
 begin
-//Result := WString(Utf8ToAnsi(txt));
+  Result := WString(Utf8ToAnsi(txt));
 end;
 
 function PWstrRu(txt: String): PWString;
@@ -6509,11 +6509,11 @@ begin
 end;
 
 function PWStr(text: PChar): PWString;
-//const
-//  convertedStr : WString = nullStr;
+const
+  convertedStr : WString = nullStr;
 begin
- // convertedStr := WStr(text);
- // Result := @convertedStr;
+  convertedStr := WStr(text);
+  Result := @convertedStr;
 end;
 
 function PWStr(text: AnsiString): PWString;
